@@ -1,0 +1,29 @@
+{% extends 'shop/main.html' %}
+{% load static %}
+{% block content %}
+<header>
+    <h1>Turning algorithms into artwork<br />
+    See more <a href="https://www.youtube.com/watch?v=VkAneOyAHzw">CLICK here</a>.</h1>
+    <p>Etiam quis viverra lorem, in semper lorem. Sed nisl arcu euismod sit amet nisi euismod sed cursus arcu elementum ipsum arcu vivamus quis venenatis orci lorem ipsum et magna feugiat veroeros aliquam. Lorem ipsum dolor sit amet nullam dolore.</p>
+</header>
+<h1>This is shop</h1>
+<section class="tiles">
+    {% for product in products %}
+    <article class="">
+        <span class="image">
+            <img src="{{product.imageURL}}" alt="" />
+        </span>
+        <a href="">
+            <h2>{{product.name }}</h2>
+            <div class="content">
+                <p>{{product.information}}</p>
+            </div>
+        </a>
+        <div class="price">
+                <p>${{product.price|floatformat:2}}</p>
+        </div>
+    </article>
+    {% endfor %}
+</section>
+
+{% endblock content%}

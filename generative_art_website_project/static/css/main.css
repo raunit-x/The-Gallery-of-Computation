@@ -2595,9 +2595,7 @@ input, select, textarea {
 		position: relative;
 		margin: -2.5em 0 0 -2.5em;
 	}
-		.tiles h2{
-			text-shadow: 0 0 3px black, 0 0 5px black;
-		}
+		
 
 		.tiles article {
 			-moz-transition: -moz-transform 0.5s ease, opacity 0.5s ease;
@@ -2607,6 +2605,8 @@ input, select, textarea {
 			position: relative;
 			width: calc(33.33333% - 2.5em);
 			margin: 2.5em 0 0 2.5em;
+			padding-bottom: 6em;
+			/* comeher */
 		}
 
 			.tiles article > .image {
@@ -2619,6 +2619,8 @@ input, select, textarea {
 				width: 100%;
 				border-radius: 4px;
 				overflow: hidden;
+				margin-bottom: 10%;
+				align-items: center;
 			}
 
 				.tiles article > .image img {
@@ -2745,10 +2747,15 @@ input, select, textarea {
 				-webkit-justify-content: center;
 				-ms-justify-content: center;
 				justify-content: center;
-				position: relative;
-				top: 5%;
+				position: absolute;    
+				padding: 9px;	
+				bottom: 0px;
+				color: black;		
 			}	
 
+			.price h2{
+				margin-bottom: 0px !important ;
+			}
 			.tiles article.style1 > .image:before {
 				background-color: #f2849e;
 			}

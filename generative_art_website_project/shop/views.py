@@ -1,12 +1,22 @@
 from django.shortcuts import render
 from .models import *
+from django.templatetags.static import static
+from PIL import Image
+import numpy
+import imagesize
 
 
 # Create your views here.
 
+def aspect_ratio(prod):
+    img_path = static(f'images/{prod.image}')[1:]
+    w, h = imagesize.get(img_path)
+    return h / w
+
+
 def shop(request):
-    products = Product.objects.all()
-    print(products)
+    products = list(Product.objects.all())
+    products.sort(key=lambda x: aspect_ratio(x))
     context = {'products': products}
     return render(request, 'shop/shop.html', context)
 

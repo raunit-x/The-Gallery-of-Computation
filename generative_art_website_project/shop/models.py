@@ -19,6 +19,7 @@ class Product(models.Model):
     digital = models.BooleanField(default=False, null=True, blank=False)
     information = models.TextField(null=True, blank=False)
     image = models.ImageField(null=True, blank=False)
+    # time_posted = models.DateTimeField(auto_now_add=True, blank=True)
 
     def __str__(self):
         return self.name

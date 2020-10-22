@@ -2752,12 +2752,12 @@ input, select, textarea {
 				justify-content: center;
 				position: absolute;    
 				padding: 9px;	
-				bottom: 0px;
-				color: black;		
+				bottom: 0;
+				color: dimgrey;
 			}	
 
 			.price h2{
-				margin-bottom: 0px !important ;
+				margin-bottom: 0 !important ;
 			}
 			.tiles article.style1 > .image:before {
 				background-color: #f2849e;

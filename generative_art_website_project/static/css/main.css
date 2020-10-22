@@ -1,5 +1,6 @@
 @import url(fontawesome-all.min.css);
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,700,900");
+@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Press+Start+2P&display=swap');
 
 /*
 	Phantom by HTML5 UP
@@ -72,6 +73,8 @@ input, select, textarea {
 	appearance: none;
 }
 
+
+
 /* Basic */
 
 	@-ms-viewport {
@@ -99,7 +102,7 @@ input, select, textarea {
 	}
 
 	body {
-		background: #ffffff;
+		background: white;
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
@@ -117,7 +120,7 @@ input, select, textarea {
 
 	body, input, select, textarea {
 		color: #585858;
-		font-family: "Source Sans Pro", Helvetica, sans-serif;
+		font-family: 'Cutive Mono', monospace;
 		font-size: 16pt;
 		font-weight: 300;
 		line-height: 1.75;
@@ -2990,10 +2993,11 @@ input, select, textarea {
 	}
 
 		#header .logo {
-			display: block;
+			font-family: 'Cutive Mono', monospace;
 			border-bottom: 0;
 			color: inherit;
 			font-weight: 900;
+			font-size: larger;
 			letter-spacing: 0.35em;
 			margin: 0 0 0 0;
 			text-decoration: none;
@@ -3012,8 +3016,8 @@ input, select, textarea {
 
 				#header .logo .symbol img {
 					display: block;
-					width: 2em;
-					height: 2em;
+					width: 3em;
+					height: 3em;
 				}
 
 		#header nav {

@@ -4,6 +4,7 @@ from .models import *
 
 def shop(request):
     products = Product.objects.all()
+    print(products)
     context = {'products':products}
     return render(request,'shop/shop.html',context)
 

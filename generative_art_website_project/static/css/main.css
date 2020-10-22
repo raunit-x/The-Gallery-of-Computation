@@ -2876,11 +2876,117 @@ input, select, textarea {
 				}
 
 		}
+/* navbar personal */
+	#navbar {
+		display: flex;
+		justify-content: space-around;
+		align-items: right;
+	}
+	#navbar > .navinner{
+		display: flex;
+		justify-content: space-around;
+		align-items: right;
+		height: 4em;
+		width: 100%; 
+		min-height:8vh ;
+	}
+	#navbar > .navinner> ul {
+		display: flex;
+		justify-content: space-around;
+		width:30%;
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		
+	}	
+	
+	#navbar ul > li {
+		display: inline-block;
+	  }
+	  
+	#navbar ul >li >a {
+		color:inherit;
+		text-align: center;
+		text-decoration: none;
+		border-bottom:  1px !important;
+		text-transform: uppercase;
+	  }
 
+	@media only screen and (max-width: 600px) {
+		#navbar > .navinner> ul {
+			display: none;
+
+		}
+		.bs{
+			display: none;
+		}
+	}
+	
+/* Hamburger */
+/* styling the hamburger button */
+.header_btn{
+	display: none;
+    position: fixed;
+    width: 72px;
+    height: 72px;
+    background-color: white;
+    border-radius: 50%;
+    top: 20px;
+    right: 20px;
+    z-index: 15;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    transition: transform .4s;
+    outline: none;
+}
+
+.header_btn span{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 27px;
+    height: 1.5px;
+    margin-left: -13px;
+    margin-top: -1px;
+    background:black;
+    transition: transform .4s;
+    border-radius: 5px;
+}
+/* positon the white lines inside the button  */
+
+.header_btn span:nth-child(1){
+    transform: translateY(-5px);
+}
+.header_btn span:nth-child(2){
+    transform: translateY(5px);
+}
+.header_btn:hover span:nth-child(1){
+    transform: translateY(-9px);
+}
+.header_btn:hover span:nth-child(2){
+    transform: translateY(9px);
+}
+
+/* animation using javascirpt */
+
+.header_btn.open span:nth-child(1){
+    transform: rotate(45deg);
+}
+.header_btn.open span:nth-child(2){
+    transform: rotate(-45deg);
+}
+@media only screen and (max-width: 600px) {
+
+	.header_btn{
+		display: inline;
+	}
+}
 /* Header */
 
 	#header {
-		padding: 8em 0 0.1em 0 ;
+		padding: 8em 0 0 0 ;
 	}
 
 		#header .logo {
@@ -2889,7 +2995,7 @@ input, select, textarea {
 			color: inherit;
 			font-weight: 900;
 			letter-spacing: 0.35em;
-			margin: 0 0 2.5em 0;
+			margin: 0 0 0 0;
 			text-decoration: none;
 			text-transform: uppercase;
 			display: inline-block;

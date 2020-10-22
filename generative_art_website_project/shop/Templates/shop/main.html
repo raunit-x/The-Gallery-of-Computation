@@ -22,27 +22,26 @@
                             <a href="{% url 'shop' %}" class="logo">
                                 <span class="symbol"><img src="{% static 'images/logo_size.jpg'%}" alt="" /></span><span class="title">The Gallery of Computation</span>
                             </a>
-
-                        <!-- Nav -->
-                            <nav>
-                                <ul>
-                                    <li><a href="#menu">Menu</a></li>
-                                </ul>
-                            </nav>
-
                     </div>
                 </header>
 
             <!-- Menu -->
-                <nav id="menu">
-                    <h2>Menu</h2>
+                <nav id = "navbar">
+                    <div class="navinner">
+                        <div class='bs'></div>
                     <ul>
+                        <li><a href="{% url 'shop' %}">Portfolio</a></li>
                         <li><a href="{% url 'shop' %}">Shop</a></li>
                         <li><a href="{% url 'cart' %}">Cart</a></li>
                         <li><a href="{% url 'checkout' %}">Checkout</a></li>
-
-                    </ul>
+                    <ul>
+                    </div>    
                 </nav>
+            <!-- hamburger -->
+            <button class="header_btn" onclick="toggleSideBar()">
+                <span></span>
+                <span></span>
+            </button>
 
             <!-- Main -->
                 <div id="main">
@@ -101,5 +100,6 @@
         <script src="{% static 'js/breakpoints.min.js' %}"></script>
         <script src="{% static 'js/util.js' %}"></script>
         <script src="{% static 'js/main.js' %}"></script>
+        <script src="{% static 'js/custom.js' %}"></script>
 </body>
 </html>

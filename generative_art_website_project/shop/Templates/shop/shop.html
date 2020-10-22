@@ -14,14 +14,15 @@
             <img src="{{product.imageURL}}" alt="" />
         </span>
         <a href="">
-            <h2>{{product.name }}</h2>
             <div class="content">
                 <p>{{product.information}}</p>
             </div>
-        </a>
-        <div class="price">
+            <div class="price">
+                <h2>{{product.name }}</h2>
                 <p>${{product.price|floatformat:2}}</p>
         </div>
+        </a>
+        
     </article>
     {% endfor %}
 </section>

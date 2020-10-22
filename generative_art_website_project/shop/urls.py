@@ -18,8 +18,15 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+<<<<<<< HEAD
     path('',views.shop, name='shop'),
     path('cart/',views.cart, name='cart'),
     path('checkout/',views.checkout, name='checkout'),
     
+=======
+    path('', views.shop, name='shop'),
+    path('cart/', views.cart, name='cart'),
+    path('checkout/', views.checkout, name='checkout'),
+
+>>>>>>> 932d9a4a56b77d7aaeff1385fbbacdd77a3f7f88
 ]

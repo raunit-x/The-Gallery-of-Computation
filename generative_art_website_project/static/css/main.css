@@ -1,5 +1,9 @@
 @import url(fontawesome-all.min.css);
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,700,900");
+<<<<<<< HEAD
+=======
+@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Press+Start+2P&display=swap');
+>>>>>>> 932d9a4a56b77d7aaeff1385fbbacdd77a3f7f88
 
 /*
 	Phantom by HTML5 UP
@@ -72,6 +76,11 @@ input, select, textarea {
 	appearance: none;
 }
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 932d9a4a56b77d7aaeff1385fbbacdd77a3f7f88
 /* Basic */
 
 	@-ms-viewport {
@@ -99,7 +108,11 @@ input, select, textarea {
 	}
 
 	body {
+<<<<<<< HEAD
 		background: #ffffff;
+=======
+		background: white;
+>>>>>>> 932d9a4a56b77d7aaeff1385fbbacdd77a3f7f88
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
@@ -117,7 +130,11 @@ input, select, textarea {
 
 	body, input, select, textarea {
 		color: #585858;
+<<<<<<< HEAD
 		font-family: "Source Sans Pro", Helvetica, sans-serif;
+=======
+		font-family: 'Cutive Mono', monospace;
+>>>>>>> 932d9a4a56b77d7aaeff1385fbbacdd77a3f7f88
 		font-size: 16pt;
 		font-weight: 300;
 		line-height: 1.75;
@@ -2749,12 +2766,21 @@ input, select, textarea {
 				justify-content: center;
 				position: absolute;    
 				padding: 9px;	
+<<<<<<< HEAD
 				bottom: 0px;
 				color: black;		
 			}	
 
 			.price h2{
 				margin-bottom: 0px !important ;
+=======
+				bottom: 0;
+				color: dimgrey;
+			}	
+
+			.price h2{
+				margin-bottom: 0 !important ;
+>>>>>>> 932d9a4a56b77d7aaeff1385fbbacdd77a3f7f88
 			}
 			.tiles article.style1 > .image:before {
 				background-color: #f2849e;
@@ -2990,10 +3016,18 @@ input, select, textarea {
 	}
 
 		#header .logo {
+<<<<<<< HEAD
 			display: block;
 			border-bottom: 0;
 			color: inherit;
 			font-weight: 900;
+=======
+			font-family: 'Cutive Mono', monospace;
+			border-bottom: 0;
+			color: inherit;
+			font-weight: 900;
+			font-size: larger;
+>>>>>>> 932d9a4a56b77d7aaeff1385fbbacdd77a3f7f88
 			letter-spacing: 0.35em;
 			margin: 0 0 0 0;
 			text-decoration: none;
@@ -3012,8 +3046,13 @@ input, select, textarea {
 
 				#header .logo .symbol img {
 					display: block;
+<<<<<<< HEAD
 					width: 2em;
 					height: 2em;
+=======
+					width: 3em;
+					height: 3em;
+>>>>>>> 932d9a4a56b77d7aaeff1385fbbacdd77a3f7f88
 				}
 
 		#header nav {

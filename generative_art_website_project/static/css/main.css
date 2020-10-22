@@ -1809,7 +1809,7 @@ input, select, textarea {
 	}
 
 	header p {
-		margin-top: -1em;
+		margin-top: 0;
 	}
 
 	@media screen and (max-width: 736px) {
@@ -2989,7 +2989,7 @@ input, select, textarea {
 /* Header */
 
 	#header {
-		padding: 8em 0 0 0 ;
+		padding: 4em 0 2em 0 ;
 	}
 
 		#header .logo {

@@ -43,8 +43,3 @@ def checkout(request):
         order = {'get_cart_total': 0}
     context = {'items': items, 'order': order, 'page_title': "Cart: The Gallery of Computation"}
     return render(request, 'shop/checkout.html', context)
-
-
-def playground(request):
-    context = {'page_title': 'Playground: The Gallery of Computation'}
-    return render(request, 'shop/playground.html', context)

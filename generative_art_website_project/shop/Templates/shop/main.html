@@ -2,100 +2,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Gallery of Computation</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <noscript><link rel="stylesheet" href="{% static 'css/noscript.css' %}" /></noscript>
+    <title>{{ page_title }}</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <noscript>
+        <link rel="stylesheet" href="{% static 'css/noscript.css' %}"/>
+    </noscript>
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <script src="{% static 'js/rainSketch.js' %}"></script>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
-    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/raunit-x/Generative-Art-Gallery/master/images/Screenshot%202020-10-23%20at%201.44.33%20AM.png">
+    <link rel="icon" type="image/png"
+          href="https://raw.githubusercontent.com/raunit-x/Generative-Art-Gallery/master/images/Screenshot%202020-10-23%20at%201.44.33%20AM.png">
 
 </head>
 <body class="is-preload">
-    <!-- Wrapper -->
-        <div id="wrapper">
+<!-- Wrapper -->
+<div id="wrapper">
 
-            <!-- Header -->
-                <header id="header">
-                    <div class="inner">
+    <!-- Header -->
+    <header id="header">
+        <div class="inner">
 
-                        <!-- Logo -->
-                            <a href="{% url 'shop' %}" class="logo">
-                                <span class="symbol"><img src="https://raw.githubusercontent.com/raunit-x/Generative-Art-Gallery/master/images/Screenshot%202020-10-23%20at%201.44.33%20AM.png" alt="" /></span><span class="title">The Gallery of Computation</span>
-                            </a>
-                    </div>
-                </header>
-
-            <!-- Menu -->
-                <nav id = "navbar">
-                    <div class="navinner">
-                        <div class='bs'></div>
-                    <ul>
-                        <li><a href="{% url 'shop' %}">Portfolio</a></li>
-                        <li><a href="{% url 'shop' %}">Shop</a></li>
-                        <li><a href="{% url 'cart' %}">Cart</a></li>
-                        <li><a href="{% url 'checkout' %}">Checkout</a></li>
-                    </ul>
-                    </div>    
-                </nav>
-            <!-- hamburger -->
-            <button class="header_btn" onclick="toggleSideBar()">
-                <span></span>
-                <span></span>
-            </button>
-
-            <!-- Main -->
-                <div id="main">
-                    <div class="inner">
-
-                        {% block content %}
-
-                        {% endblock content%}
-                    </div>    
-                </div>
-
-            <!-- Footer -->
-                <footer id="footer">
-                    <div class="inner">
-                        <section>
-                            <h2>All About Generative Art In your Inbox</h2>
-                            <p>Latest Art and Info about Generative Art. No spam, guaranteed.</p>
-                            <form method="post" action="#">
-                                <div class="fields">
-                                    <div class="field aln-center">
-                                        <input type="email" name="email" id="email" placeholder="Email" />
-                                    </div>
-                                </div>
-                                <div class="">
-                                <div class="subscribe">
-                                    <input type="submit" value="Subscribe" id="subscribe" class="primary subscribe"/>
-                                </div>
-                                </div>
-
-                            </form>
-                        </section>
-{#                        <section>#}
-{#                            <h2>contact</h2>#}
-{#                            <ul class="icons">#}
-{#                                <li><a href="https://instagram.com/raunit_x" target="_blank" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>#}
-{#                                <li><a href="https://github.com/raunit-x" target="_blank" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>#}
-{#                                <li><a href="mailto:raunit88@gmail.com" target="_blank" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>#}
-{#                                <li><a href="https://medium.com/@raunit_x" target="_blank" class="icon brands style2 fa-medium"><span class="label">Medium</span></a></li>#}
-{#                            </ul>#}
-{#                        </section>#}
-                        <ul class="copyright">
-                        </ul>
-                    </div>
-                </footer>
-
+            <!-- Logo -->
+            <a href="{% url 'shop' %}" class="logo">
+                <span class="symbol"><img
+                        src="https://raw.githubusercontent.com/raunit-x/Generative-Art-Gallery/master/images/Screenshot%202020-10-23%20at%201.44.33%20AM.png"
+                        alt=""/></span><span class="title">The Gallery of Computation</span>
+            </a>
         </div>
-    <!-- Scripts -->
-        <script src="{% static 'js/jquery.min.js' %}"></script>
-        <script src="{% static 'js/browser.min.js' %}"></script>
-        <script src="{% static 'js/breakpoints.min.js' %}"></script>
-        <script src="{% static 'js/util.js' %}"></script>
-        <script src="{% static 'js/main.js' %}"></script>
-        <script src="{% static 'js/custom.js' %}"></script>
+    </header>
+
+    <!-- Menu -->
+    <nav id="navbar">
+        <div class="navinner">
+            <div class='bs'></div>
+            <ul>
+                <li><a href="{% url 'playground' %}">Playground</a></li>
+                <li><a href="{% url 'shop' %}">Portfolio</a></li>
+                <li><a href="{% url 'shop' %}">Shop</a></li>
+                <li><a href="{% url 'cart' %}">Cart</a></li>
+                <li><a href="{% url 'checkout' %}">Checkout</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- hamburger -->
+    <button class="header_btn" onclick="toggleSideBar()">
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+
+            {% block content %}
+
+            {% endblock content %}
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <section>
+                <h2>All About Generative Art In your Inbox</h2>
+                <p>Latest Art and Info about Generative Art. No spam, guaranteed.</p>
+                <form method="post" action="#">
+                    <div class="fields">
+                        <div class="field aln-center">
+                            <input type="email" name="email" id="email" placeholder="Email"/>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="subscribe">
+                            <input type="submit" value="Subscribe" id="subscribe" class="primary subscribe"/>
+                        </div>
+                    </div>
+
+                </form>
+            </section>
+            {#                        <section>#}
+            {#                            <h2>contact</h2>#}
+            {#                            <ul class="icons">#}
+            {#                                <li><a href="https://instagram.com/raunit_x" target="_blank" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>#}
+            {#                                <li><a href="https://github.com/raunit-x" target="_blank" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>#}
+            {#                                <li><a href="mailto:raunit88@gmail.com" target="_blank" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>#}
+            {#                                <li><a href="https://medium.com/@raunit_x" target="_blank" class="icon brands style2 fa-medium"><span class="label">Medium</span></a></li>#}
+            {#                            </ul>#}
+            {#                        </section>#}
+            <ul class="copyright">
+            </ul>
+        </div>
+    </footer>
+
+</div>
+<!-- Scripts -->
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/browser.min.js' %}"></script>
+<script src="{% static 'js/breakpoints.min.js' %}"></script>
+<script src="{% static 'js/util.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'js/custom.js' %}"></script>
 </body>
 </html>

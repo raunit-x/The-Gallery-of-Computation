@@ -17,7 +17,7 @@ def aspect_ratio(prod):
 def shop(request):
     products = list(Product.objects.all())
     products.sort(key=lambda x: aspect_ratio(x))
-    context = {'products': products}
+    context = {'products': products, 'page_title': "Shop: The Gallery of Computation" }
     return render(request, 'shop/shop.html', context)
 
 
@@ -29,7 +29,7 @@ def cart(request):
     else:
         items = []
         order = {'get_cart_total': 0}
-    context = {'items': items, 'order': order}
+    context = {'items': items, 'order': order, 'page_title': "Cart: The Gallery of Computation" }
     return render(request, 'shop/cart.html', context)
 
 
@@ -41,5 +41,10 @@ def checkout(request):
     else:
         items = []
         order = {'get_cart_total': 0}
-    context = {'items': items, 'order': order}
+    context = {'items': items, 'order': order, 'page_title': "Cart: The Gallery of Computation"}
     return render(request, 'shop/checkout.html', context)
+
+
+def playground(request):
+    context = {'page_title': 'Playground: The Gallery of Computation'}
+    return render(request, 'shop/playground.html', context)

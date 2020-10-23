@@ -2060,6 +2060,8 @@ input, select, textarea {
 
 		}
 
+
+
 /* Icons */
 
 	ul.icons {
@@ -2584,6 +2586,7 @@ input, select, textarea {
 			pointer-events: none;
 			opacity: 0.25;
 		}
+
 
 /* Tiles */
 
@@ -3334,38 +3337,62 @@ input, select, textarea {
 /* Footer */
 
 	#footer {
-		padding: 5em 0 6em 0 ;
-		background-color: #f6f6f6;
+		margin-left: 17.5%;
+		margin-right: 17.5%;
+		margin-bottom: 10%;
+		padding: 2em 0 1em 0 ;
+		background-color: #f4f4f4;
+		text-align: center;
+		/*width: 50%;*/
+		/*font-weight: 900;*/
 	}
 
-		#footer > .inner {
-			display: -moz-flex;
-			display: -webkit-flex;
-			display: -ms-flex;
-			display: flex;
-			-moz-flex-wrap: wrap;
-			-webkit-flex-wrap: wrap;
-			-ms-flex-wrap: wrap;
-			flex-wrap: wrap;
-			-moz-flex-direction: row;
-			-webkit-flex-direction: row;
-			-ms-flex-direction: row;
-			flex-direction: row;
-		}
+	#footer h2 {
+		margin-bottom: 0;
+	}
 
-			#footer > .inner > * > :last-child {
-				margin-bottom: 0;
-			}
+	#footer  p {
+		margin: 0;
+		font-size: 15px;
+		font-weight: 100;
+		color: gray;
 
-			#footer > .inner section:nth-child(1) {
-				width: calc(66% - 2.5em);
-				margin-right: 2.5em;
-			}
+	}
 
-			#footer > .inner section:nth-child(2) {
-				width: calc(33% - 2.5em);
-				margin-left: 2.5em;
-			}
+	#footer input[type="submit"] {
+		align-content: center;
+	}
+
+		/*#footer > .inner {*/
+		/*	display: -moz-flex;*/
+		/*	display: -webkit-flex;*/
+		/*	display: -ms-flex;*/
+		/*	display: flex;*/
+		/*	-moz-flex-wrap: wrap;*/
+		/*	-webkit-flex-wrap: wrap;*/
+		/*	-ms-flex-wrap: wrap;*/
+		/*	flex-wrap: wrap;*/
+		/*	-moz-flex-direction: row;*/
+		/*	-webkit-flex-direction: row;*/
+		/*	-ms-flex-direction: row;*/
+		/*	flex-direction: row;*/
+		/*}*/
+
+
+
+			/*#footer > .inner > * > :last-child {*/
+			/*	margin-bottom: 0;*/
+			/*}*/
+
+			/*#footer > .inner section:nth-child(1) {*/
+			/*	width: calc(66% - 2.5em);*/
+			/*	margin-right: 2.5em;*/
+			/*}*/
+
+			/*#footer > .inner section:nth-child(2) {*/
+			/*	width: calc(33% - 2.5em);*/
+			/*	margin-left: 2.5em;*/
+			/*}*/
 
 			#footer > .inner .copyright {
 				width: 100%;
@@ -3479,6 +3506,19 @@ input, select, textarea {
 					}
 
 		}
+
+		/*.email {*/
+		/*	width: 25%;*/
+		/*}*/
+		#email {
+			width: 30%;
+			text-align: center;
+			margin-left: 35%;
+		}
+		#subscribe {
+			border-radius: 0;
+		}
+
 
 /* Wrapper */
 

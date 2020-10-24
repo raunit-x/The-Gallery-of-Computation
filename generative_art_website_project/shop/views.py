@@ -43,3 +43,18 @@ def checkout(request):
         order = {'get_cart_total': 0}
     context = {'items': items, 'order': order, 'page_title': "Cart: The Gallery of Computation"}
     return render(request, 'shop/checkout.html', context)
+
+def product(request, id):
+    #fetches Product id 
+    product = Product.objects.filter(id=id)
+    print(product)
+    context = {'product': product[0]}
+    return render(request,'shop/product.html',context )
+
+def portfolio(request, id):
+    #fetches Product id 
+    product = Product.objects.filter(id=id)
+    print(product)
+    context = {'product': product[0]}
+    return render(request,'shop/portfolio.html',context )
+

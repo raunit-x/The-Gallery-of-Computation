@@ -576,7 +576,7 @@ input, select, textarea {
 				.row.gtr-200.gtr-uniform > * {
 					padding-top: 4em;
 				}
-
+		
 		@media screen and (max-width: 1680px) {
 
 			.row {
@@ -821,7 +821,30 @@ input, select, textarea {
 						}
 
 		}
+		.product-information > *{
+			margin-bottom: 20px;
+		}
+			.product-information > .description-para{
+				line-height: 140%;
+			}
+			.product-image > img{
+				display: block;
+				height: auto;
+				min-width: 100%;
+				width: 100%;
+			}
 
+
+		.portfolio-image{
+			height: 500px;
+		}
+			
+			.portfolio-image > img {
+				display: block;
+				height: auto;
+				min-width: 100%;
+				width: 100%;
+			}
 		@media screen and (max-width: 1280px) {
 
 			.row {
@@ -2612,7 +2635,7 @@ input, select, textarea {
 			position: relative;
 			width: calc(33.33333% - 2.5em);
 			margin: 2.5em 0 0 2.5em;
-			padding-bottom: 6em;
+			padding-bottom: 6em;  /*bottom padding important*/
 			/* comeher */
 		}
 
@@ -2628,6 +2651,7 @@ input, select, textarea {
 				overflow: hidden;
 				margin-bottom: 10%;
 				align-items: center;
+				justify-content: center;
 			}
 
 				.tiles article > .image img {
@@ -3363,20 +3387,20 @@ input, select, textarea {
 		align-content: center;
 	}
 
-		/*#footer > .inner {*/
-		/*	display: -moz-flex;*/
-		/*	display: -webkit-flex;*/
-		/*	display: -ms-flex;*/
-		/*	display: flex;*/
-		/*	-moz-flex-wrap: wrap;*/
-		/*	-webkit-flex-wrap: wrap;*/
-		/*	-ms-flex-wrap: wrap;*/
-		/*	flex-wrap: wrap;*/
-		/*	-moz-flex-direction: row;*/
-		/*	-webkit-flex-direction: row;*/
-		/*	-ms-flex-direction: row;*/
-		/*	flex-direction: row;*/
-		/*}*/
+		#footer > .inner {
+			display: -moz-flex;
+			display: -webkit-flex;
+			display: -ms-flex;
+			display: flex;
+			-moz-flex-wrap: wrap;
+			-webkit-flex-wrap: wrap;
+			-ms-flex-wrap: wrap;
+			flex-wrap: wrap;
+			-moz-flex-direction: row;
+			-webkit-flex-direction: row;
+			-ms-flex-direction: row;
+			flex-direction: row;
+		}
 
 
 
@@ -3514,6 +3538,7 @@ input, select, textarea {
 			width: 30%;
 			text-align: center;
 			margin-left: 35%;
+
 		}
 		#subscribe {
 			border-radius: 0;

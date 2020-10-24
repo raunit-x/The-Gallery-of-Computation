@@ -1,0 +1,36 @@
+{% extends 'shop/main.html' %}
+{% load static %}
+{% block content %}
+<a href="{%  url 'shop' %}" class="button" style="margin-bottom:2em;"> ← Back to Shop</a>
+<div class="row gtr-uniform aln-center" >
+    <div class=" col-6 col-12-medium product-image">
+        <img src="{{ product.imageURL}}" alt="">
+    </div>
+    <div class=" col-6 col-12-medium product-information">
+        <h1>{{ product.name }}</h1>
+        <p>${{ product.price }}</p>
+        <p>
+            <b>PROGRAM</b> {{ product.name }} <br>
+            <b>ITERATION:</b> 1 of 16(dummy data)  <br>
+            <b>CREATED:</b> 2020 <br>
+            <b>MEDIA:</b> Unique Archival Pigment Print <br>
+            <b>DIMENSIONS:</b> 16 x 20 in
+        </p>
+        <p class="description-para">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eget pellentesque dui. Proin laoreet condimentum ex vitae dictum. Nullam eu rhoncus nulla. Sed et dignissim enim, in sollicitudin quam. Nunc laoreet elit tortor, sed cursus ante sollicitudin quis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent ac diam in odio pharetra elementum ac in sapien. Sed semper et elit at laoreet. Aenean.
+        </p>
+        <p class="description-para">
+            <b>About the work</b> <br>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eget pellentesque dui. Proin laoreet condimentum ex vitae dictum. Nullam eu rhoncus nulla. Sed et dignissim enim, in sollicitudin quam. <br> <br> Nunc laoreet elit tortor, sed cursus ante sollicitudin quis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent ac diam in odio pharetra elementum ac in sapien. Sed semper et elit at laoreet. Aenean.
+        </p>
+        <p class="description-para">
+            <b>Shipping</b> <br>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eget pellentesque dui. Proin laoreet condimentum ex vitae dictum. Nullam eu rhoncus nulla. Sed et dignissim enim, in sollicitudin quam. <br> <br> Nunc laoreet elit tortor, sed cursus ante sollicitudin quis. Pellentesque habitant morbi tristique senectus.
+        </p>
+        <button data-product={{product.id}} data-action="add" class="update-cart">Purchase</button>
+    </div>
+    
+    
+</div>
+
+{% endblock %}

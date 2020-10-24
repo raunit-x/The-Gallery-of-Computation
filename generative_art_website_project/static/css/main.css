@@ -43,7 +43,7 @@ blockquote, q {
 }
 
 	blockquote:before, blockquote:after, q:before, q:after {
-		content: '';
+		/*content: '';*/
 		content: none;
 	}
 
@@ -78,7 +78,7 @@ input, select, textarea {
 /* Basic */
 
 	@-ms-viewport {
-		width: device-width;
+		/*width: dve;*/
 	}
 
 	body {
@@ -2939,7 +2939,7 @@ input, select, textarea {
 	#navbar {
 		display: flex;
 		justify-content: space-around;
-		align-items: right;
+		align-items: flex-end;
 	}
 	#navbar > .navinner{
 		display: flex;
@@ -3387,7 +3387,8 @@ input, select, textarea {
 		margin-left: 17.5%;
 		margin-right: 17.5%;
 		margin-bottom: 10%;
-		padding: 2em 0 1em 0 ;
+		padding: 2em 2em 0 2em ;
+		padding-bottom: 0;
 		background-color: #f4f4f4;
 		text-align: center;
 		/*width: 50%;*/
@@ -3553,8 +3554,6 @@ input, select, textarea {
 					}
 
 		}
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 		/*.email {*/
 		/*	width: 25%;*/
@@ -3565,10 +3564,6 @@ input, select, textarea {
 			margin-left: 35%;
 
 		}
-=======
->>>>>>> master
-=======
->>>>>>> master
 		#subscribe {
 			border-radius: 0;
 		}

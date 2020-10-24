@@ -149,7 +149,7 @@ input, select, textarea {
 		transition: border-bottom-color 0.2s ease, color 0.2s ease;
 		text-decoration: none;
 		color: #585858;
-		border-bottom: dotted 1px rgba(88, 88, 88, 0.5);
+		/*border-bottom: dotted 1px rgba(88, 88, 88, 0.5);*/
 	}
 
 		a:hover {
@@ -466,6 +466,16 @@ input, select, textarea {
 			padding: 10px;
 			width: 50% !important;
 		}
+		.row > .nestedrow > .col-4{
+			padding: 10px;
+			width: 60% !important;
+		}
+
+		.row > .nestedrow > .col-1{
+			padding: 10px;
+			width: 40% !important;
+		}
+
 		.row > .nestedrow > .col-2{
 			padding: 10px;
 			width:33% !important;
@@ -477,7 +487,7 @@ input, select, textarea {
 		}
 		.row.gtr-0 {
 			margin-top: 0;
-			margin-left: 0em;
+			margin-left: 0;
 		}
 
 			.row.gtr-0 > * {
@@ -2412,13 +2422,18 @@ input, select, textarea {
 			border: solid 1px #c9c9c9;
 			border-left: 0;
 			border-right: 0;
+			vertical-align: middle;
+			text-transform: uppercase;
+			/*background-color: rgba(144, 144, 144, 0.075);*/
 		}
 
 			table tbody tr:nth-child(2n + 1) {
-				background-color: rgba(144, 144, 144, 0.075);
+				/*background-color: rgba(144, 144, 144, 0.075);*/
 			}
 
 		table td {
+			text-align: center;
+			vertical-align: middle;
 			padding: 0.75em 0.75em;
 		}
 
@@ -2426,7 +2441,9 @@ input, select, textarea {
 			font-size: 0.9em;
 			font-weight: 900;
 			padding: 0 0.75em 0.75em 0.75em;
-			text-align: left;
+			text-align: center;
+			text-transform: uppercase;
+
 		}
 
 		table thead {
@@ -2434,7 +2451,13 @@ input, select, textarea {
 		}
 
 		table tfoot {
+			/*color: #000;*/
+			background-color: rgba(144, 144, 144, 0.075);
+			/*opacity: 0.2;*/
+			color: #000;
+			font-weight: 900;
 			border-top: solid 2px #c9c9c9;
+			border-bottom: solid 2px #c9c9c9;
 		}
 
 		table.alt {
@@ -3506,19 +3529,15 @@ input, select, textarea {
 					}
 
 		}
-
-		/*.email {*/
-		/*	width: 25%;*/
-		/*}*/
-		#email {
-			width: 30%;
-			text-align: center;
-			margin-left: 35%;
-		}
 		#subscribe {
 			border-radius: 0;
 		}
 
+		#email_footer {
+			width: 40%;
+			text-align: center;
+			margin-left: 30%;
+		}
 
 		.artwork:hover {
 			color: #f2849e;

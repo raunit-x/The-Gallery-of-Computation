@@ -3,7 +3,7 @@
 {% block content %}
 <header>
     {% if not items %}
-                <h2 style="text-align: center!important;">Cart Empty!</h2>
+                <h1 style="text-align: center!important;">Cart Empty!</h1>
     {% else %}
     <h2 style="font-size: 1.25em;">Checkout</h2>
 </header>
@@ -15,10 +15,6 @@
                 <div class="col-1 col-12-medium">
                     <input type="text" name="name" id="name" value="" placeholder="Name" />
                 </div>
-
-                <div class="col-3 col-12-medium">
-                    <input type="text" name="email" id="email" value="" placeholder="Email" />
-
                 <div class="col-4 col-12-medium">
                     <input type="email" name="email" id="email" value="" placeholder="Email" />
                 </div>
@@ -76,7 +72,11 @@
                     </table>
                 </div>
                 <a href="{% url 'cart' %}" class="button">Back to Cart</a>
+
             </div>
+
+
+
             <div class="col-12">
                 <textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
             </div>
@@ -86,7 +86,6 @@
                     <li><input type="reset" value="Reset" /></li>
                 </ul>
             </div>
-        </div>
         </div>
     </form>
     {% endif %}

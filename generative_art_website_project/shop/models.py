@@ -40,7 +40,7 @@ class Order(models.Model):
     transaction_id = models.CharField(max_length=200, null=True)
 
     @property
-    def get_cart_total(self):
+    def get_cart_totaml(self):
         order_items = self.orderitem_set.all()
         for order in order_items:
             print(order.product)

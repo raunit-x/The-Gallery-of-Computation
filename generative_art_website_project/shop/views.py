@@ -17,7 +17,7 @@ def aspect_ratio(prod):
 def shop(request):
     products = list(Product.objects.all())
     products.sort(key=lambda x: aspect_ratio(x))
-    context = {'products': products, 'page_title': "Shop: The Gallery of Computation" }
+    context = {'products': products, 'page_title': "Shop: The Gallery of Computation"}
     return render(request, 'shop/shop.html', context)
 
 
@@ -26,14 +26,17 @@ def cart(request):
         customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
         items = order.orderitem_set.all()
+        print(items)
     else:
         items = []
         order = {'get_cart_total': 0}
-    context = {'items': items, 'order': order, 'page_title': "Cart: The Gallery of Computation" }
+    print(items)
+    context = {'items': items, 'order': order, 'page_title': "Cart: The Gallery of Computation"}
     return render(request, 'shop/cart.html', context)
 
 
 def checkout(request):
+    print(request.user.is_authenticated)
     if request.user.is_authenticated:
         customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
@@ -43,3 +46,19 @@ def checkout(request):
         order = {'get_cart_total': 0}
     context = {'items': items, 'order': order, 'page_title': "Cart: The Gallery of Computation"}
     return render(request, 'shop/checkout.html', context)
+
+
+def product(request, id):
+    # fetches Product id
+    products = Product.objects.filter(id=id)
+    print(products)
+    context = {'product': products[0]}
+    return render(request, 'shop/product.html', context)
+
+
+def portfolio(request, id):
+    # fetches Product id
+    product = Product.objects.filter(id=id)
+    print(product)
+    context = {'product': product[0]}
+    return render(request, 'shop/portfolio.html', context)

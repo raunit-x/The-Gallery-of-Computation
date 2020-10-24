@@ -13,13 +13,14 @@
                 <span class="image">
                     <img src="{{ product.imageURL }}" alt=""/>
                 </span>
-                <a href="" class="product">
+                <a href="{% url 'product' product.id%}" class="product">
                     <div class="price">
                         <h5>{{ product.name }}</h5>
                         <p>${{ product.price|floatformat:2 }}</p>
                     </div>
                 </a>
             </article>
+            <!-- <button data-product={{product.id}} data-action="add" class="update-cart">Add</button> -->
         {% endfor %}
     </section>
 

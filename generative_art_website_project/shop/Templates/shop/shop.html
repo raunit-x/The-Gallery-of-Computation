@@ -1,29 +1,26 @@
 {% extends 'shop/main.html' %}
 {% load static %}
 {% block content %}
-<header>
-    <h5>Not your father's Art Form.</h5>
+    <header>
+        <h5>Not your father's Art Form.</h5>
 
-{#    <p><i>Not your father's art form</i></p>#}
-</header>
-{#<h1>This is shop</h1>#}
-<section class="tiles">
-    {% for product in products %}
-    <article class="artwork">
-        <span class="image">
-            <img src="{{product.imageURL}}" alt="" />
-        </span>
-        <a href="">
-            <div class="content">
-                <p>{{product.information}}</p>
-            </div>
-            <div class="price">
-                <h5>{{product.name }}</h5>
-                <p>${{product.price|floatformat:2}}</p>
-        </div>
-        </a>
-    </article>
-    {% endfor %}
-</section>
+        {#    <p><i>Not your father's art form</i></p>#}
+    </header>
+    {#<h1>This is shop</h1>#}
+    <section class="tiles">
+        {% for product in products %}
+            <article class="artwork" id="artwork">
+                <span class="image">
+                    <img src="{{ product.imageURL }}" alt=""/>
+                </span>
+                <a href="" class="product">
+                    <div class="price">
+                        <h5>{{ product.name }}</h5>
+                        <p>${{ product.price|floatformat:2 }}</p>
+                    </div>
+                </a>
+            </article>
+        {% endfor %}
+    </section>
 
-{% endblock content%}
+{% endblock content %}

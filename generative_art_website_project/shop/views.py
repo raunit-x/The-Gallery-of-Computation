@@ -1,13 +1,23 @@
 from django.shortcuts import render
 from .models import *
+from django.templatetags.static import static
+from PIL import Image
+import numpy
+import imagesize
 
 
 # Create your views here.
 
+def aspect_ratio(prod):
+    img_path = static(f'images/{prod.image}')[1:]
+    w, h = imagesize.get(img_path)
+    return h / w
+
+
 def shop(request):
-    products = Product.objects.all()
-    print(products)
-    context = {'products': products}
+    products = list(Product.objects.all())
+    products.sort(key=lambda x: aspect_ratio(x))
+    context = {'products': products, 'page_title': "Shop: The Gallery of Computation" }
     return render(request, 'shop/shop.html', context)
 
 
@@ -19,7 +29,7 @@ def cart(request):
     else:
         items = []
         order = {'get_cart_total': 0}
-    context = {'items': items, 'order': order}
+    context = {'items': items, 'order': order, 'page_title': "Cart: The Gallery of Computation" }
     return render(request, 'shop/cart.html', context)
 
 
@@ -31,5 +41,5 @@ def checkout(request):
     else:
         items = []
         order = {'get_cart_total': 0}
-    context = {'items': items, 'order': order}
+    context = {'items': items, 'order': order, 'page_title': "Cart: The Gallery of Computation"}
     return render(request, 'shop/checkout.html', context)

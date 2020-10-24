@@ -12,23 +12,27 @@
         <table>
             <thead>
                 <tr>
+                    <th>Image</th>
                     <th>Name</th>
-                    <th>Description</th>
+{#                    <th>Description</th>#}
                     <th>Price</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
                 {% for item in items%}
                 <tr>
+                    <td><img src="{{item.product.imageURL}}" alt="" style="height: 5%" /></td>
                     <td>{{item.product.name}}</td>
-                    <td>{{item.product.information}}</td>
-                    <td>${{item.product.price|floatformat:2}} &nbsp; &nbsp; <a href="#" class="icon style1  far fa-trash-alt" aria-hidden="true"><span class="label">Twitter</span></a></td>
+{#                    <td>{{item.product.information}}</td>#}
+                    <td>${{item.product.price|floatformat:2}} &nbsp; &nbsp; </td>
+                    <td><a href="#" class="icon style1  far fa-trash-alt" aria-hidden="true"><span class="label">Twitter</span></a></td>
                 </tr>
                 {% endfor %}
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="2"></td>
+                    <td colspan="2">Total Amount</td>
                     <td>${{order.get_cart_total|floatformat:2}}</td>
                 </tr>
             </tfoot>

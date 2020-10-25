@@ -840,7 +840,7 @@ input, select, textarea {
 			.product-image > img{
 				display: block;
 				height: auto;
-				min-width: 100%;
+				min-width: 80%;
 				width: 100%;
 			}
 
@@ -2631,6 +2631,9 @@ input, select, textarea {
 		.button:disabled {
 			pointer-events: none;
 			opacity: 0.25;
+		}
+		.purchase-form{
+			display:none;
 		}
 
 

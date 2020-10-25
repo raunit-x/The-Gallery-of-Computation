@@ -54,8 +54,12 @@ class Order(models.Model):
 class OrderItem(models.Model):
     product = models.ForeignKey(Product, on_delete=models.SET_NULL, blank=True, null=True)
     order = models.ForeignKey(Order, on_delete=models.SET_NULL, blank=True, null=True)
-    # quantity = models.IntegerField(default=0, null=True, blank=True)
     date_ordered = models.DateTimeField(auto_now_add=True)
+    signature_choices = (('None','None'),('Front','Front'),('Back','Back'))
+    print_choices = (('Paper','Paper'),('Canvas','Canvas'))
+    printstyle = models.CharField(max_length=25,choices=print_choices, default='Paper')
+    signature = models.CharField(max_length=25,choices=signature_choices, default='None')
+    other = models.TextField(max_length=200, blank=True, null=True)
 
     @property
     def get_price(self):

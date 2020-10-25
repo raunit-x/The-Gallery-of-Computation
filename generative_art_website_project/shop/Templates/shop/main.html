@@ -13,7 +13,25 @@
     <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
     <link rel="icon" type="image/png"
           href="https://raw.githubusercontent.com/raunit-x/Generative-Art-Gallery/master/images/Screenshot%202020-10-23%20at%201.44.33%20AM.png">
-
+    <script type="text/javascript">
+        var user = '{{request.user}}'
+        function getToken(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        var csrftoken = getToken('csrftoken');
+    </script>
 </head>
 <body class="is-preload">
 <!-- Wrapper -->
@@ -64,7 +82,7 @@
     <!-- Footer -->
     <footer id="footer">
         <div class="inner">
-{#            <section>#}
+
                 <h2>All About Generative Art In your Inbox</h2>
                 <p>Latest Art and Info about Generative Art. No spam, guaranteed.</p>
                 <form method="post" action="#">
@@ -80,7 +98,7 @@
                     </div>
 
                 </form>
-{#            </section>#}
+
             <!-- <section>
                     <h2>contact</h2>
                 <ul class="icons">
@@ -104,6 +122,6 @@
 <script src="{% static 'js/main.js' %}"></script>
 <script src="{% static 'js/custom.js' %}"></script>
 <script src="{% static 'js/cart.js' %}"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
 </body>
 </html>

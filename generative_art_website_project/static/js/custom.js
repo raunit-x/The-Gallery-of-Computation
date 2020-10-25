@@ -20,3 +20,14 @@ function toggleSideDown(){
     document.getElementById('products').classList.toggle('active');
 }
 
+$( ".purchase-button" ).click(function() {
+    $( ".purchase-form" ).slideToggle( "fast" );
+        var $this = $(this);
+          $this.toggleClass("open");
+  
+          if ($this.hasClass("open")) {
+              $this.css("display","none");
+          } else {
+              $this.html("Read more");
+          }
+  });

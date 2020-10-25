@@ -18,6 +18,12 @@ def aspect_ratio(prod):
     return h / w
 
 
+def get_size(prod):
+    img_path = static(f'images/{prod.image}')[1:]
+    w, h = imagesize.get(img_path)
+    return w, h
+
+
 def get_all_logged_in_users():
     # Query all non-expired sessions
     # use timezone.now() instead of datetime.now() in latest versions of Django
@@ -38,6 +44,8 @@ def shop(request):
     # print(user)
     products = list(Product.objects.all())
     products.sort(key=lambda x: aspect_ratio(x))
+    for p in products:
+        print(f"{p.name}: {get_size(p)}")
     context = {'products': products, 'page_title': "Shop: The Gallery of Computation"}
     return render(request, 'shop/shop.html', context)
 

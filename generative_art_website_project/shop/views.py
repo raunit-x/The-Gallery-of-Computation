@@ -43,8 +43,11 @@ def get_all_logged_in_users():
 
 
 def shop(request):
+    user = request.user
     products = list(Product.objects.all())
     products.sort(key=lambda x: aspect_ratio(x))
+    for p in products:
+        print(f"{p.name}: {get_size(p)}")
     context = {'products': products, 'page_title': "Shop: The Gallery of Computation"}
     return render(request, 'shop/shop.html', context)
 
@@ -77,18 +80,20 @@ def checkout(request):
 
 def product(request, id):
     # fetches Product id
-    in_cart = False
+    in_cart = False;
     if request.user.is_authenticated:
         customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
-        item = order.orderitem_set.filter(product=id)
-        if item:
-            in_cart = True
+        items = order.orderitem_set.all()
+        for item in items:
+            if item.product.id is id:
+                in_cart = True
+                break;
+    else:
+        in_cart = False
 
-    selected_product = Product.objects.filter(id=id)
-    if request.user.is_anonymous:
-        return render(request, 'shop/product.html', {'product': selected_product[0], 'in_cart': in_cart})
     customer = request.user.customer
+    selected_product = Product.objects.filter(id=id)
     order, created = Order.objects.get_or_create(customer=customer, complete=False)
     form = orderItemForm()
     context = {'product': selected_product[0], 'in_cart': in_cart, 'form': form}

@@ -57,13 +57,25 @@ def cart(request):
         customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
         items = order.orderitem_set.all()
-
     else:
         items = []
         order = {'get_cart_total': 0}
-
     context = {'items': items, 'order': order, 'page_title': "Cart: The Gallery of Computation"}
     return render(request, 'shop/cart.html', context)
+
+
+# id: Product id
+def delete_item_from_cart(request, id):
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        items = order.orderitem_set.all()
+    else:
+        items = []
+        order = {'get_cart_total': 0}
+    order_item_to_be_deleted = order.orderitem_set.get(product=id)
+    order_item_to_be_deleted.delete()
+    return cart(request)
 
 
 def checkout(request):

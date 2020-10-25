@@ -401,7 +401,7 @@ input, select, textarea {
 		}
 
 		.row > .col-6 {
-			
+
 			width: 50%;
 		}
 
@@ -480,7 +480,7 @@ input, select, textarea {
 			padding: 10px;
 			width:33% !important;
 		}
-		
+
 		.row > .nestedrow > .col-6{
 			padding: 10px;
 			width: 100% !important;
@@ -586,7 +586,7 @@ input, select, textarea {
 				.row.gtr-200.gtr-uniform > * {
 					padding-top: 4em;
 				}
-		
+
 		@media screen and (max-width: 1680px) {
 
 			.row {
@@ -848,7 +848,7 @@ input, select, textarea {
 		.portfolio-image{
 			height: 500px;
 		}
-			
+
 			.portfolio-image > img {
 				display: block;
 				height: auto;
@@ -1889,7 +1889,7 @@ input, select, textarea {
 		.icon.brands:before {
 			font-family: 'Font Awesome 5 Brands';
 		}
-		
+
 
 		.icon.style2 {
 			-moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
@@ -2651,7 +2651,7 @@ input, select, textarea {
 		position: relative;
 		margin: -2.5em 0 0 -2.5em;
 	}
-		
+
 
 		.tiles article {
 			-moz-transition: -moz-transform 0.5s ease, opacity 0.5s ease;
@@ -2721,7 +2721,7 @@ input, select, textarea {
 					opacity: 0.25;
 					z-index: 2;
 				}
-			
+
 			.tiles article > a {
 				display: -moz-flex;
 				display: -webkit-flex;
@@ -2802,8 +2802,8 @@ input, select, textarea {
 				-webkit-justify-content: center;
 				-ms-justify-content: center;
 				justify-content: center;
-				position: absolute;    
-				padding: 9px;	
+				position: absolute;
+				padding: 9px;
 				bottom: 0;
 				color: dimgrey;
 			}
@@ -2959,15 +2959,15 @@ input, select, textarea {
 		list-style-type: none;
 		margin: 0;
 		padding: 0;
-		
-	}	
-	
+
+	}
+
 	#navbar ul > li {
 		display: inline-block;
 		margin-left: 1em;
 		margin-right: 0;
 	  }
-	  
+
 	#navbar ul >li >a {
 		color:inherit;
 		text-align: center;
@@ -2985,7 +2985,7 @@ input, select, textarea {
 			display: none;
 		}
 	}
-	
+
 /* Hamburger */
 /* styling the hamburger button */
 .header_btn{
@@ -3449,5 +3449,4 @@ input, select, textarea {
 			#wrapper > * > .inner {
 				padding: 0 1.25em;
 			}
-
 		}

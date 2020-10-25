@@ -53,7 +53,7 @@
                         <tbody>
                             {% for item in items%}
                             <tr>
-                                <td><a href="#"><img src="{{item.product.imageURL}}" alt="" style="height: 4em" /></a></td>
+                                <td><a href="{%  url 'product' item.product.id %}"><img src="{{item.product.imageURL}}" alt="" style="height: 4em" /></a></td>
                                 <td>{{item.product.name}}</td>
                                 <td></td>
                                 <td>${{item.product.price|floatformat:2}}</td>

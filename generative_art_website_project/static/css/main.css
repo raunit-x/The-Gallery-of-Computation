@@ -3435,6 +3435,10 @@ input, select, textarea {
 		color: #f2849e !important;
 	}
 
+	button {
+		font-family: 'Cutive Mono', monospace;
+	}
+
 /* Wrapper */
 
 	#wrapper > * > .inner {

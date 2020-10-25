@@ -19,6 +19,7 @@ class Product(models.Model):
     digital = models.BooleanField(default=False, null=True, blank=False)
     information = models.TextField(null=True, blank=False)
     image = models.ImageField(null=True, blank=False)
+
     # time_posted = models.DateTimeField(auto_now_add=True, blank=True)
 
     def __str__(self):
@@ -55,10 +56,10 @@ class OrderItem(models.Model):
     product = models.ForeignKey(Product, on_delete=models.SET_NULL, blank=True, null=True)
     order = models.ForeignKey(Order, on_delete=models.SET_NULL, blank=True, null=True)
     date_ordered = models.DateTimeField(auto_now_add=True)
-    signature_choices = (('None','None'),('Front','Front'),('Back','Back'))
-    print_choices = (('Paper','Paper'),('Canvas','Canvas'))
-    printstyle = models.CharField(max_length=25,choices=print_choices, default='Paper')
-    signature = models.CharField(max_length=25,choices=signature_choices, default='None')
+    signature_choices = (('Front', 'Front'), ('Back', 'Back'), ('None', 'None'))
+    print_choices = (('Canvas', 'Canvas'), ('Paper', 'Paper'))
+    printstyle = models.CharField(max_length=25, choices=print_choices, default='Canvas')
+    signature = models.CharField(max_length=25, choices=signature_choices, default='Front')
     other = models.TextField(max_length=200, blank=True, null=True)
 
     @property

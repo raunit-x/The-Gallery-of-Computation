@@ -3,10 +3,10 @@
 {% block content %}
 <a href="{%  url 'shop' %}" class="button" style="margin-bottom:2em;"> ← Back to Shop</a>
 <div class="row gtr-uniform aln-center" >
-    <div class=" col-6 col-12-medium product-image">
+    <div class=" col-6 col-12-xsmall product-image">
         <img src="{{ product.imageURL}}" alt="">
     </div>
-    <div class=" col-6 col-12-medium product-information">
+    <div class=" col-6 col-12-xsmall product-information">
         <h1>{{ product.name }}</h1>
         <p>${{ product.price }}</p>
         <p>
@@ -27,7 +27,24 @@
             <b>Shipping</b> <br>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eget pellentesque dui. Proin laoreet condimentum ex vitae dictum. Nullam eu rhoncus nulla. Sed et dignissim enim, in sollicitudin quam. <br> <br> Nunc laoreet elit tortor, sed cursus ante sollicitudin quis. Pellentesque habitant morbi tristique senectus.
         </p>
-        <button data-product={{product.id}} data-action="add" class="update-cart button primary ">Purchase</button>
+        {% if in_cart %}
+        <button class="button disabled">Added to cart</button>
+        {% else %}
+        <button class='purchase-button primary'>Purchase</button>
+        <div class="purchase-form">
+            <form action="" method="post">
+                {% csrf_token %}
+                <b>Signature:</b>
+                {{form.signature}}
+                <b>Choose Print</b>
+                {{form.printstyle}}
+                <b>Other Instructions</b>
+                {{form.other}}
+                <button type="submit" data-product={{product.id}} data-action="add" class="update-cart button primary ">Add to Cart</button>
+            </form>
+            <!-- j<button data-product={{product.id}} data-action="add" class="update-cart button primary ">Add to Cart</button> -->
+        </div>
+        {% endif %}
     </div>
     
     

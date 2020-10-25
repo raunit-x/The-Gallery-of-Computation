@@ -2632,6 +2632,9 @@ input, select, textarea {
 			pointer-events: none;
 			opacity: 0.25;
 		}
+		.purchase-form{
+			display:none;
+		}
 
 
 /* Tiles */

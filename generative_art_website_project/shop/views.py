@@ -12,6 +12,7 @@ from django.http import JsonResponse
 from .forms import orderItemForm
 from django.http import HttpResponseRedirect
 
+
 # Create your views here.
 
 def aspect_ratio(prod):
@@ -52,16 +53,15 @@ def shop(request):
 
 
 def cart(request):
-    
     if request.user.is_authenticated:
         customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
         items = order.orderitem_set.all()
-    
+
     else:
         items = []
         order = {'get_cart_total': 0}
-   
+
     context = {'items': items, 'order': order, 'page_title': "Cart: The Gallery of Computation"}
     return render(request, 'shop/cart.html', context)
 
@@ -92,20 +92,20 @@ def product(request, id):
     else:
         in_cart = False
 
-    customer = request.user.customer    
+    customer = request.user.customer
     selected_product = Product.objects.filter(id=id)
     order, created = Order.objects.get_or_create(customer=customer, complete=False)
     form = orderItemForm()
-    context = {'product': selected_product[0] ,'in_cart':in_cart,'form':form}
+    context = {'product': selected_product[0], 'in_cart': in_cart, 'form': form}
     if request.method == 'POST':
         form = orderItemForm(request.POST)
         if form.is_valid():
             instance = form.save(commit=False)
             instance.product = selected_product[0]
-            instance.order = order  
+            instance.order = order
             instance.save()
             return HttpResponseRedirect(request.path_info)
-    
+
     return render(request, 'shop/product.html', context)
 
 
@@ -114,6 +114,7 @@ def portfolio(request, id):
     selected_product = Product.objects.filter(id=id)
     context = {'product': selected_product[0]}
     return render(request, 'shop/portfolio.html', context)
+
 
 def updateItem(request):
     return JsonResponse('Item was added', safe=False)

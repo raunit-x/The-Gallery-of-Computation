@@ -49,7 +49,9 @@
                             <!-- <input type="text" name="state" id="state" value="" placeholder="State"/> -->
                             {{form.city}}
                         </div>
-                        </form>
+{#                    </div>#}
+
+{#                        </form>#}
                     </div>
                     <div class="col-6 col-12-medium ">
                         <h2>Order Summary</h2>
@@ -73,7 +75,6 @@
                                         <td>{{ item.product.name }}</td>
                                         <td></td>
                                         <td>${{ item.product.price|floatformat:2 }}</td>
-
                                     </tr>
                                 {% endfor %}
                                 </tbody>
@@ -88,17 +89,17 @@
                             </table>
                         </div>
                         <a href="{% url 'cart' %}" class="button">Back to Cart</a>
-
                     </div>
 
-
-                    <div class="col-12">
-                        <textarea name="demo-message" id="demo-message" placeholder="Enter your message"
-                                  rows="6"></textarea>
+{#                    <div class="col-12">#}
+{#                        <textarea name="demo-message" id="demo-message" placeholder="Enter your message"#}
+{#                                  rows="6"></textarea>#}
                     </div>
+                    <br>
+                    <br>
                     <div class="col-12">
                         <ul class="actions">
-                            <li><button type="submit" href="{% url 'checkout' %}" class="button primary" >Continue To Payment</button></li>
+                            <li><button type="submit" href="{% url 'checkout' %}" class="button primary">Continue To Payment</button></li>
                 
                             <li><input type="reset" value="Reset"/></li>
                         </ul>

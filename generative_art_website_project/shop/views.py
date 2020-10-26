@@ -86,7 +86,7 @@ def checkout(request):
             instance.order = order
             instance.save()
             return render(request, 'shop/payment.html')
-    context = {'items': items, 'order': order, 'page_title': "Cart: The Gallery of Computation", 'form': form}
+    context = {'items': items, 'order': order, 'page_title': "Checkout: The Gallery of Computation", 'form': form}
     return render(request, 'shop/checkout.html', context)
 
 
@@ -99,8 +99,6 @@ def product(request, id):
         item = order.orderitem_set.filter(product=id)
         if item:
             in_cart = True
-    else:
-        in_cart = False
 
     customer = request.user.customer
     selected_product = Product.objects.filter(id=id)

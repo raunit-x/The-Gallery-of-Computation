@@ -2,13 +2,13 @@
 {% load static %}
 {% block content %}
     <header>
-{#        <a href="{% url 'cart' %}" class="button">&#10235; back to Cart</a>#}
+        {#        <a href="{% url 'cart' %}" class="button">&#10235; back to Cart</a>#}
 
         <h2 style="margin-top: 2.5em; margin-bottom: 1.75em; font-size: 1.25em;">Checkout</h2>
         {% if not items %}
             <h2 style="text-align: center!important;">Cart Empty!</h2>
         {% else %}
-{#            <h2 style="font-size: 1.25em;">Checkout</h2>#}
+            {#            <h2 style="font-size: 1.25em;">Checkout</h2>#}
             </header>
             <section>
             <!-- <h2>Form</h2> -->
@@ -17,41 +17,41 @@
                     <div class="col-6 col-12-medium nestedrow">
                         <div class="col-1 col-12-medium">
                             <form action="" method="post">
-                            {% csrf_token %}
-                            {{form.name}}
-                            <!-- <input type="text" name="name" id="name" value="" placeholder="Name"/> -->
+                                {% csrf_token %}
+                                {{ form.name }}
+                            </form>
                         </div>
                         <div class="col-4 col-12-medium">
                             <!-- <input type="email" name="email" id="email" value="" placeholder="Email"/> -->
-                            {{form.email}}
+                            {{ form.email }}
                         </div>
                         <div class="col-6 col-12-xsmall">
                             <!-- <input type="text" name="address" id="address" value="" placeholder="Address 1"/> -->
-                            {{form.address1}}
+                            {{ form.address1 }}
                         </div>
                         <div class="col-6 col-12-xsmall">
                             <!-- <input type="text" name="address" id="address" value="" placeholder="Address 2"/> -->
-                            {{form.address2}}
+                            {{ form.address2 }}
                         </div>
                         <div class="col-6 col-12-xsmall">
                             <!-- <input type="text" name="Country" id="country" value="" placeholder="Country"/> -->
-                            {{form.country}}
+                            {{ form.country }}
                         </div>
                         <div class="col-2 col-12-medium">
                             <!-- <input type="text" name="postal" id="postal" value="" placeholder="Postal Code"/> -->
-                            {{form.postal}}
+                            {{ form.postal }}
                         </div>
                         <div class="col-2 col-12-medium">
                             <!-- <input type="text" name="city" id="city" value="" placeholder="City"/> -->
-                            {{form.state}}
+                            {{ form.state }}
                         </div>
                         <div class="col-2 col-12-medium">
                             <!-- <input type="text" name="state" id="state" value="" placeholder="State"/> -->
-                            {{form.city}}
+                            {{ form.city }}
                         </div>
-{#                    </div>#}
+                        {#                    </div>#}
 
-{#                        </form>#}
+                        {#                        </form>#}
                     </div>
                     <div class="col-6 col-12-medium ">
                         <a href="{% url 'cart' %}" class="button">&larr; Back to Cart</a>
@@ -69,8 +69,9 @@
                                 <tbody>
                                 {% for item in items %}
                                     <tr>
-                                        <td><a href="{%  url 'product' item.product.id %}"><img src="{{ item.product.imageURL }}" alt=""
-                                                             style="height: 3em"/></a></td>
+                                        <td><a href="{% url 'product' item.product.id %}"><img
+                                                src="{{ item.product.imageURL }}" alt=""
+                                                style="height: 3em"/></a></td>
                                         <td>{{ item.product.name }}</td>
                                         <td>{{ item.printstyle }}</td>
                                         <td>${{ item.product.price|floatformat:2 }}</td>
@@ -90,19 +91,17 @@
 
                     </div>
 
-{#                    <div class="col-12">#}
-{#                        <textarea name="demo-message" id="demo-message" placeholder="Enter your message"#}
-{#                                  rows="6"></textarea>#}
-                    </div>
-                    <br>
-                    <br>
-                    <div class="col-12">
-                        <ul class="actions">
-                            <li><button type="submit" href="{% url 'checkout' %}" class="button primary">Continue To Payment</button></li>
-                
-                            <li><input type="reset" value="Reset"/></li>
-                        </ul>
-                    </div>
+                </div>
+                <div class="col-12">
+                    <ul class="actions">
+                        <li>
+                            <button type="submit" href="{% url 'checkout' %}" class="button primary">Continue To
+                                Payment
+                            </button>
+                        </li>
+                        <li><input type="reset" value="Reset"/></li>
+                    </ul>
+                </div>
                 </div>
             </form>
         {% endif %}

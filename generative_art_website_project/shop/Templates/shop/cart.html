@@ -16,6 +16,7 @@
                 <tr>
                     <th>Artwork</th>
                     <th>Title</th>
+                    <th>Print</th>
                     <th>Price</th>
                     <th>Remove Item</th>
                 </tr>
@@ -25,6 +26,7 @@
                 <tr>
                     <td><a href="{%  url 'product' item.product.id %}"><img src="{{item.product.imageURL}}" alt="" style="height: 4em" /></a></td>
                     <td>{{item.product.name}}</td>
+                    <td>{{ item.printstyle }}</td>
                     <td>${{item.product.price|floatformat:2}}</td>
                     <td><a href="{% url 'delete_item_cart' item.product.id %}" class="icon style1  far fa-trash-alt" aria-hidden="true"><span class="label"></span></a></td>
                 </tr>
@@ -33,7 +35,7 @@
             <tfoot>
                 <tr>
                     <td colspan="1">Total Amount</td>
-                    <td colspan="1"></td>
+                    <td colspan="2"></td>
                     <td>${{order.get_cart_total|floatformat:2}}</td>
                     <td></td>
                 </tr>

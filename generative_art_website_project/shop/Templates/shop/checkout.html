@@ -54,16 +54,15 @@
 {#                        </form>#}
                     </div>
                     <div class="col-6 col-12-medium ">
-                        <h2>Order Summary</h2>
-
-
+                        <a href="{% url 'cart' %}" class="button">&larr; Back to Cart</a>
+                        <h2 style="margin-top: 2em; margin-bottom: 1.75em; font-size: 1.25em;">Order Summary</h2>
                         <div class="table-wrapper">
                             <table>
                                 <thead>
                                 <tr>
                                     <th>Artwork</th>
                                     <th>Title</th>
-                                    <th></th>
+                                    <th>Print</th>
                                     <th>Price</th>
                                 </tr>
                                 </thead>
@@ -71,9 +70,9 @@
                                 {% for item in items %}
                                     <tr>
                                         <td><a href="{%  url 'product' item.product.id %}"><img src="{{ item.product.imageURL }}" alt=""
-                                                             style="height: 4em"/></a></td>
+                                                             style="height: 3em"/></a></td>
                                         <td>{{ item.product.name }}</td>
-                                        <td></td>
+                                        <td>{{ item.printstyle }}</td>
                                         <td>${{ item.product.price|floatformat:2 }}</td>
                                     </tr>
                                 {% endfor %}
@@ -88,7 +87,7 @@
                                 </tfoot>
                             </table>
                         </div>
-                        <a href="{% url 'cart' %}" class="button">Back to Cart</a>
+
                     </div>
 
 {#                    <div class="col-12">#}

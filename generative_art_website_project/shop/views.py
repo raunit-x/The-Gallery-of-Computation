@@ -9,7 +9,7 @@ from django.contrib.sessions.models import Session
 from django.utils import timezone
 from django.contrib import auth
 from django.http import JsonResponse
-from .forms import orderItemForm
+from .forms import ShippingAddressForm, orderItemForm
 from django.http import HttpResponseRedirect
 
 
@@ -77,7 +77,25 @@ def checkout(request):
         customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
         items = order.orderitem_set.all()
+<<<<<<< HEAD
     context = {'items': items, 'order': order, 'page_title': "Cart: The Gallery of Computation"}
+=======
+    else:
+        items = []
+        order = {'get_cart_total': 0}
+
+    customer = request.user.customer
+    order, created = Order.objects.get_or_create(customer=customer, complete=False)
+    form = ShippingAddressForm()
+    if request.method == 'POST':
+        form = ShippingAddressForm(request.POST)
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.order = order
+            instance.save()
+            return render(request,'shop/payment.html')
+    context = {'items': items, 'order': order, 'page_title': "Cart: The Gallery of Computation",'form': form}
+>>>>>>> 7e72cda562b403a9cdf9303199a7c1abcc366b85
     return render(request, 'shop/checkout.html', context)
 
 
@@ -119,3 +137,6 @@ def portfolio(request, id):
 
 def updateItem(request):
     return JsonResponse('Item was added', safe=False)
+
+def payment(request):
+    return render(request,'shop/payment.html')

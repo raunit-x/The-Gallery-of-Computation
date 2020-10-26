@@ -15,8 +15,8 @@ from django.http import HttpResponseRedirect
 
 # Create your views here.
 
-def aspect_ratio(prod):
-    img_path = static(f'images/{prod.image}')[1:]
+def aspect_ratio(prod: Product):
+    img_path = static(f'images/{prod.get_default_image}')[1:]
     w, h = imagesize.get(img_path)
     return h / w
 

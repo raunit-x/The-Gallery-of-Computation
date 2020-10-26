@@ -3,9 +3,6 @@
 {% block content %}
     <header>
         <a href="{% url 'shop' %}" class="button">&#10235; back to shop</a>
-
-        <h2 style="margin-top: 2.5em; margin-bottom: 1.75em; font-size: 1.25em;">Shopping Cart</h2>
-
         {% if not items %}
             <h2 style="text-align: center!important;">Cart Empty!</h2>
             <div class="aln-center" style="text-align: center;">
@@ -16,7 +13,7 @@
             </p>
             </div>
         {% else %}
-
+            <h2 style="margin-top: 2.5em; margin-bottom: 1.75em; font-size: 1.25em;">Shopping Cart</h2>
             <div class="table-wrapper">
                 <table>
                     <thead>

@@ -81,8 +81,8 @@ def checkout(request):
     return render(request, 'shop/checkout.html', context)
 
 
+# id: Product id
 def product(request, id):
-    # fetches Product id
     in_cart = False
     if request.user.is_authenticated:
         customer = request.user.customer

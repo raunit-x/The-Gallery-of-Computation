@@ -72,18 +72,10 @@ def delete_item_from_cart(request, id):
 
 def checkout(request):
     items = []
-    order = {'get_cart_total': 0}
     if request.user.is_authenticated:
         customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
         items = order.orderitem_set.all()
-<<<<<<< HEAD
-    context = {'items': items, 'order': order, 'page_title': "Cart: The Gallery of Computation"}
-=======
-    else:
-        items = []
-        order = {'get_cart_total': 0}
-
     customer = request.user.customer
     order, created = Order.objects.get_or_create(customer=customer, complete=False)
     form = ShippingAddressForm()
@@ -93,9 +85,8 @@ def checkout(request):
             instance = form.save(commit=False)
             instance.order = order
             instance.save()
-            return render(request,'shop/payment.html')
-    context = {'items': items, 'order': order, 'page_title': "Cart: The Gallery of Computation",'form': form}
->>>>>>> 7e72cda562b403a9cdf9303199a7c1abcc366b85
+            return render(request, 'shop/payment.html')
+    context = {'items': items, 'order': order, 'page_title': "Cart: The Gallery of Computation", 'form': form}
     return render(request, 'shop/checkout.html', context)
 
 
@@ -138,5 +129,6 @@ def portfolio(request, id):
 def updateItem(request):
     return JsonResponse('Item was added', safe=False)
 
+
 def payment(request):
-    return render(request,'shop/payment.html')
+    return render(request, 'shop/payment.html')

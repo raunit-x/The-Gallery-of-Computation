@@ -1,49 +1,60 @@
 {% extends 'shop/main.html' %}
 {% load static %}
 {% block content %}
-<header>
-    <a href="{%  url 'shop' %}" class="button">&#10235; back to shop</a>
+    <header>
+        <a href="{% url 'shop' %}" class="button">&#10235; back to shop</a>
 
-    <h2 style="margin-top: 2.5em; margin-bottom: 1.75em; font-size: 1.25em;">Shopping Cart</h2>
+        <h2 style="margin-top: 2.5em; margin-bottom: 1.75em; font-size: 1.25em;">Shopping Cart</h2>
 
-    {% if not items %}
-    <h2 style="text-align: center!important;">Cart Empty!</h2>
-    {% else %}
+        {% if not items %}
+            <h2 style="text-align: center!important;">Cart Empty!</h2>
+            <div class="aln-center" style="text-align: center;">
+            <img src="https://www.edvardmunch.org/images/paintings/the-scream.jpg"
+                 alt="" style="height: 30em;">
+            <p class="description-para" style="font-size: 0.75em">
+                <b>The Scream, Edvard Munch</b>
+            </p>
+            </div>
+        {% else %}
 
-    <div class="table-wrapper">
-        <table>
-            <thead>
-                <tr>
-                    <th>Artwork</th>
-                    <th>Title</th>
-                    <th>Print</th>
-                    <th>Price</th>
-                    <th>Remove Item</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for item in items%}
-                <tr>
-                    <td><a href="{%  url 'product' item.product.id %}"><img src="{{item.product.imageURL}}" alt="" style="height: 4em" /></a></td>
-                    <td>{{item.product.name}}</td>
-                    <td>{{ item.printstyle }}</td>
-                    <td>${{item.product.price|floatformat:2}}</td>
-                    <td><a href="{% url 'delete_item_cart' item.product.id %}" class="icon style1  far fa-trash-alt" aria-hidden="true"><span class="label"></span></a></td>
-                </tr>
-                {% endfor %}
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="1">Total Amount</td>
-                    <td colspan="2"></td>
-                    <td>${{order.get_cart_total|floatformat:2}}</td>
-                    <td></td>
-                </tr>
-            </tfoot>
-        </table>
-    </div>
-    <a href="{% url 'checkout' %}" class="button primary"  style="float: right; margin-top: 2em;">Continue to Checkout</a>
-    {% endif %}
-</header>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Artwork</th>
+                        <th>Title</th>
+                        <th>Print</th>
+                        <th>Price</th>
+                        <th>Remove Item</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for item in items %}
+                        <tr>
+                            <td><a href="{% url 'product' item.product.id %}"><img
+                                    src="{{ item.product.get_default_image_url }}" alt="" style="height: 4em"/></a></td>
+                            <td>{{ item.product.name }}</td>
+                            <td>{{ item.printstyle }}</td>
+                            <td>${{ item.product.price|floatformat:2 }}</td>
+                            <td><a href="{% url 'delete_item_cart' item.product.id %}"
+                                   class="icon style1  far fa-trash-alt" aria-hidden="true"><span class="label"></span></a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="1">Total Amount</td>
+                        <td colspan="2"></td>
+                        <td>${{ order.get_cart_total|floatformat:2 }}</td>
+                        <td></td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <a href="{% url 'checkout' %}" class="button primary" style="float: right; margin-top: 2em;">Continue to
+                Checkout</a>
+        {% endif %}
+    </header>
 
-{% endblock content%}
+{% endblock content %}

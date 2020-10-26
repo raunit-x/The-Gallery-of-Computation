@@ -2,8 +2,6 @@
 {% load static %}
 {% block content %}
     <header>
-        {#        <a href="{% url 'cart' %}" class="button">&#10235; back to Cart</a>#}
-
         <h2 style="margin-top: 2.5em; margin-bottom: 1.75em; font-size: 1.25em;">Checkout</h2>
         {% if not items %}
             <h2 style="text-align: center!important;">Cart Empty!</h2>
@@ -70,20 +68,19 @@
                                 {% for item in items %}
                                     <tr>
                                         <td><a href="{% url 'product' item.product.id %}"><img
-                                                src="{{ item.product.imageURL }}" alt=""
+                                                src="{{ item.product.get_default_image_url }}" alt=""
                                                 style="height: 3em"/></a></td>
-                                        <td>{{ item.product.name }}</td>
-                                        <td>{{ item.printstyle }}</td>
-                                        <td>${{ item.product.price|floatformat:2 }}</td>
+                                        <td style="font-size: 0.75em">{{ item.product.name }}</td>
+                                        <td style="font-size: 0.75em">{{ item.printstyle }}</td>
+                                        <td style="font-size: 0.75em">${{ item.product.price|floatformat:2 }}</td>
                                     </tr>
                                 {% endfor %}
                                 </tbody>
                                 <tfoot>
                                 <tr>
-                                    <td colspan="1">Total Amount</td>
+                                    <td colspan="2" style="font-size: 0.75em">Total Amount</td>
                                     <td></td>
-                                    <td></td>
-                                    <td>${{ order.get_cart_total|floatformat:2 }}</td>
+                                    <td style="font-size: 0.75em">${{ order.get_cart_total|floatformat:2 }}</td>
                                 </tr>
                                 </tfoot>
                             </table>

@@ -4,7 +4,7 @@
     <a href="{% url 'shop' %}" class="button" style="margin-bottom:2em;">&larr; Back to Shop</a>
     <div class="row gtr-uniform aln-center">
         <div class=" col-6 col-12-xsmall product-image">
-            <img src="{{ product.imageURL }}" alt="">
+            <img src="{{ product.get_default_image_url }}" alt="">
         </div>
         <div class=" col-6 col-12-xsmall product-information">
             <h1>{{ product.name }}</h1>

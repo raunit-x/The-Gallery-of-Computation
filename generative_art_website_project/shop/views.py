@@ -49,37 +49,34 @@ def shop(request):
 
 
 def cart(request):
+    items = []
+    order = {'get_cart_total': 0}
     if request.user.is_authenticated:
         customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
         items = order.orderitem_set.all()
-    else:
-        items = []
-        order = {'get_cart_total': 0}
     context = {'items': items, 'order': order, 'page_title': "Cart: The Gallery of Computation"}
     return render(request, 'shop/cart.html', context)
 
 
 # id: Product id
 def delete_item_from_cart(request, id):
+    order = {'get_cart_total': 0}
     if request.user.is_authenticated:
         customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
-    else:
-        order = {'get_cart_total': 0}
     order_item_to_be_deleted = order.orderitem_set.get(product=id)
     order_item_to_be_deleted.delete()
     return cart(request)
 
 
 def checkout(request):
+    items = []
+    order = {'get_cart_total': 0}
     if request.user.is_authenticated:
         customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
         items = order.orderitem_set.all()
-    else:
-        items = []
-        order = {'get_cart_total': 0}
     context = {'items': items, 'order': order, 'page_title': "Cart: The Gallery of Computation"}
     return render(request, 'shop/checkout.html', context)
 
@@ -90,11 +87,9 @@ def product(request, id):
     if request.user.is_authenticated:
         customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
-        items = order.orderitem_set.all()
-        for item in items:
-            if item.product.id is id:
-                in_cart = True
-                break
+        item = order.orderitem_set.filter(product=id)
+        if item:
+            in_cart = True
     else:
         in_cart = False
 

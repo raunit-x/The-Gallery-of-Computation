@@ -1,6 +1,4 @@
 from django.db import models
-from django.templatetags.static import static
-import imagesize
 # Create your models here.
 
 from django.contrib.auth.models import User
@@ -20,7 +18,7 @@ class Product(models.Model):
     price = models.FloatField()
     digital = models.BooleanField(default=False, null=True, blank=False)
     information = models.TextField(null=True, blank=False)
-    # image = models.ImageField(null=True, blank=False)
+    sold = models.BooleanField(default=False)
 
     # time_posted = models.DateTimeField(auto_now_add=True, blank=True)
     def __str__(self):
@@ -97,6 +95,7 @@ class ProductImage(models.Model):
     def getImageURL(self):
         try:
             url = self.image.url
-        except:
+        except Exception as e:
+            print(f"URL not found: {e}")
             url = ''
         return url

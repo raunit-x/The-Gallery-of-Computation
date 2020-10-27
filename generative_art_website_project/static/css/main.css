@@ -3078,7 +3078,7 @@ body.is-touch .tiles article .content {
 
 #header .logo .symbol img {
     display: block;
-    width: 3em;
+    /*width: 3em;*/
     height: 3em;
 }
 

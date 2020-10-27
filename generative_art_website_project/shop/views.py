@@ -10,7 +10,7 @@ from django.utils import timezone
 from django.contrib import auth
 from django.http import JsonResponse
 from .forms import ShippingAddressForm, orderItemForm
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 
 
 # Create your views here.
@@ -39,6 +39,11 @@ def get_all_logged_in_users():
 def shop(request):
     products = list(Product.objects.all())
     products.sort(key=lambda x: aspect_ratio(x))
+    if not request.user.is_authenticated:
+        if not request.session or not request.session.session_key:
+            request.session.save()
+        session = request.session.session_key
+        print(str(session))
     context = {'products': products, 'page_title': "Shop: The Gallery of Computation"}
     return render(request, 'shop/shop.html', context)
 
@@ -125,3 +130,19 @@ def updateItem(request):
 
 def payment(request):
     return render(request, 'shop/payment.html')
+
+
+def create_session(request):
+    request.session['name'] = 'username'
+    request.session['password'] = 'password123'
+    return HttpResponse("<h1>dataflair<br> the session is set</h1>")
+
+def access_session(request):
+    response = "<h1>Welcome to Sessions of dataflair</h1><br>"
+    if request.session.get('name'):
+        response += "Name : {0} <br>".format(request.session.get('name'))
+    if request.session.get('password'):
+        response += "Password : {0} <br>".format(request.session.get('password'))
+        return HttpResponse(response)
+    else:
+        return render(request,'shop/create.html')

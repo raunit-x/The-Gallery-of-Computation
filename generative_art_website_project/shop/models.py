@@ -1,4 +1,6 @@
 from django.db import models
+from django.templatetags.static import static
+import imagesize
 # Create your models here.
 
 from django.contrib.auth.models import User
@@ -18,20 +20,25 @@ class Product(models.Model):
     price = models.FloatField()
     digital = models.BooleanField(default=False, null=True, blank=False)
     information = models.TextField(null=True, blank=False)
-    image = models.ImageField(null=True, blank=False)
+    # image = models.ImageField(null=True, blank=False)
 
     # time_posted = models.DateTimeField(auto_now_add=True, blank=True)
-
     def __str__(self):
         return self.name
 
     @property
-    def imageURL(self):
+    def get_default_image(self):
+        images = list(self.productimage_set.filter(default_image=True))
+        return images[0].image
+
+    @property
+    def get_default_image_url(self):
         try:
-            url = self.image.url
-        except:
-            url = ''
-        return url
+            images = list(self.productimage_set.filter(default_image=True))
+            return images[0].image.url
+        except Exception as e:
+            print(f"Could not find the image url: {e}")
+            return ''
 
 
 class Order(models.Model):
@@ -69,7 +76,6 @@ class ShippingAddress(models.Model):
     order = models.ForeignKey(Order, on_delete=models.SET_NULL, blank=True, null=True)
     name = models.CharField(max_length=200, null=True)
     email = models.EmailField(max_length=200, null=True)
-    order = models.ForeignKey(Order, on_delete=models.SET_NULL, blank=True, null=True)
     address1 = models.TextField(null=True, blank=False)
     address2 = models.TextField(null=True, blank=False)
     country = models.CharField(max_length=200, null=True)
@@ -77,9 +83,20 @@ class ShippingAddress(models.Model):
     city = models.TextField(null=True, blank=False)
     state = models.TextField(null=True, blank=False)
     date_added = models.DateTimeField(auto_now_add=True)
-    
-
 
     def __str__(self):
         return self.address1
 
+
+class ProductImage(models.Model):
+    artwork_associated = models.ForeignKey(Product, on_delete=models.CASCADE)
+    image = models.ImageField(null=True, blank=False)
+    default_image = models.BooleanField(default=False)
+
+    @property
+    def getImageURL(self):
+        try:
+            url = self.image.url
+        except:
+            url = ''
+        return url

@@ -15,16 +15,10 @@ from django.http import HttpResponseRedirect
 
 # Create your views here.
 
-def aspect_ratio(prod):
-    img_path = static(f'images/{prod.image}')[1:]
+def aspect_ratio(prod: Product):
+    img_path = static(f'images/{prod.get_default_image}')[1:]
     w, h = imagesize.get(img_path)
     return h / w
-
-
-def get_size(prod):
-    img_path = static(f'images/{prod.image}')[1:]
-    w, h = imagesize.get(img_path)
-    return w, h
 
 
 def get_all_logged_in_users():
@@ -43,50 +37,40 @@ def get_all_logged_in_users():
 
 
 def shop(request):
-    user = request.user
     products = list(Product.objects.all())
     products.sort(key=lambda x: aspect_ratio(x))
-    for p in products:
-        print(f"{p.name}: {get_size(p)}")
     context = {'products': products, 'page_title': "Shop: The Gallery of Computation"}
     return render(request, 'shop/shop.html', context)
 
 
 def cart(request):
+    items = []
+    order = {'get_cart_total': 0}
     if request.user.is_authenticated:
         customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
         items = order.orderitem_set.all()
-    else:
-        items = []
-        order = {'get_cart_total': 0}
     context = {'items': items, 'order': order, 'page_title': "Cart: The Gallery of Computation"}
     return render(request, 'shop/cart.html', context)
 
 
 # id: Product id
 def delete_item_from_cart(request, id):
+    order = {'get_cart_total': 0}
     if request.user.is_authenticated:
         customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
-        items = order.orderitem_set.all()
-    else:
-        items = []
-        order = {'get_cart_total': 0}
     order_item_to_be_deleted = order.orderitem_set.get(product=id)
     order_item_to_be_deleted.delete()
     return cart(request)
 
 
 def checkout(request):
+    items = []
     if request.user.is_authenticated:
         customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
         items = order.orderitem_set.all()
-    else:
-        items = []
-        order = {'get_cart_total': 0}
-
     customer = request.user.customer
     order, created = Order.objects.get_or_create(customer=customer, complete=False)
     form = ShippingAddressForm()
@@ -94,28 +78,22 @@ def checkout(request):
         form = ShippingAddressForm(request.POST)
         if form.is_valid():
             instance = form.save(commit=False)
-            order.complete = True
-            order.save()
             instance.order = order
             instance.save()
-            # return render(request,'shop/payment.html')
-    context = {'items': items, 'order': order, 'page_title': "Cart: The Gallery of Computation",'form': form}
+            return render(request, 'shop/payment.html')
+    context = {'items': items, 'order': order, 'page_title': "Checkout: The Gallery of Computation", 'form': form}
     return render(request, 'shop/checkout.html', context)
 
 
+# id: Product id
 def product(request, id):
-    # fetches Product id
-    in_cart = False;
+    in_cart = False
     if request.user.is_authenticated:
         customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
-        items = order.orderitem_set.all()
-        for item in items:
-            if item.product.id is id:
-                in_cart = True
-                break;
-    else:
-        in_cart = False
+        item = order.orderitem_set.filter(product=id)
+        if item:
+            in_cart = True
 
     customer = request.user.customer
     selected_product = Product.objects.filter(id=id)
@@ -144,5 +122,6 @@ def portfolio(request, id):
 def updateItem(request):
     return JsonResponse('Item was added', safe=False)
 
+
 def payment(request):
-    return render(request,'shop/payment.html')
+    return render(request, 'shop/payment.html')

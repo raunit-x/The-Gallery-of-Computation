@@ -1,52 +1,73 @@
 {% extends 'shop/main.html' %}
 {% load static %}
 {% block content %}
-<a href="{%  url 'shop' %}" class="button" style="margin-bottom:2em;">&larr; Back to Shop</a>
-<div class="row gtr-uniform aln-center" >
-    <div class=" col-6 col-12-xsmall product-image">
-        <img src="{{ product.imageURL}}" alt="">
-    </div>
-    <div class=" col-6 col-12-xsmall product-information">
-        <h1>{{ product.name }}</h1>
-        <p>${{ product.price }}</p>
-        <p>
-            <b>PROGRAM</b> {{ product.name }} <br>
-            <b>ITERATION:</b> 1 of 16(dummy data)  <br>
-            <b>CREATED:</b> 2020 <br>
-            <b>MEDIA:</b> Unique Archival Pigment Print <br>
-            <b>DIMENSIONS:</b> 16 x 20 in
-        </p>
-        <p class="description-para">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eget pellentesque dui. Proin laoreet condimentum ex vitae dictum. Nullam eu rhoncus nulla. Sed et dignissim enim, in sollicitudin quam. Nunc laoreet elit tortor, sed cursus ante sollicitudin quis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent ac diam in odio pharetra elementum ac in sapien. Sed semper et elit at laoreet. Aenean.
-        </p>
-        <p class="description-para">
-            <b>About the work</b> <br>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eget pellentesque dui. Proin laoreet condimentum ex vitae dictum. Nullam eu rhoncus nulla. Sed et dignissim enim, in sollicitudin quam. <br> <br> Nunc laoreet elit tortor, sed cursus ante sollicitudin quis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent ac diam in odio pharetra elementum ac in sapien. Sed semper et elit at laoreet. Aenean.
-        </p>
-        <p class="description-para">
-            <b>Shipping</b> <br>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eget pellentesque dui. Proin laoreet condimentum ex vitae dictum. Nullam eu rhoncus nulla. Sed et dignissim enim, in sollicitudin quam. <br> <br> Nunc laoreet elit tortor, sed cursus ante sollicitudin quis. Pellentesque habitant morbi tristique senectus.
-        </p>
-        {% if in_cart %}
-        <button class="button disabled">Added to cart</button>
-        {% else %}
-        <button class='purchase-button primary'>Purchase</button>
-        <div class="purchase-form">
-            <form action="" method="post">
-                {% csrf_token %}
-                <b>Signature:</b>
-                {{form.signature}}
-                <b>Choose Print</b>
-                {{form.printstyle }}
-                <b>Other Instructions</b>
-                {{form.other}}
-                <button type="submit" data-product={{product.id}} data-action="add" class="update-cart button primary ">Add to Cart</button>
-            </form>
+    <a href="{% url 'shop' %}" class="button" style="margin-bottom:2em;">&larr; Back to Shop</a>
+    <div class="row gtr-uniform aln-center">
+        <div class=" col-6 col-12-xsmall product-image">
+            <img src="{{ product.get_default_image_url }}" alt="">
         </div>
-        {% endif %}
+        <div class=" col-6 col-12-xsmall product-information">
+            <h1>{{ product.name }}</h1>
+            <p>${{ product.price }}</p>
+            <p>
+                <b>PROGRAM</b> {{ product.name }} <br>
+                <b>ITERATION:</b> 1 of 16(dummy data) <br>
+                <b>CREATED:</b> 2020 <br>
+                <b>MEDIA:</b> Unique Archival Pigment Print <br>
+                <b>DIMENSIONS:</b> 16 x 20 in
+            </p>
+            <p class="description-para">
+                <b>About the work</b> <br>
+                {{ product.information }}
+            </p>
+            <p class="description-para">
+                <b>About the prints</b> <br>
+            <p class="description-para">
+            All the prints are done by an extremely reliable fine arts printing shop located in Hyderabad, India. A <b>300 dpi</b> state of the art
+            <b>Epson</b> industry quality printer is used.
+            </p>
+            We offer two types of physical prints:
+            <ol style="margin-left: 1em">
+                <li><b>Canvas</b>: Archival quality 600gsm canvas. Preserves pigments of the ink giving stunning
+                    results.
+                </li>
+                <li><b>Matte Finish Paper</b>: Archival quality 380gsm matte finish paper. Holds the ink extremely
+                    well
+                    with fine details.
+                </li>
+            </ol>
+
+
+            </p>
+            <p class="description-para">
+                <b>Shipping</b> <br>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eget pellentesque dui. Proin
+                laoreet condimentum ex vitae dictum. Nullam eu rhoncus nulla. Sed et dignissim enim, in sollicitudin
+                quam. <br> <br> Nunc laoreet elit tortor, sed cursus ante sollicitudin quis. Pellentesque habitant morbi
+                tristique senectus.
+            </p>
+            {% if in_cart %}
+                <button class="button disabled">Added to cart</button>
+            {% else %}
+                <button class='purchase-button primary'>Purchase</button>
+                <div class="purchase-form">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <b>Signature:</b>
+                        {{ form.signature }}
+                        <b>Choose Print</b>
+                        {{ form.printstyle }}
+                        <b>Other Instructions</b>
+                        {{ form.other }}
+                        <button type="submit" data-product={{ product.id }} data-action="add"
+                                class="update-cart button primary ">Add to Cart
+                        </button>
+                    </form>
+                </div>
+            {% endif %}
+        </div>
+
+
     </div>
-    
-    
-</div>
 
 {% endblock %}

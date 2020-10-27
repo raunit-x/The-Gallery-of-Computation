@@ -11,7 +11,7 @@
         {% for product in products %}
             <article class="artwork" id="artwork">
                 <span class="image">
-                    <img src="{{ product.imageURL }}" alt=""/>
+                    <img src="{{ product.get_default_image_url }}" alt="lol"/>
                 </span>
                 <a href="{% url 'product' product.id%}" class="product">
                     <div class="price">

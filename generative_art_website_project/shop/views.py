@@ -56,7 +56,7 @@ def shop(request):
 
 def cart(request):
     if request.user.is_authenticated:
-        customer = request.user.customer
+        customer = Customer.objects.all().filter(user=request.user)[0]
     else:
         customer = Customer.objects.all().filter(name='anon'+str(request.session.session_key))[0]
     
@@ -70,7 +70,7 @@ def cart(request):
 def delete_item_from_cart(request, id):
     order = {'get_cart_total': 0}
     if request.user.is_authenticated:
-        customer = request.user.customer
+        customer = Customer.objects.all().filter(user=request.user)[0]
     else:
         customer = Customer.objects.all().filter(name='anon'+str(request.session.session_key))[0]
     
@@ -83,7 +83,7 @@ def delete_item_from_cart(request, id):
 def checkout(request):
     items = []
     if request.user.is_authenticated:
-        customer = request.user.customer
+        customer = Customer.objects.all().filter(user=request.user)[0]
     else:
         customer = Customer.objects.all().filter(name='anon'+str(request.session.session_key))[0]
 
@@ -107,7 +107,7 @@ def checkout(request):
 def product(request, id):
 
     if request.user.is_authenticated:
-        customer = request.user.customer
+        customer = Customer.objects.all().filter(user=request.user)[0]
     else:
         customer = Customer.objects.all().filter(name='anon'+str(request.session.session_key))[0]
 

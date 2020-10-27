@@ -104,7 +104,7 @@ def product(request, id):
         form = orderItemForm(request.POST)
         if form.is_valid():
             instance = form.save(commit=False)
-            instance.product = selected_product[0]
+            instance.product = selected_product
             instance.order = order
             instance.save()
             return HttpResponseRedirect(request.path_info)

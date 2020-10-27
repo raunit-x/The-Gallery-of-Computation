@@ -26,8 +26,5 @@ urlpatterns = [
     path('update_item/', views.updateItem, name='update_item'),
     path('cart/delete_item/<int:id>', views.delete_item_from_cart, name='delete_item_cart'),
     path('payment/', views.payment, name='payment'),
-    
-    path('create/', views.create_session,name='create'),
-    path('access/',views.access_session,name='access'),
 ]
 

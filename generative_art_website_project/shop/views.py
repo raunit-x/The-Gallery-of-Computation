@@ -11,6 +11,7 @@ from django.contrib import auth
 from django.http import JsonResponse
 from .forms import ShippingAddressForm, orderItemForm
 from django.http import HttpResponseRedirect, HttpResponse
+from django.contrib.auth.models import User
 
 
 # Create your views here.
@@ -42,19 +43,26 @@ def shop(request):
     if not request.user.is_authenticated:
         if not request.session or not request.session.session_key:
             request.session.save()
-        session = request.session.session_key
-        print(str(session))
+            user = User.objects.all().filter(username='anon')
+            customer = Customer.objects.create(
+                user = user[0],
+                name = 'anon'+str(request.session.session_key),
+                email = 'anon@genart.com',
+            )   
+            customer.save()   
+        
     context = {'products': products, 'page_title': "Shop: The Gallery of Computation"}
     return render(request, 'shop/shop.html', context)
 
 
 def cart(request):
-    items = []
-    order = {'get_cart_total': 0}
     if request.user.is_authenticated:
         customer = request.user.customer
-        order, created = Order.objects.get_or_create(customer=customer, complete=False)
-        items = order.orderitem_set.all()
+    else:
+        customer = Customer.objects.all().filter(name='anon'+str(request.session.session_key))[0]
+    
+    order, created = Order.objects.get_or_create(customer=customer, complete=False)
+    items = order.orderitem_set.all()
     context = {'items': items, 'order': order, 'page_title': "Cart: The Gallery of Computation"}
     return render(request, 'shop/cart.html', context)
 
@@ -64,7 +72,9 @@ def delete_item_from_cart(request, id):
     order = {'get_cart_total': 0}
     if request.user.is_authenticated:
         customer = request.user.customer
-        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+    else:
+        customer = Customer.objects.all().filter(name='anon'+str(request.session.session_key))[0]
+    order, created = Order.objects.get_or_create(customer=customer, complete=False)
     order_item_to_be_deleted = order.orderitem_set.get(product=id)
     order_item_to_be_deleted.delete()
     return cart(request)
@@ -74,10 +84,12 @@ def checkout(request):
     items = []
     if request.user.is_authenticated:
         customer = request.user.customer
-        order, created = Order.objects.get_or_create(customer=customer, complete=False)
-        items = order.orderitem_set.all()
-    customer = request.user.customer
+    else:
+        customer = Customer.objects.all().filter(name='anon'+str(request.session.session_key))[0]
+
     order, created = Order.objects.get_or_create(customer=customer, complete=False)
+    items = order.orderitem_set.all()
+
     form = ShippingAddressForm()
     if request.method == 'POST':
         form = ShippingAddressForm(request.POST)
@@ -86,25 +98,31 @@ def checkout(request):
             instance.order = order
             instance.save()
             return render(request, 'shop/payment.html')
+
     context = {'items': items, 'order': order, 'page_title': "Checkout: The Gallery of Computation", 'form': form}
     return render(request, 'shop/checkout.html', context)
 
 
 # id: Product id
 def product(request, id):
-    in_cart = False
+
     if request.user.is_authenticated:
         customer = request.user.customer
-        order, created = Order.objects.get_or_create(customer=customer, complete=False)
-        item = order.orderitem_set.filter(product=id)
-        if item:
-            in_cart = True
+    else:
+        customer = Customer.objects.all().filter(name='anon'+str(request.session.session_key))[0]
 
-    customer = request.user.customer
     selected_product = Product.objects.filter(id=id)
     order, created = Order.objects.get_or_create(customer=customer, complete=False)
+    item = order.orderitem_set.filter(product=id)
+
+    if item:
+        in_cart = True
+    else: 
+        in_cart = False
+
     form = orderItemForm()
     context = {'product': selected_product[0], 'in_cart': in_cart, 'form': form}
+    
     if request.method == 'POST':
         form = orderItemForm(request.POST)
         if form.is_valid():
@@ -131,18 +149,3 @@ def updateItem(request):
 def payment(request):
     return render(request, 'shop/payment.html')
 
-
-def create_session(request):
-    request.session['name'] = 'username'
-    request.session['password'] = 'password123'
-    return HttpResponse("<h1>dataflair<br> the session is set</h1>")
-
-def access_session(request):
-    response = "<h1>Welcome to Sessions of dataflair</h1><br>"
-    if request.session.get('name'):
-        response += "Name : {0} <br>".format(request.session.get('name'))
-    if request.session.get('password'):
-        response += "Password : {0} <br>".format(request.session.get('password'))
-        return HttpResponse(response)
-    else:
-        return render(request,'shop/create.html')

@@ -59,7 +59,9 @@
                 morbi
                 tristique senectus.
             </p>
-            {% if in_cart %}
+            {% if product.sold %}
+                <button class="button-disabled">SOLD</button>
+            {% elif in_cart %}
                 <button class="button disabled">Added to cart</button>
             {% else %}
                 <button class='purchase-button primary'>Purchase</button>
@@ -68,12 +70,14 @@
                         {% csrf_token %}
                         <b>Signature:</b>
                         {{ form.signature }}
-                        <b>Choose Print</b>
+                        <br>
+                        <b style="margin-top: 4em;">Choose Print:</b>
                         {{ form.printstyle }}
-                        <b>Other Instructions</b>
+                        <br>
+                        <b>Other Instructions:</b>
                         {{ form.other }}
                         <button type="submit" data-product={{ product.id }} data-action="add"
-                                class="update-cart button primary ">Add to Cart
+                                class="update-cart button primary " style="margin-top: 2em;">Add to Cart
                         </button>
                     </form>
                 </div>

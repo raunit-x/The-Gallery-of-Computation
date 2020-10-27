@@ -123,6 +123,7 @@ def product(request, id):
         if not img.default_image:
             sorted_images.append(img)
     images = sorted_images
+    print(form)
     context = {'product': selected_product, 'in_cart': in_cart, 'form': form, 'images': images}
     if request.method == 'POST':
         form = orderItemForm(request.POST)

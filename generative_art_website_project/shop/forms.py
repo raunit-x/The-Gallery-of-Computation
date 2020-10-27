@@ -8,6 +8,11 @@ class orderItemForm(ModelForm):
     class Meta:
         model = OrderItem
         fields = ['signature', 'printstyle', 'other']
+        # widgets = {
+        #     'signature': forms.ChoiceField(choices=[OrderItem.signature_choices]),
+        #     'printstyle': forms.ChoiceField(choices=[OrderItem.print_choices]),
+        #     'other': forms.TextInput(attrs={'type': 'text', 'name': 'other', 'placeholder': 'Any Other Details'})
+        # }
 
 
 class ShippingAddressForm(ModelForm):

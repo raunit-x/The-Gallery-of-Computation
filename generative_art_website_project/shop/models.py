@@ -60,7 +60,7 @@ class OrderItem(models.Model):
     order = models.ForeignKey(Order, on_delete=models.SET_NULL, blank=True, null=True)
     date_ordered = models.DateTimeField(auto_now_add=True)
     signature_choices = (('Front', 'Front'), ('Back', 'Back'), ('None', 'None'))
-    print_choices = (('Canvas', 'Canvas'), ('Paper', 'Paper'))
+    print_choices = (('Canvas', 'Canvas'), ('Matte Paper', 'Matte Paper'))
     printstyle = models.CharField(max_length=25, choices=print_choices, default='Canvas')
     signature = models.CharField(max_length=25, choices=signature_choices, default='Front')
     other = models.TextField(max_length=200, blank=True, null=True)

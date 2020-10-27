@@ -15,7 +15,7 @@ class rainDrop {
     reinitialize()
     {
         this.x = random(0, width);
-        this.y = random(0, height / 2);
+        this.y = random(0, height);
     }
 
     update()
@@ -24,7 +24,7 @@ class rainDrop {
         {
             this.reinitialize();
         }
-        if(this.y > height / 2)
+        if(this.y > height)
         {
             this.reinitialize();
         }
@@ -34,12 +34,11 @@ class rainDrop {
 
     show()
     {
-        strokeWeight(0.5);
-        stroke(color(100, 100, 100, 10));
+        strokeWeight(0.25);
+        stroke(color(100, 100, 100, 200));
         line(this.x, this.y, this.x - this.length, this.y + 0.6 * this.length);
     }
 }
-
 
 function setup()
 {
@@ -47,13 +46,13 @@ function setup()
     canvasBackground.style('z-index', '-1');
     canvasBackground.position(0, 0);
     background(255);
-    drops = new Array(20);
+    drops = new Array(500);
     for(let i = 0; i < drops.length; ++i)
         drops[i] = new rainDrop();
 }
+
 function draw() {
-    noLoop();
-    // background(255);
+    background(255);
     for(let drop of drops)
     {
         drop.update();

@@ -4,6 +4,8 @@
     <header>
         <a href="{% url 'shop' %}" class="button">&#10235; back to shop</a>
         {% if not items %}
+            <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+            <script src="{% static 'js/rainSketch.js' %}"></script>
             <h2 style="text-align: center!important;">Empty Cart!</h2>
             <div class="aln-center" style="text-align: center;">
             <img src="https://www.edvardmunch.org/images/paintings/the-scream.jpg"

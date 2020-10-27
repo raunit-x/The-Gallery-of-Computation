@@ -9,7 +9,8 @@ from django.utils import timezone
 from django.contrib import auth
 from django.http import JsonResponse
 from .forms import ShippingAddressForm, orderItemForm
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
+from django.contrib.auth.models import User
 
 
 # Create your views here.
@@ -38,17 +39,29 @@ def get_all_logged_in_users():
 def shop(request):
     products = list(Product.objects.all())
     products.sort(key=lambda x: aspect_ratio(x))
+    if not request.user.is_authenticated:
+        if not request.session or not request.session.session_key:
+            request.session.save()
+            user = User.objects.all().filter(username='anon')
+            customer = Customer.objects.create(
+                user = user[0],
+                name = 'anon'+str(request.session.session_key),
+                email = 'anon@genart.com',
+            )   
+            customer.save()   
+        
     context = {'products': products, 'page_title': "Shop: The Gallery of Computation"}
     return render(request, 'shop/shop.html', context)
 
 
 def cart(request):
-    items = []
-    order = {'get_cart_total': 0}
     if request.user.is_authenticated:
-        customer = request.user.customer
-        order, created = Order.objects.get_or_create(customer=customer, complete=False)
-        items = order.orderitem_set.all()
+        customer = Customer.objects.all().filter(user=request.user)[0]
+    else:
+        customer = Customer.objects.all().filter(name='anon'+str(request.session.session_key))[0]
+    
+    order, created = Order.objects.get_or_create(customer=customer, complete=False)
+    items = order.orderitem_set.all()
     context = {'items': items, 'order': order, 'page_title': "Cart: The Gallery of Computation"}
     return render(request, 'shop/cart.html', context)
 
@@ -57,8 +70,11 @@ def cart(request):
 def delete_item_from_cart(request, id):
     order = {'get_cart_total': 0}
     if request.user.is_authenticated:
-        customer = request.user.customer
-        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        customer = Customer.objects.all().filter(user=request.user)[0]
+    else:
+        customer = Customer.objects.all().filter(name='anon'+str(request.session.session_key))[0]
+    
+    order, created = Order.objects.get_or_create(customer=customer, complete=False)
     order_item_to_be_deleted = order.orderitem_set.get(product=id)
     order_item_to_be_deleted.delete()
     return cart(request)
@@ -67,11 +83,13 @@ def delete_item_from_cart(request, id):
 def checkout(request):
     items = []
     if request.user.is_authenticated:
-        customer = request.user.customer
-        order, created = Order.objects.get_or_create(customer=customer, complete=False)
-        items = order.orderitem_set.all()
-    customer = request.user.customer
+        customer = Customer.objects.all().filter(user=request.user)[0]
+    else:
+        customer = Customer.objects.all().filter(name='anon'+str(request.session.session_key))[0]
+
     order, created = Order.objects.get_or_create(customer=customer, complete=False)
+    items = order.orderitem_set.all()
+
     form = ShippingAddressForm()
     if request.method == 'POST':
         form = ShippingAddressForm(request.POST)
@@ -80,23 +98,28 @@ def checkout(request):
             instance.order = order
             instance.save()
             return render(request, 'shop/payment.html')
+
     context = {'items': items, 'order': order, 'page_title': "Checkout: The Gallery of Computation", 'form': form}
     return render(request, 'shop/checkout.html', context)
 
 
 # id: Product id
 def product(request, id):
-    in_cart = False
-    if request.user.is_authenticated:
-        customer = request.user.customer
-        order, created = Order.objects.get_or_create(customer=customer, complete=False)
-        item = order.orderitem_set.filter(product=id)
-        if item:
-            in_cart = True
 
-    customer = request.user.customer
+    if request.user.is_authenticated:
+        customer = Customer.objects.all().filter(user=request.user)[0]
+    else:
+        customer = Customer.objects.all().filter(name='anon'+str(request.session.session_key))[0]
+
     selected_product = Product.objects.filter(id=id)[0]
     order, created = Order.objects.get_or_create(customer=customer, complete=False)
+    item = order.orderitem_set.filter(product=id)
+
+    if item:
+        in_cart = True
+    else: 
+        in_cart = False
+
     form = orderItemForm()
     images = selected_product.productimage_set.all()
     context = {'product': selected_product, 'in_cart': in_cart, 'form': form, 'images': images}
@@ -125,3 +148,4 @@ def updateItem(request):
 
 def payment(request):
     return render(request, 'shop/payment.html')
+

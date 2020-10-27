@@ -3,9 +3,24 @@
 {% block content %}
     <a href="{% url 'shop' %}" class="button" style="margin-bottom:2em;">&larr; Back to Shop</a>
     <div class="row gtr-uniform aln-center">
-        <div class=" col-6 col-12-xsmall product-image">
-            <img src="{{ product.get_default_image_url }}" alt="">
+        <div class=" col-6 col-12-xsmall product-image slideshow-container">
+            {% for image_obj in images %}
+                <div class="mySlides fade">
+                    <img src="{{ image_obj.image.url }}" style="width:100%">
+                </div>
+            {% endfor %}
+
+            <!-- Next and previous buttons -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            <br>
+            <div style="text-align:center">
+                {% for image_obj in images %}
+                    <span class="dot" onclick="currentSlide( {{ forloop.counter }} )"><img alt="" style="height: 3em;" src="{{ image_obj.image.url }}"></span>
+                {% endfor %}
+            </div>
         </div>
+
         <div class=" col-6 col-12-xsmall product-information">
             <h1>{{ product.name }}</h1>
             <p>${{ product.price }}</p>
@@ -23,8 +38,9 @@
             <p class="description-para">
                 <b>About the prints</b> <br>
             <p class="description-para">
-            All the prints are done by an extremely reliable fine arts printing shop located in Hyderabad, India. A <b>300 dpi</b> state of the art
-            <b>Epson</b> industry quality printer is used.
+                All the prints are done by an extremely reliable fine arts printing shop located in Hyderabad,
+                India. A <b>300 dpi</b> state of the art
+                <b>Epson</b> industry quality printer is used.
             </p>
             We offer two types of physical prints:
             <ol style="margin-left: 1em">
@@ -43,7 +59,8 @@
                 <b>Shipping</b> <br>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eget pellentesque dui. Proin
                 laoreet condimentum ex vitae dictum. Nullam eu rhoncus nulla. Sed et dignissim enim, in sollicitudin
-                quam. <br> <br> Nunc laoreet elit tortor, sed cursus ante sollicitudin quis. Pellentesque habitant morbi
+                quam. <br> <br> Nunc laoreet elit tortor, sed cursus ante sollicitudin quis. Pellentesque habitant
+                morbi
                 tristique senectus.
             </p>
             {% if in_cart %}

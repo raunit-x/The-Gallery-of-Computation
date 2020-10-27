@@ -111,7 +111,7 @@ def product(request, id):
     else:
         customer = Customer.objects.all().filter(name='anon'+str(request.session.session_key))[0]
 
-    selected_product = Product.objects.filter(id=id)
+    selected_product = Product.objects.filter(id=id)[0]
     order, created = Order.objects.get_or_create(customer=customer, complete=False)
     item = order.orderitem_set.filter(product=id)
 

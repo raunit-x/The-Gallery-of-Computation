@@ -2,7 +2,6 @@ from django.shortcuts import render
 from .models import *
 from django.templatetags.static import static
 from django.contrib.auth import authenticate, login
-from PIL import Image
 import numpy
 import imagesize
 from django.contrib.sessions.models import Session
@@ -122,8 +121,8 @@ def product(request, id):
         in_cart = False
 
     form = orderItemForm()
-    context = {'product': selected_product[0], 'in_cart': in_cart, 'form': form}
-    
+    images = selected_product.productimage_set.all()
+    context = {'product': selected_product, 'in_cart': in_cart, 'form': form, 'images': images}
     if request.method == 'POST':
         form = orderItemForm(request.POST)
         if form.is_valid():

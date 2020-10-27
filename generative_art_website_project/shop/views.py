@@ -74,6 +74,7 @@ def delete_item_from_cart(request, id):
         customer = request.user.customer
     else:
         customer = Customer.objects.all().filter(name='anon'+str(request.session.session_key))[0]
+    
     order, created = Order.objects.get_or_create(customer=customer, complete=False)
     order_item_to_be_deleted = order.orderitem_set.get(product=id)
     order_item_to_be_deleted.delete()

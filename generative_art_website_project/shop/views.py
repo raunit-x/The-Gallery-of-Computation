@@ -94,9 +94,11 @@ def checkout(request):
         form = ShippingAddressForm(request.POST)
         if form.is_valid():
             instance = form.save(commit=False)
+            order.complete = True
+            order.save()
             instance.order = order
             instance.save()
-            return render(request,'shop/payment.html')
+            # return render(request,'shop/payment.html')
     context = {'items': items, 'order': order, 'page_title': "Cart: The Gallery of Computation",'form': form}
     return render(request, 'shop/checkout.html', context)
 

@@ -37,7 +37,7 @@
                             <!-- <input type="text" name="Country" id="country" value="" placeholder="Country"/> -->
                             {{form.country}}
                         </div>
-                        <div class="col-2 col-12-medium">
+                        <div class="col-2 col-12-medium" style="display: none;">
                             <!-- <input type="text" name="postal" id="postal" value="" placeholder="Postal Code"/> -->
                             {{form.postal}}
                         </div>
@@ -98,8 +98,9 @@
                     </div>
                     <div class="col-12">
                         <ul class="actions">
-                            <li><button type="submit" href="{% url 'checkout' %}" class="button primary" >Continue To Payment</button></li>
-                
+                            <!-- <li><button type="submit" href="{% url 'checkout' %}" class="button primary" >Continue To Payment</button></li> -->
+                            <li><button type="button" class="button primary" >Continue To Payment</button></li>
+
                             <li><input type="reset" value="Reset"/></li>
                         </ul>
                     </div>

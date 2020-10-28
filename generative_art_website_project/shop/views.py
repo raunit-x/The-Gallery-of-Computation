@@ -137,11 +137,9 @@ def product(request, id):
     return render(request, 'shop/product.html', context)
 
 
-def portfolio(request, id):
-    # fetches Product id
-    selected_product = Product.objects.filter(id=id)
-    context = {'product': selected_product[0]}
-    return render(request, 'shop/portfolio.html', context)
+def portfolio(request):
+    context = {'page_title': 'AI ART: The Gallery of Computation'}
+    return render(request, 'shop/ai_art.html', context)
 
 
 def updateItem(request):

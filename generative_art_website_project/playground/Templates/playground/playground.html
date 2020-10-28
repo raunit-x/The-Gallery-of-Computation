@@ -2,10 +2,14 @@
 {% load static %}
 {% block content %}
     <header>
+        <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+        <script src="{% static 'js/playground.js' %}"></script>
         <h5>Not your father's Art Form.</h5>
-
-        {#    <p><i>Not your father's art form</i></p>#}
     </header>
-    {#<h1>This is shop</h1>#}
+    <h2 style="text-align: center; margin-left: auto">Create Some Mandala Art</h2>
+    <p>Press <code>ENTER/RETURN</code> to clear the screen or <code>s</code> to save your Mandala Sketch!</p>
+    <div id="sketch-holder">
+
+    </div>
 
 {% endblock content %}

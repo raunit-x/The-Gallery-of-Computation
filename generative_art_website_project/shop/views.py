@@ -137,7 +137,7 @@ def product(request, id):
     return render(request, 'shop/product.html', context)
 
 
-def portfolio(request):
+def ai_art(request):
     context = {'page_title': 'AI ART: The Gallery of Computation'}
     return render(request, 'shop/ai_art.html', context)
 

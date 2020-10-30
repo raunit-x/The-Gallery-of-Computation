@@ -138,7 +138,8 @@ def product(request, id):
 
 
 def ai_art(request):
-    context = {'page_title': 'AI ART: The Gallery of Computation'}
+    ai_products = AIProduct.objects.all()
+    context = {'page_title': 'AI ART: The Gallery of Computation', 'ai_products': ai_products}
     return render(request, 'shop/ai_art.html', context)
 
 

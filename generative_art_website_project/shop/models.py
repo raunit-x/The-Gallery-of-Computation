@@ -39,6 +39,21 @@ class Product(models.Model):
             return ''
 
 
+class AIProduct(models.Model):
+    name = models.CharField(max_length=200, null=True)
+    information = models.TextField(null=True, blank=False)
+    image = models.ImageField(upload_to='static/images')
+
+    @property
+    def get_image_url(self):
+        try:
+            return self.image.url
+        except Exception as e:
+            print(f"Some exception occurred: {e}")
+
+        return ''
+
+
 class Order(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, blank=True, null=True)
     date_ordered = models.DateTimeField(auto_now_add=True)
@@ -92,7 +107,21 @@ class ProductImage(models.Model):
     default_image = models.BooleanField(default=False)
 
     @property
-    def getImageURL(self):
+    def get_image_url(self):
+        try:
+            url = self.image.url
+        except Exception as e:
+            print(f"URL not found: {e}")
+            url = ''
+        return url
+
+
+class AIProductImage(models.Model):
+    artwork_associated = models.ForeignKey(AIProduct, on_delete=models.CASCADE)
+    image = models.ImageField(null=True, blank=False)
+
+    @property
+    def get_image_url(self):
         try:
             url = self.image.url
         except Exception as e:

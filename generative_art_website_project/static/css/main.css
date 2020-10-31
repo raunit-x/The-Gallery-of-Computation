@@ -2365,6 +2365,7 @@ input[type="radio"] + label:before {
 .image img {
     border-radius: 0;
     display: block;
+    z-index: 1;
 }
 
 .image.left, .image.right {
@@ -3556,6 +3557,34 @@ button {
     to {
         opacity: 1
     }
+}
+
+.parent_div {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.base {
+    /*position: absolute;*/
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.sold {
+    background-color: brown;
+    /*font-family: 'Font Awesome 5 Brands', sans-serif;*/
+    color: white;
+    font-weight: 900;
+    position: absolute;
+    font-size: 0.8em;
+    top: 1.25em;
+    right: 0.2em;
+    z-index: 2;
+    padding: 4px;
+    /*border: 1px green solid;*/
 }
 
 @keyframes fade {

@@ -58,9 +58,11 @@ def cart(request):
         customer = Customer.objects.all().filter(user=request.user)[0]
     else:
         customer = Customer.objects.all().filter(name='anon' + str(request.session.session_key))[0]
-
     order, created = Order.objects.get_or_create(customer=customer, complete=False)
-    items = order.orderitem_set.all()
+    items = list(order.orderitem_set.all())
+    for item in items:
+        if item.product.sold:
+            order.orderitem_set.get(id=item.id).delete()
     context = {'items': items, 'order': order, 'page_title': "Cart: The Gallery of Computation"}
     return render(request, 'shop/cart.html', context)
 

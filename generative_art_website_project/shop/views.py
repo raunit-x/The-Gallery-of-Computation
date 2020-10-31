@@ -155,7 +155,13 @@ def payment(request):
 def clean_expired_customers():
     customers = Customer.objects.all()
     for customer in customers:
+        flag = True
         if customer.expiry_date and customer.expiry_date < timezone.now() :
-            customer.delete()
-    print("completed deleting customers at"+ str(timezone.now()))
+            orders = Order.objects.all().filter(customer=customer)
+            for order in orders:
+                if order.complete == True: flag = False
+            
+            if flag : customer.delete()
+   
+    print("completed deleting customers at "+ str(timezone.now()))
 

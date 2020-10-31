@@ -6,19 +6,21 @@
     </header>
     <h2>AI ART</h2>
     <section class="tiles">
-        {% for product in products %}
+        {% for product in ai_products %}
             <article class="artwork" id="artwork">
                 <span class="image">
-                    <img src="{{ product.get_default_image_url }}" alt="lol"/>
+                    <img src="{{ product.get_image_url }}" alt="lol"/>
                 </span>
                 <a href="{% url 'product' product.id%}" class="product">
                     <div class="price">
                         <h5>{{ product.name }}</h5>
-                        <p>${{ product.price|floatformat:2 }}</p>
+                        <p></p>
                     </div>
                 </a>
             </article>
+            <!-- <button data-product={{product.id}} data-action="add" class="update-cart">Add</button> -->
         {% endfor %}
     </section>
+
 
 {% endblock content %}

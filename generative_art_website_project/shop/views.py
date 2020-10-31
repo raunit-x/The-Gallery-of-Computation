@@ -94,7 +94,7 @@ def checkout(request):
             instance = form.save(commit=False)
             instance.order = order
             instance.save()
-            return render(request, 'shop/payment.html')
+            return render(request, 'shop/checkout.html  ')
 
     context = {'items': items, 'order': order, 'page_title': "Checkout: The Gallery of Computation", 'form': form}
     return render(request, 'shop/checkout.html', context)

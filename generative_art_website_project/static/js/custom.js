@@ -32,5 +32,18 @@ $(".purchase-button").click(function () {
     }
 });
 
+$(".payment").click(function () {
+    $(".payment-now").slideToggle("fast");
+    var $this = $(this);
+    $this.toggleClass("open");
+
+    if ($this.hasClass("open")) {
+        $this.css("display", "none");
+    } else {
+        $this.html("Read more");
+    }
+});
+
+
 
 

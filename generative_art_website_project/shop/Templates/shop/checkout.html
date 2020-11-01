@@ -10,7 +10,7 @@
             </header>
             <section>
             <!-- <h2>Form</h2> -->
-            <form method="post" action="#">
+            <form method="post" action="{% url 'success' %}">
                 <div class="row gtr-uniform aln-center">
                     <div class="col-6 col-12-medium nestedrow">
                         <div class="col-1 col-12-medium">
@@ -92,15 +92,54 @@
                 <div class="col-12">
                     <ul class="actions">
                         <li>
-                            <button type="submit" href="{% url 'checkout' %}" class="button primary">Continue To
+                            <button type="button" class="button primary payment">Continue To
                                 Payment
                             </button>
+            
                         </li>
-                        <li><input type="reset" value="Reset"/></li>
                     </ul>
                 </div>
                 </div>
+                <button type="submit" class="button primary formsubmit" style="display: none;"></button>
+                </button>
             </form>
+            <div class="row gtr-uniform aln-center ">
+                <div class="col-6 col-12-medium payment-now" style="padding-left: 12.5%;">
+                    <div id="paypal-button-container"></div>
+                </div>
+                <div class="col-6 col-12-medium ">
+                           
+                </div>
+            </div>
+            <script src="https://www.paypal.com/sdk/js?client-id=AZgHVXDZ5L1LwEVjY8OX6d2Kh1SPSqgUyF8PPboY6zq0vjKWwbNmz0eYP1csAUCkCGq7HBZBiGTTyQO8&currency=USD"></script>
+
+        <script>
+            // Render the PayPal button into #paypal-button-container
+            var total = '{{order.get_cart_total|floatformat:2}}'
+            paypal.Buttons({
+                // Set up the transaction
+                createOrder: function(data, actions) {
+                    return actions.order.create({
+                        purchase_units: [{
+                            amount: {
+                                value: total
+                            }
+                        }]
+                    });
+                },
+
+                // Finalize the transaction
+                onApprove: function(data, actions) {
+                    return actions.order.capture().then(function(details) {
+                        // Show a success message to the buyer      
+                        jQuery(".formsubmit").click();
+                        alert('Transaction completed by ' + details.payer.name.given_name + '!');
+                    });
+                }
+
+
+            }).render('#paypal-button-container');
+        </script>
         {% endif %}
         </section>
 {% endblock content %}

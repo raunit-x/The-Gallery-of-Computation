@@ -98,8 +98,10 @@ def checkout(request):
         if form.is_valid():
             instance = form.save(commit=False)
             instance.order = order
+            order.complete = True
+            order.save()
             instance.save()
-            return render(request, 'shop/checkout.html  ')
+            return render(request, 'shop/checkout.html')
 
     context = {'items': items, 'order': order, 'page_title': "Checkout: The Gallery of Computation", 'form': form}
     return render(request, 'shop/checkout.html', context)
@@ -152,8 +154,8 @@ def updateItem(request):
     return JsonResponse('Item was added', safe=False)
 
 
-def payment(request):
-    return render(request, 'shop/payment.html')
+def success(request):
+    return render(request, 'shop/success.html')
 
 def clean_expired_customers():
     customers = Customer.objects.all()

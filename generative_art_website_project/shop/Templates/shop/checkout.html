@@ -115,14 +115,14 @@
 
         <script>
             // Render the PayPal button into #paypal-button-container
-            var total = '{{order.get_cart_total|floatformat:2}}'
+            
             paypal.Buttons({
                 // Set up the transaction
                 createOrder: function(data, actions) {
                     return actions.order.create({
                         purchase_units: [{
                             amount: {
-                                value: total
+                                value: '{{order.get_cart_total|floatformat:2}}'
                             }
                         }]
                     });

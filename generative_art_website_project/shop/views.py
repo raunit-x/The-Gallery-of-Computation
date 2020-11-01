@@ -1,3 +1,4 @@
+from django.db.models.fields import NullBooleanField
 from django.shortcuts import render
 from .models import *
 from django.templatetags.static import static
@@ -5,6 +6,7 @@ from django.contrib.auth import authenticate, login
 import numpy
 import imagesize
 from django.contrib.sessions.models import Session
+import datetime
 from django.utils import timezone
 from django.contrib import auth
 from django.http import JsonResponse
@@ -49,6 +51,7 @@ def shop(request):
                 email='anon@genart.com',
             )
             customer.save()
+            clean_expired_customers()
     context = {'products': products, 'page_title': "Shop: The Gallery of Computation"}
     return render(request, 'shop/shop.html', context)
 
@@ -95,8 +98,10 @@ def checkout(request):
         if form.is_valid():
             instance = form.save(commit=False)
             instance.order = order
+            order.complete = True
+            order.save()
             instance.save()
-            return render(request, 'shop/checkout.html  ')
+            return render(request, 'shop/checkout.html')
 
     context = {'items': items, 'order': order, 'page_title': "Checkout: The Gallery of Computation", 'form': form}
     return render(request, 'shop/checkout.html', context)
@@ -149,5 +154,19 @@ def updateItem(request):
     return JsonResponse('Item was added', safe=False)
 
 
-def payment(request):
-    return render(request, 'shop/payment.html')
+def success(request):
+    return render(request, 'shop/success.html')
+
+def clean_expired_customers():
+    customers = Customer.objects.all()
+    for customer in customers:
+        flag = True
+        if customer.expiry_date and customer.expiry_date < timezone.now() :
+            orders = Order.objects.all().filter(customer=customer)
+            for order in orders:
+                if order.complete == True: flag = False
+            
+            if flag : customer.delete()
+   
+    print("completed deleting customers at "+ str(timezone.now()))
+

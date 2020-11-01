@@ -2625,7 +2625,9 @@ button:disabled,
 .purchase-form {
     display: none;
 }
-
+.payment-now {
+    display: none;
+}
 
 /* Tiles */
 

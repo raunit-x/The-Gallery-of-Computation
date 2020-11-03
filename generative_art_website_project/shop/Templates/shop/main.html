@@ -13,6 +13,7 @@
           href="https://raw.githubusercontent.com/raunit-x/Generative-Art-Gallery/master/images/spiral.png">
     <script type="text/javascript">
         let user = '{{request.user}}';
+
         function getToken(name) {
             let cookieValue = null;
             if (document.cookie && document.cookie !== '') {
@@ -28,13 +29,22 @@
             }
             return cookieValue;
         }
+
         var csrftoken = getToken('csrftoken');
     </script>
 </head>
 <body class="is-preload">
 <!-- Wrapper -->
-<div id="wrapper">
+{% if messages %}
 
+    {% for message in messages %}
+        <div {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+<div id="wrapper">
     <!-- Header -->
     <header id="header">
         <div class="inner">
@@ -57,7 +67,7 @@
                 <li><a href="{% url 'ai-art' %}">AI Art</a></li>
                 <li><a href="{% url 'shop' %}">Shop</a></li>
                 <li><a href="{% url 'cart' %}">Cart</a></li>
-{#                <li><a href="{% url 'checkout' %}">Checkout</a></li>#}
+                {#                <li><a href="{% url 'checkout' %}">Checkout</a></li>#}
             </ul>
         </div>
     </nav>
@@ -70,9 +80,7 @@
     <!-- Main -->
     <div id="main">
         <div class="inner">
-
             {% block content %}
-
             {% endblock content %}
         </div>
     </div>
@@ -81,21 +89,21 @@
     <footer id="footer">
         <div class="inner">
 
-                <h2>All About Generative Art In your Inbox</h2>
-                <p>Latest Art and Info about Generative Art. No spam, guaranteed.</p>
-                <form method="post" action="#">
-                    <div class="fields">
-                        <div class="field aln-center">
-                            <input type="email" name="email" id="email_footer" placeholder="Email"/>
-                        </div>
+            <h2>All About Generative Art In your Inbox</h2>
+            <p>Latest Art and Info about Generative Art. No spam, guaranteed.</p>
+            <form method="post" action="{% url 'subscribe' %}">
+                {% csrf_token %}
+                <div class="fields">
+                    <div class="field aln-center">
+                        {{ newsletter_form.email }}
                     </div>
-                    <div class="">
-                        <div class="subscribe">
-                            <input type="submit" value="Subscribe" id="subscribe" class="primary subscribe"/>
-                        </div>
+                </div>
+                <div class="">
+                    <div class="subscribe">
+                        <input type="submit" value="Subscribe" id="subscribe" class="primary subscribe"/>
                     </div>
-
-                </form>
+                </div>
+            </form>
 
             <!-- <section>
                     <h2>contact</h2>

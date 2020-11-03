@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 from django.forms import widgets
-from .models import OrderItem, ShippingAddress
+from .models import OrderItem, ShippingAddress, NewsLetterEmail
 from django import forms
 
 
@@ -8,11 +8,6 @@ class orderItemForm(ModelForm):
     class Meta:
         model = OrderItem
         fields = ['signature', 'printstyle', 'other']
-        # widgets = {
-        #     'signature': forms.ChoiceField(choices=[OrderItem.signature_choices]),
-        #     'printstyle': forms.ChoiceField(choices=[OrderItem.print_choices]),
-        #     'other': forms.TextInput(attrs={'type': 'text', 'name': 'other', 'placeholder': 'Any Other Details'})
-        # }
 
 
 class ShippingAddressForm(ModelForm):
@@ -29,3 +24,15 @@ class ShippingAddressForm(ModelForm):
             'city': forms.TextInput(attrs={'type': 'text', 'name': 'city', 'placeholder': 'City'}),
             'state': forms.TextInput(attrs={'type': 'text', 'name': 'state', 'placeholder': 'State'}),
         }
+
+
+class NewsletterForm(ModelForm):
+    class Meta:
+        model = NewsLetterEmail
+        fields = ['email']
+        widgets = {'email': forms.TextInput(attrs={
+            'type': 'email',
+            'name': 'email',
+            'placeholder': 'Email',
+            'class': 'email_footer'
+        })}

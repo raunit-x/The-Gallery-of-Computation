@@ -2625,6 +2625,7 @@ button:disabled,
 .purchase-form {
     display: none;
 }
+
 .payment-now {
     display: none;
 }
@@ -3456,10 +3457,11 @@ body.is-menu-visible #menu .close {
     border-radius: 0;
 }
 
-#email_footer {
-    width: 40%;
+.email_footer {
+    width: 20%;
     text-align: center;
-    margin-left: 30%;
+    justify-content: center;
+    margin-left: auto;
 }
 
 
@@ -3596,4 +3598,43 @@ button {
     to {
         opacity: 1
     }
+}
+
+/* The alert message box */
+.success {
+    padding: 15px;
+    background-color: #f2849e;
+    color: white;
+    height: 3em;
+    justify-content: center;
+    text-align: center;
+}
+
+.info {
+    padding: 15px;
+    background-color: dimgrey;
+    color: white;
+    height: 3em;
+    justify-content: center;
+    text-align: center;
+}
+
+/* The close button */
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 1.5em;
+    cursor: pointer;
+    line-height: 30px;
+    display: inline-block;
+    vertical-align:middle;
+
+    transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+    color: black;
 }

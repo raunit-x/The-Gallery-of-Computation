@@ -8,7 +8,7 @@ import imagesize
 from django.contrib.sessions.models import Session
 import datetime
 from django.utils import timezone
-from django.contrib import auth
+from django.contrib import messages
 from django.http import JsonResponse
 from .forms import ShippingAddressForm, orderItemForm
 from django.http import HttpResponseRedirect, HttpResponse
@@ -130,7 +130,6 @@ def product(request, id):
         if not img.default_image:
             sorted_images.append(img)
     images = sorted_images
-    print(form)
     context = {'product': selected_product, 'in_cart': in_cart, 'form': form, 'images': images}
     if request.method == 'POST':
         form = orderItemForm(request.POST)
@@ -165,8 +164,25 @@ def clean_expired_customers():
         if customer.expiry_date and customer.expiry_date < timezone.now():
             orders = Order.objects.all().filter(customer=customer)
             for order in orders:
-                if order.complete == True: flag = False
-
-            if flag: customer.delete()
+                if order.complete:
+                    flag = False
+            if flag:
+                customer.delete()
 
     print("completed deleting customers at " + str(timezone.now()))
+
+
+def subscribe(request):
+    if request.method == 'POST':
+        form_data = request.POST.copy()
+        email = form_data.get('email').lower()
+        flag = len(NewsLetterEmail.objects.filter(email=email))
+        if flag:
+            messages.info(request, f'{email} has already subscribed. Thank you!')
+        else:
+            newsletter_object = NewsLetterEmail()
+            newsletter_object.email = email
+            newsletter_object.save()
+            messages.success(request, f'Thank you! {email} has been successfully added.')
+        return HttpResponseRedirect(request.META['HTTP_REFERER'])
+    return render(request, 'shop/subscribe.html', context={'page_title': 'Subscribe: The Gallery of Computation'})

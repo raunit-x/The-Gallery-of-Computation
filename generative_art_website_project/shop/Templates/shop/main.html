@@ -40,7 +40,8 @@
     {% for message in messages %}
         <div {% if message.tags %} class="{{ message.tags }}" {% endif %}>
             <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-            {{ message }}
+            {{ message|safe }}
+
         </div>
     {% endfor %}
 {% endif %}

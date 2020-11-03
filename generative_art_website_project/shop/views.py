@@ -134,7 +134,7 @@ def product(request, id):
             instance.product = selected_product
             instance.order = order
             instance.save()
-            messages.success(request, f'{selected_product.name} has been successfully added to your cart.')
+            messages.success(request, f'<b>{selected_product.name.upper()}</b> has been successfully added to your cart.')
             return HttpResponseRedirect(request.path_info)
 
     return render(request, 'shop/product.html', context)
@@ -174,11 +174,11 @@ def subscribe(request):
         email = form_data.get('email').lower()
         flag = len(NewsLetterEmail.objects.filter(email=email))
         if flag:
-            messages.info(request, f'{email} has already subscribed. Thank you!')
+            messages.info(request, f'<b>{email}</b> has already subscribed. Thank you!')
         else:
             newsletter_object = NewsLetterEmail()
             newsletter_object.email = email
             newsletter_object.save()
-            messages.success(request, f'Thank you! {email} has been successfully added.')
+            messages.success(request, f'Thank you! <b>{email}</b> has been successfully added.')
         return HttpResponseRedirect(request.META['HTTP_REFERER'])
     return render(request, 'shop/subscribe.html', context={'page_title': 'Subscribe: The Gallery of Computation'})

@@ -1,17 +1,13 @@
-from django.db.models.fields import NullBooleanField
 from django.shortcuts import render
 from .models import *
 from django.templatetags.static import static
-from django.contrib.auth import authenticate, login
-import numpy
 import imagesize
 from django.contrib.sessions.models import Session
-import datetime
 from django.utils import timezone
 from django.contrib import messages
 from django.http import JsonResponse
 from .forms import ShippingAddressForm, orderItemForm
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 
 
@@ -138,6 +134,7 @@ def product(request, id):
             instance.product = selected_product
             instance.order = order
             instance.save()
+            messages.success(request, f'{selected_product.name} has been successfully added to your cart.')
             return HttpResponseRedirect(request.path_info)
 
     return render(request, 'shop/product.html', context)
@@ -168,7 +165,6 @@ def clean_expired_customers():
                     flag = False
             if flag:
                 customer.delete()
-
     print("completed deleting customers at " + str(timezone.now()))
 
 

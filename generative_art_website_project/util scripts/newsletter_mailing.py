@@ -6,7 +6,6 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 subject = "New exciting stuff we wanted you to know about The Gallery of Computation"
-body = "You are seeing this message because you had subscribed to our newsletter."
 sender_email = "raunitxgenerativeart@gmail.com"
 receiver_email = "raunit88@gmail.com"
 password = input("Type your password and press enter:")
@@ -24,7 +23,7 @@ html = """\
   <head></head>
   <body>
     <div style="width: 80%; justify-content: center; align-text: center;">
-    <img src="{%  static '/images/ai_gif.gif' %}"
+    <img src="https://github.com/raunit-x/Generative-Art-Gallery/blob/master/images/ezgif.com-gif-maker.gif?raw=true"
              alt="A cool gif">
     <p>Hi!<br>
        How are you?<br>
@@ -36,7 +35,6 @@ html = """\
   </body>
 </html>
 """
-message.attach(MIMEText(body, "plain"))
 message.attach(MIMEText(html, "html"))
 
 text = message.as_string()

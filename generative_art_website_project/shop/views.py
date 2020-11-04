@@ -182,3 +182,17 @@ def subscribe(request):
             messages.success(request, f'Thank you! <b>{email}</b> has been successfully added.')
         return HttpResponseRedirect(request.META['HTTP_REFERER'])
     return render(request, 'shop/subscribe.html', context={'page_title': 'Subscribe: The Gallery of Computation'})
+
+
+def unsubscribe(request):
+    if request.method == 'POST':
+        form_data = request.POST.copy()
+        email = form_data.get('email').lower()
+        newsletter_object = NewsLetterEmail.objects.filter(email=email)
+        if not len(newsletter_object):
+            messages.info(request, f'<b>{email}</b> has not subscribed!')
+        else:
+            NewsLetterEmail.objects.filter(email=email).delete()
+            messages.success(request, f'<b>{email}</b> has been successfully removed from our database.')
+        return HttpResponseRedirect(request.META['HTTP_REFERER'])
+    return render(request, 'shop/unsubscribe.html', context={'page_title': 'Unsubscribe: The Gallery of Computation'})

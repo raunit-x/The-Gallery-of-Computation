@@ -3436,12 +3436,16 @@ body.is-menu-visible #menu .close {
     font-size: 1em;
 }
 
+#unsubscribe h2 {
+    margin-bottom: 0;
+    font-size: 1em;
+}
+
 #footer p {
     margin: 0;
     font-size: 0.75em;
     font-weight: 100;
     color: gray;
-
 }
 
 #footer input[type="submit"] {
@@ -3455,6 +3459,13 @@ body.is-menu-visible #menu .close {
 /*}*/
 #subscribe {
     border-radius: 0;
+}
+
+#unsubscribe p {
+    margin: 0;
+    font-size: 0.75em;
+    font-weight: 100;
+    color: gray;
 }
 
 .email_footer {
@@ -3638,3 +3649,5 @@ button {
 .closebtn:hover {
     color: black;
 }
+
+

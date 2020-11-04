@@ -27,5 +27,6 @@ urlpatterns = [
     path('cart/delete_item/<int:id>', views.delete_item_from_cart, name='delete_item_cart'),
     path('success/', views.success, name='success'),
     path('subscribe/', views.subscribe, name='subscribe'),
+    path('unsubscribe/', views.unsubscribe, name='unsubscribe'),
 ]
 

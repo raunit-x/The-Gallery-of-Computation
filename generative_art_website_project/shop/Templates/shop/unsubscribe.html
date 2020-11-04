@@ -1,0 +1,29 @@
+{% extends 'shop/main.html' %}
+{% load static %}
+{% block content %}
+    <header>
+        <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+        <script src="{% static 'js/playground.js' %}"></script>
+        <h5>Not your father's Art Form.</h5>
+    </header>
+    <div class="align-center" id="unsubscribe"  style="background-color: whitesmoke; padding: 45px; margin-top: 10%;">
+        <h2>Enter your Email Address to unsubscribe</h2>
+        <p>No hard feelings whatsoever :)</p>
+        <form method="post" action="{% url 'unsubscribe' %}">
+                {% csrf_token %}
+                <div class="fields">
+                    <div class="fields align-center" style="width: 50%; margin: auto; margin-top: 2em;">
+                        {{ newsletter_form.email }}
+                    </div>
+                </div>
+                <div class="aln-center">
+                    <div class="subscribe">
+                        <input type="submit" value="Unsubscribe" id="subscribe" class="primary subscribe"/>
+                    </div>
+                </div>
+            </form>
+    </div>
+{% endblock content %}
+
+{% block footer_block %}
+{% endblock %}

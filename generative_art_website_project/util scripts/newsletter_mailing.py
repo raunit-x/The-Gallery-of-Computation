@@ -5,8 +5,8 @@ from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-subject = "An email with attachment from Python"
-body = "This is an email with attachment sent from Python"
+subject = "New exciting stuff we wanted you to know about The Gallery of Computation"
+body = "You are seeing this message because you had subscribed to our newsletter."
 sender_email = "raunitxgenerativeart@gmail.com"
 receiver_email = "raunit88@gmail.com"
 password = input("Type your password and press enter:")
@@ -19,7 +19,25 @@ message["Subject"] = subject
 message["Bcc"] = receiver_email  # Recommended for mass emails
 
 # Add body to email
+html = """\
+<html>
+  <head></head>
+  <body>
+    <div style="width: 80%; justify-content: center; align-text: center;">
+    <img src="{%  static '/images/ai_gif.gif' %}"
+             alt="A cool gif">
+    <p>Hi!<br>
+       How are you?<br>
+       Here is the <a href="http://www.python.org">link</a> you wanted.
+    </p>
+    <h6>You are seeing this message because you had subscribed to our newsletter.</h6>
+    <h6>Want to unsubscribe? <a href="#">Click Here</a></h6>
+    </div>
+  </body>
+</html>
+"""
 message.attach(MIMEText(body, "plain"))
+message.attach(MIMEText(html, "html"))
 
 text = message.as_string()
 

@@ -6,22 +6,36 @@
         <script src="{% static 'js/playground.js' %}"></script>
         <h5>Not your father's Art Form.</h5>
     </header>
-    <div class="align-center" id="unsubscribe"  style="background-color: whitesmoke; padding: 45px; margin-top: 10%;">
+    <div class="align-center" id="unsubscribe" style="background-color: whitesmoke; padding: 45px; margin-top: 10%;">
         <h2>Enter your Email Address to unsubscribe</h2>
         <p>No hard feelings, whatsoever.</p>
         <form method="post" action="{% url 'unsubscribe' %}">
-                {% csrf_token %}
-                <div class="fields">
-                    <div class="fields align-center" style="width: 50%; margin: auto; margin-top: 2em;">
-                        {{ newsletter_form.email }}
-                    </div>
+            {% csrf_token %}
+            <div class="fields">
+                <div class="fields align-center" style="width: 50%; margin: auto; margin-top: 2em;">
+                    {{ newsletter_form.email }}
                 </div>
-                <div class="aln-center">
-                    <div class="subscribe">
-                        <input type="submit" value="Unsubscribe" id="subscribe" class="primary subscribe"/>
-                    </div>
+            </div>
+            <div class="aln-center">
+                <div class="subscribe">
+                    <input type="submit" value="Unsubscribe" id="subscribe" class="primary subscribe"/>
                 </div>
-            </form>
+            </div>
+        </form>
+        <div>
+            <ul class="icons">
+                <li><a href="https://instagram.com/raunit_x" target="_blank"
+                       class="icon brands style2 fa-instagram"></a></li>
+                <li><a href="https://github.com/raunit-x" target="_blank"
+                       class="icon brands style2 fa-github"></a></li>
+                <li><a href="mailto:raunit88@gmail.com" target="_blank"
+                       class="icon solid style2 fa-envelope"></a></li>
+                <li><a href="https://medium.com/@raunit_x" target="_blank"
+                       class="icon brands style2 fa-medium"></a>
+                </li>
+            </ul>
+        </div>
+    </div>
     </div>
 {% endblock content %}
 

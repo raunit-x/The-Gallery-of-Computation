@@ -88,38 +88,44 @@
 
     <!-- Footer -->
     {% block footer_block %}
-    <footer id="footer">
-        <div class="inner">
-            <h2>All About Generative Art In your Inbox</h2>
-            <p>Latest Art and Info about Generative Art. No spam, guaranteed.</p>
-            <form method="post" action="{% url 'subscribe' %}">
-                {% csrf_token %}
-                <div class="fields">
-                    <div class="field aln-center">
-                        {{ newsletter_form.email }}
+        <footer id="footer">
+            <div class="inner">
+                <h2>All About Generative Art In your Inbox</h2>
+                <p>Latest Art and Info about Generative Art. No spam, guaranteed.</p>
+                <form method="post" action="{% url 'subscribe' %}">
+                    {% csrf_token %}
+                    <div class="fields">
+                        <div class="field aln-center">
+                            {{ newsletter_form.email }}
+                        </div>
                     </div>
-                </div>
-                <div class="">
-                    <div class="subscribe">
-                        <input type="submit" value="Subscribe" id="subscribe" class="primary subscribe"/>
+                    <div class="">
+                        <div class="subscribe">
+                            <input type="submit" value="Subscribe" id="subscribe" class="primary subscribe"/>
+                        </div>
                     </div>
-                </div>
-            </form>
-            <h6 style="font-size: 0.50em;">Don't want this? <a href="{% url 'unsubscribe' %}" style="color: #f2849e">Unsubscribe</a></h6>
-            <!-- <section>
-                    <h2>contact</h2>
-                <ul class="icons">
-                    <li><a href="https://instagram.com/raunit_x" target="_blank" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
-                    <li><a href="https://github.com/raunit-x" target="_blank" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
-                    <li><a href="mailto:raunit88@gmail.com" target="_blank" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
-                    <li><a href="https://medium.com/@raunit_x" target="_blank" class="icon brands style2 fa-medium"><span class="label">Medium</span></a></li>
+                </form>
+                <h6 style="font-size: 0.50em;">Don't want this? <a href="{% url 'unsubscribe' %}"
+                                                                   style="color: #f2849e">Unsubscribe</a></h6>
+                <ul class="copyright">
                 </ul>
-            </section> -->
-            <ul class="copyright">
-            </ul>
-        </div>
-    </footer>
-{% endblock %}
+                <div>
+                    <ul class="icons">
+                        <li><a href="https://instagram.com/raunit_x" target="_blank"
+                               class="icon brands style2 fa-instagram"></a></li>
+                        <li><a href="https://github.com/raunit-x" target="_blank"
+                               class="icon brands style2 fa-github"></a></li>
+                        <li><a href="mailto:raunit88@gmail.com" target="_blank"
+                               class="icon solid style2 fa-envelope"></a></li>
+                        <li><a href="https://medium.com/@raunit_x" target="_blank"
+                               class="icon brands style2 fa-medium"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    {% endblock %}
+
 
 </div>
 <!-- Scripts -->

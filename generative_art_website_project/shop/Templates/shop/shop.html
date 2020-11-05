@@ -20,8 +20,10 @@
 {#            </div>#}
                 <a href="{% url 'product' product.id%}" class="product">
                     <div class="price">
-                        <h5>{{ product.name }}</h5>
-                        <p>${{ product.price|floatformat:2 }}</p>
+                        <div class="labels">
+                            <h5>{{ product.name }}</h5>
+                            <p>${{ product.price|floatformat:2 }}</p>
+                        </div>
                     </div>
                 </a>
             </article>

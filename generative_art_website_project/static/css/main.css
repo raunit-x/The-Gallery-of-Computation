@@ -2804,7 +2804,7 @@ button:disabled,
     display: -moz-flex;
     display: -webkit-flex;
     display: -ms-flex;
-    display: flex;
+    display: block;
     -moz-flex-direction: column;
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
@@ -2819,9 +2819,18 @@ button:disabled,
     justify-content: center;
     position: absolute;
     padding: 9px;
-    bottom: 0;
+    bottom: 5%;
+    /* top: 70%; */
+    height: 6em ;
+    width: 100%;
     color: dimgrey;
 }
+
+/* .price > .lables{
+    display: inline-block;
+    position: absolute !important;
+    bottom: 0;
+} */
 
 .ai_price {
     display: -moz-flex;
@@ -3243,7 +3252,7 @@ body.is-touch .tiles article .content {
 
 /* Menu */
 
-#wrapper {
+/* #wrapper {
     -moz-transition: opacity 0.45s ease;
     -webkit-transition: opacity 0.45s ease;
     -ms-transition: opacity 0.45s ease;
@@ -3425,8 +3434,57 @@ body.is-menu-visible #menu .close {
     -ms-transform: scale(1.0) rotate(0deg);
     transform: scale(1.0) rotate(0deg);
     opacity: 1;
+} */
+
+/* fixed Nav */
+#fixednav{
+    position: fixed;
+    top: 0;
+    background:white!important;
+    left:100%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow:  hidden;
+    z-index: 10;
+    transition: all .5s;
 }
 
+#fixednav ul li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+}
+
+#fixednav ul li a{
+    font-size: 28px;
+    font-weight: 550; 
+}
+
+#fixednav ul li a:hover{
+ color: #EC969F;
+ 
+ cursor: grab;
+}
+
+#fixednav .Logo-fixed{
+    position: absolute;
+    left: 20px;
+    top:  20px;
+    font-size: 25px;
+    color: grey;
+    font-weight: 550;
+}
+
+#fixednav.active{
+    transition: all .5s;
+    left: 0%;
+    opacity: 1!important;
+
+}
 /* Main */
 
 #main {

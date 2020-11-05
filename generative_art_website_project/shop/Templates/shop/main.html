@@ -72,6 +72,17 @@
             </ul>
         </div>
     </nav>
+    <nav id="fixednav">
+        <a href="{% url 'shop' %}" class="Logo-fixed">
+            The Gallery of Computation
+        </a>
+        <ul>
+            <li><a href="{% url 'playground-home' %}">Playground</a></li>
+                <li><a href="{% url 'ai-art' %}">AI</a></li>
+                <li><a href="{% url 'shop' %}">Shop</a></li>
+                <li><a href="{% url 'cart' %}">Cart</a></li>
+        </ul>
+    </nav>
     <!-- hamburger -->
     <button class="header_btn" onclick="toggleSideBar()">
         <span></span>

@@ -95,7 +95,7 @@
                 <form method="post" action="{% url 'subscribe' %}">
                     {% csrf_token %}
                     <div class="fields">
-                        <div class="field aln-center">
+                        <div class="field half align-center">
                             {{ newsletter_form.email }}
                         </div>
                     </div>
@@ -105,8 +105,8 @@
                         </div>
                     </div>
                 </form>
-                <h6 style="font-size: 0.50em;">Don't want this? <a href="{% url 'unsubscribe' %}"
-                                                                   style="color: #f2849e">Unsubscribe</a></h6>
+{#                <h6 style="font-size: 0.50em;">Don't want this? <a href="{% url 'unsubscribe' %}"#}
+{#                                                                   style="color: #f2849e">Unsubscribe</a></h6>#}
                 <ul class="copyright">
                 </ul>
                 <div>

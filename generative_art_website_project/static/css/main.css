@@ -292,6 +292,7 @@ hr.major {
 
 .align-center {
     text-align: center;
+    justify-content: center;
 }
 
 .align-right {
@@ -2131,10 +2132,13 @@ form > .fields > .field {
     flex-shrink: 0;
     padding: 1.5em 0 0 1.5em;
     width: calc(100% - 1.5em);
+    justify-content: center;
+    margin-left: auto;
 }
 
 form > .fields > .field.half {
     width: calc(50% - 0.75em);
+    margin-left: calc(25% - 0.375em);
 }
 
 form > .fields > .field.third {

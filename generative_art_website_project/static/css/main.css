@@ -575,6 +575,10 @@ hr.major {
     padding-top: 4em;
 }
 
+.checkout-product-table td {
+    font-size: 0.85em;
+}
+
 @media screen and (max-width: 1680px) {
 
     .row {
@@ -589,7 +593,7 @@ hr.major {
     }
 
     .row.gtr-uniform > * > :last-child {
-        margin-bottom: 0;
+        margin-bottom: 1em;
     }
 
     .row.aln-left {
@@ -854,6 +858,7 @@ hr.major {
         flex-wrap: wrap;
         box-sizing: border-box;
         align-items: stretch;
+        /*flex-direction: column;*/
     }
 
     .row > * {
@@ -990,19 +995,19 @@ hr.major {
 
     .row.gtr-0 {
         margin-top: 0;
-        margin-left: 0;
+        margin-left: 0em;
     }
 
     .row.gtr-0 > * {
-        padding: 0 0 0 0;
+        padding: 0 0 0 0em;
     }
 
     .row.gtr-0.gtr-uniform {
-        margin-top: 0;
+        margin-top: 0em;
     }
 
     .row.gtr-0.gtr-uniform > * {
-        padding-top: 0;
+        padding-top: 0em;
     }
 
     .row.gtr-25 {
@@ -1226,7 +1231,7 @@ hr.major {
     }
 
     .row > .col-12-medium {
-        width: 50%;
+        width: 100%;
     }
 
     .row > .off-12-medium {
@@ -1335,6 +1340,10 @@ hr.major {
         padding-top: 3em;
     }
 
+    .checkout-product-table td {
+        font-size: 1em;
+    }
+
 }
 
 @media screen and (max-width: 736px) {
@@ -1344,6 +1353,8 @@ hr.major {
         flex-wrap: wrap;
         box-sizing: border-box;
         align-items: stretch;
+        /*flex-direction: column;*/
+        /*width: 100%;*/
     }
 
     .row > * {
@@ -1580,6 +1591,9 @@ hr.major {
         padding-top: 2em;
     }
 
+    .checkout-product-table td {
+        font-size: 1em;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -1589,6 +1603,7 @@ hr.major {
         flex-wrap: wrap;
         box-sizing: border-box;
         align-items: stretch;
+        /*flex-direction: column;*/
     }
 
     .row > * {
@@ -1825,6 +1840,9 @@ hr.major {
         padding-top: 2em;
     }
 
+    .checkout-product-table td {
+        font-size: 1em;
+    }
 }
 
 /* Section/Article */
@@ -3700,7 +3718,7 @@ button {
     cursor: pointer;
     line-height: 30px;
     display: inline-block;
-    vertical-align:middle;
+    vertical-align: middle;
 
     transition: 0.3s;
 }

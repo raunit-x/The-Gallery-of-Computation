@@ -10,7 +10,7 @@
     </noscript>
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <link rel="icon" type="image/png"
-          href="https://raw.githubusercontent.com/raunit-x/Generative-Art-Gallery/master/images/spiral.png">
+          href="https://github.com/raunit-x/Generative-Art-Gallery/blob/master/images/logo%20goc.png?raw=true">
     <script type="text/javascript">
         let user = '{{request.user}}';
 
@@ -53,7 +53,8 @@
             <!-- Logo -->
             <a href="{% url 'shop' %}" class="logo">
                 <span class="symbol"><img
-                        src="https://raw.githubusercontent.com/raunit-x/Generative-Art-Gallery/master/images/spiral.png"
+                        src="https://github.com/raunit-x/Generative-Art-Gallery/blob/master/images/logo%20goc.png?raw=true"
+{#                        src="https://raw.githubusercontent.com/raunit-x/Generative-Art-Gallery/master/images/spiral.png"#}
                         alt=""/></span><span class="title">The Gallery of Computation</span>
             </a>
         </div>
@@ -73,14 +74,14 @@
         </div>
     </nav>
     <nav id="fixednav">
-        <a href="{% url 'shop' %}" class="Logo-fixed">
-            The Gallery of Computation
-        </a>
         <ul>
+            <li><a href="{% url 'shop' %}" class="Logo-fixed">
+                The Gallery of Computation
+            </a></li>
             <li><a href="{% url 'playground-home' %}">Playground</a></li>
-                <li><a href="{% url 'ai-art' %}">AI</a></li>
-                <li><a href="{% url 'shop' %}">Shop</a></li>
-                <li><a href="{% url 'cart' %}">Cart</a></li>
+            <li><a href="{% url 'ai-art' %}">AI</a></li>
+            <li><a href="{% url 'shop' %}">Shop</a></li>
+            <li><a href="{% url 'cart' %}">Cart</a></li>
         </ul>
     </nav>
     <!-- hamburger -->
@@ -116,8 +117,8 @@
                         </div>
                     </div>
                 </form>
-{#                <h6 style="font-size: 0.50em;">Don't want this? <a href="{% url 'unsubscribe' %}"#}
-{#                                                                   style="color: #f2849e">Unsubscribe</a></h6>#}
+                {#                <h6 style="font-size: 0.50em;">Don't want this? <a href="{% url 'unsubscribe' %}"#}
+                {#                                                                   style="color: #f2849e">Unsubscribe</a></h6>#}
                 <ul class="copyright">
                 </ul>
                 <div>

@@ -3450,6 +3450,7 @@ body.is-menu-visible #menu .close {
     overflow:  hidden;
     z-index: 10;
     transition: all .5s;
+    text-transform: uppercase;
 }
 
 #fixednav ul li{
@@ -3457,11 +3458,11 @@ body.is-menu-visible #menu .close {
     justify-content: center;
     align-items: center;
     padding: 10px 0;
+    color: dimgrey;
 }
 
 #fixednav ul li a{
     font-size: 28px;
-    font-weight: 550; 
 }
 
 #fixednav ul li a:hover{
@@ -3471,17 +3472,14 @@ body.is-menu-visible #menu .close {
 }
 
 #fixednav .Logo-fixed{
-    position: absolute;
-    left: 20px;
-    top:  20px;
-    font-size: 25px;
-    color: grey;
-    font-weight: 550;
+    /*position: absolute;*/
+    color: dimgrey;
+    font-weight: 900;
 }
 
 #fixednav.active{
     transition: all .5s;
-    left: 0%;
+    left: 0;
     opacity: 1!important;
 
 }

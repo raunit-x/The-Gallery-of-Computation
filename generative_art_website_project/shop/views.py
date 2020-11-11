@@ -9,6 +9,7 @@ from django.http import JsonResponse
 from .forms import ShippingAddressForm, orderItemForm
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
+import os
 
 
 # Create your views here.
@@ -35,6 +36,7 @@ def get_all_logged_in_users():
 
 
 def shop(request):
+    print(os.environ['SECRET_KEY'])
     products = list(Product.objects.all())
     products.sort(key=lambda x: aspect_ratio(x))
     if not request.user.is_authenticated:

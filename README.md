@@ -14,4 +14,36 @@
       <h5>Product Page</h5>
       <img src='/Images Readme/product.png' width='800' />
     </li>
+   <li>
+      <h5>Cart Page</h5>
+      <img src='/Images Readme/cart.png' width='800' />
+    </li>
+   <li>
+      <h5>Empty Cart</h5>
+      <img src='/Images Readme/empty cart.png' width='800' />
+    </li>
+   <li>
+      <h5>Playground</h5>
+      <img src='/Images Readme/playground.png' width='800' />
+    </li>
+   <li>
+      <h5>Checkout</h5>
+      <img src='/Images Readme/checkout.png' width='800' />
+    </li>
+   <li>
+      <h5>Payment using PayPal</h5>
+      <img src='/Images Readme/payment.png' width='800' />
+    </li>
+   <li>
+      <h5>AI Page</h5>
+      <img src='/Images Readme/ai.png' width='800' />
+    </li>
+   <li>
+      <h5>AI Artworks</h5>
+      <img src='/Images Readme/ai art.png' width='800' />
+    </li>
+   <li>
+      <h5>Footer</h5>
+      <img src='/Images Readme/footer.png' width='800' />
+    </li>
 </ul>

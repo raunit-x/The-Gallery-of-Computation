@@ -36,7 +36,6 @@ def get_all_logged_in_users():
 
 
 def shop(request):
-    print(os.environ['SECRET_KEY'])
     products = list(Product.objects.all())
     products.sort(key=lambda x: aspect_ratio(x))
     if not request.user.is_authenticated:

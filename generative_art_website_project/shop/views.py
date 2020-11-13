@@ -197,3 +197,8 @@ def unsubscribe(request):
             messages.success(request, f'<b>{email}</b> has been successfully removed from our database.')
         return HttpResponseRedirect(request.META['HTTP_REFERER'])
     return render(request, 'shop/unsubscribe.html', context={'page_title': 'Unsubscribe: The Gallery of Computation'})
+
+
+def about_process(request):
+    context = {'page_title': 'About Process: The Gallery of Computation'}
+    return render(request, 'shop/about_process.html', context=context)

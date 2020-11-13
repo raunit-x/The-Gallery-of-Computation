@@ -1,0 +1,20 @@
+{% extends 'shop/main.html' %}
+{% load static %}
+{% block content %}
+    <header>
+        <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+        <script src="{% static 'js/about_process.js' %}"></script>
+        <script src="{% static 'js/dejong.js' %}"></script>
+    </header>
+
+    <div class="code-in-art-out">
+        <h2>What is Generative Art?</h2>
+        <div id="ifs-holder" class="align-center">
+            <img src="{% static 'images/code.png' %}" alt="image" height="400px">
+        </div>
+        <p style="margin-top: 2em;">"One overly simple but useful definition is that
+        generative art is art programmed using a computer that intentionally introduces randomness as part of its
+        creation process" ~ <a href="https://www.artnome.com/news/2018/8/8/why-love-generative-art" class="underline_a" target="_blank" style="color: #f2849e">ARTNOME</a></p>
+    </div>
+
+{% endblock content %}

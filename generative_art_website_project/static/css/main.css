@@ -3474,6 +3474,7 @@ body.is-menu-visible #menu .close {
     z-index: 10;
     transition: all .5s;
     text-transform: uppercase;
+
 }
 
 #fixednav ul li {
@@ -3485,7 +3486,7 @@ body.is-menu-visible #menu .close {
 }
 
 #fixednav ul li a {
-    font-size: 28px;
+    font-size: 1em;
 }
 
 #fixednav ul li a:hover {
@@ -3497,7 +3498,7 @@ body.is-menu-visible #menu .close {
 #fixednav .Logo-fixed {
     /*position: absolute;*/
     color: dimgrey;
-    font-weight: 900;
+    /*font-weight: 900;*/
 }
 
 #fixednav.active {
@@ -3766,6 +3767,10 @@ button {
 }
 
 
+.nav_links a {
+    font-weight: 900;
+}
+
 .nav_links a:before {
     content: "";
     position: absolute;
@@ -3776,7 +3781,7 @@ button {
     background-color: #f2849e;
     visibility: hidden;
     transform: scaleX(0);
-    /*transition: all 0.3s ease-in-out;*/
+    transition: all 0.3s ease-in-out;
 }
 
 .nav_links a:hover:before {
@@ -3802,3 +3807,32 @@ button {
     visibility: visible;
     transform: scaleX(1);
 }
+
+#ifs-holder {
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -moz-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /*position: relative;*/
+}
+
+.code-in-art-out {
+    padding: 2em;
+    background-color: whitesmoke;
+    text-align: center;
+    font-weight: 900;
+}
+
+.code-in-art-out p {
+    text-align: left;
+}
+
+/*#ifs-holder img {*/
+/*    margin-left: 0;*/
+/*    margin-right: 15%;*/
+/*}*/

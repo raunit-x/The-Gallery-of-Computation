@@ -52,10 +52,8 @@
 
             <!-- Logo -->
             <a href="{% url 'shop' %}" class="logo">
-                <span class="symbol"><img
-                        src="https://github.com/raunit-x/Generative-Art-Gallery/blob/master/images/logo%20goc.png?raw=true"
-                        {#                        src="https://raw.githubusercontent.com/raunit-x/Generative-Art-Gallery/master/images/spiral.png"#}
-                        alt=""/></span><span class="title">The Gallery of Computation</span>
+                <span class="symbol"><img src="https://github.com/raunit-x/Generative-Art-Gallery/blob/master/images/logo%20goc.png?raw=true"
+                                          alt=""/></span><span class="title">THE GALLERY OF COMPUTATION</span>
             </a>
         </div>
     </header>
@@ -64,7 +62,7 @@
     <nav id="navbar">
         <div class="navinner">
             <div class='bs'></div>
-            <ul>
+            <ul class="nav_links">
                 <li><a href="{% url 'playground-home' %}">Playground</a></li>
                 <li><a href="{% url 'ai-art' %}">AI</a></li>
                 <li><a href="{% url 'shop' %}">Shop</a></li>
@@ -91,7 +89,7 @@
     <div style="padding: 1em">
         <div class="inner">
             <header>
-                <h5><a href="{% url 'shop' %}" class="underline_a">Not your father's Art Form</a></h5>
+                <h5><a href="{% url 'about_process' %}" class="underline_a" style="font-weight: 900;">Not your father's Art Form</a></h5>
             </header>
         </div>
     </div>
@@ -141,7 +139,7 @@
         </footer>
     {% endblock %}
     <div class="copyright">
-        <p><a href="{% url 'shop' %}" style="color: #f2849e" class="underline_a">About the Process</a></p>
+        <p><a href="{% url 'about_process' %}" style="color: #f2849e" class="underline_a">About the Process</a></p>
         <p>All Rights Reserved. Copyright The Gallery of Computation</p>
     </div>
 

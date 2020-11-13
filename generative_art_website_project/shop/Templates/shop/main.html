@@ -54,7 +54,7 @@
             <a href="{% url 'shop' %}" class="logo">
                 <span class="symbol"><img
                         src="https://github.com/raunit-x/Generative-Art-Gallery/blob/master/images/logo%20goc.png?raw=true"
-{#                        src="https://raw.githubusercontent.com/raunit-x/Generative-Art-Gallery/master/images/spiral.png"#}
+                        {#                        src="https://raw.githubusercontent.com/raunit-x/Generative-Art-Gallery/master/images/spiral.png"#}
                         alt=""/></span><span class="title">The Gallery of Computation</span>
             </a>
         </div>
@@ -69,7 +69,6 @@
                 <li><a href="{% url 'ai-art' %}">AI</a></li>
                 <li><a href="{% url 'shop' %}">Shop</a></li>
                 <li><a href="{% url 'cart' %}">Cart</a></li>
-                {#                <li><a href="{% url 'checkout' %}">Checkout</a></li>#}
             </ul>
         </div>
     </nav>
@@ -89,7 +88,13 @@
         <span></span>
         <span></span>
     </button>
-
+    <div style="padding: 1em">
+        <div class="inner">
+            <header>
+                <h5><a href="{% url 'shop' %}" class="underline_a">Not your father's Art Form</a></h5>
+            </header>
+        </div>
+    </div>
     <!-- Main -->
     <div id="main">
         <div class="inner">
@@ -119,8 +124,6 @@
                 </form>
                 {#                <h6 style="font-size: 0.50em;">Don't want this? <a href="{% url 'unsubscribe' %}"#}
                 {#                                                                   style="color: #f2849e">Unsubscribe</a></h6>#}
-                <ul class="copyright">
-                </ul>
                 <div>
                     <ul class="icons">
                         <li><a href="https://instagram.com/raunit_x" target="_blank"
@@ -137,7 +140,10 @@
             </div>
         </footer>
     {% endblock %}
-
+    <div class="copyright">
+        <p><a href="{% url 'shop' %}" style="color: #f2849e" class="underline_a">About the Process</a></p>
+        <p>All Rights Reserved. Copyright The Gallery of Computation</p>
+    </div>
 
 </div>
 <!-- Scripts -->

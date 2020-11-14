@@ -3856,6 +3856,8 @@ button {
     padding: 1em;
     text-align: center;
     margin: auto;
+    letter-spacing: 0;
+    font-size: 0.95em;
 }
 
 

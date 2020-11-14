@@ -3832,6 +3832,31 @@ button {
     text-align: left;
 }
 
+@media screen and (max-width: 1081px) {
+
+    .code-in-art-out img {
+        max-width: 100%;
+        margin: auto;
+    }
+
+    #defaultCanvas0 {
+        width: 600px;
+        margin: 2em auto auto;
+    }
+
+    .code-in-art-out {
+        display: block;
+        float: none;
+        width: 100%;
+        align-content: center;
+        margin-left: auto;
+        justify-content: center;
+
+    }
+
+}
+
+
 /*#ifs-holder img {*/
 /*    margin-left: 0;*/
 /*    margin-right: 15%;*/

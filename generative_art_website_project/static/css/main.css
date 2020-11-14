@@ -3860,6 +3860,10 @@ button {
     font-size: 0.95em;
 }
 
+.large img {
+    margin-top: 2em;
+}
+
 
 .second img {
     height: 220px;

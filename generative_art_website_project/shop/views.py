@@ -9,6 +9,7 @@ from django.http import JsonResponse
 from .forms import ShippingAddressForm, orderItemForm
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
+import os
 
 
 # Create your views here.
@@ -200,3 +201,6 @@ def unsubscribe(request):
 
 def about(request):
     return render(request, 'shop/about.html')
+def about_process(request):
+    context = {'page_title': 'About Process: The Gallery of Computation'}
+    return render(request, 'shop/about_process.html', context=context)

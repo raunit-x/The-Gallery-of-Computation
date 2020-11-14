@@ -28,4 +28,5 @@ urlpatterns = [
     path('subscribe/', views.subscribe, name='subscribe'),
     path('unsubscribe/', views.unsubscribe, name='unsubscribe'),
     path('about/',views.about, name='about'),
+    path('about_process/', views.about_process, name='about_process'),
 ]

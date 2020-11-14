@@ -1,9 +1,6 @@
 {% extends 'shop/main.html' %}
 {% load static %}
 {% block content %}
-    <header>
-        <h5>Not your father's Art Form.</h5>
-    </header>
     <h2>AI ART: Neural Networks hacking the highest form of human expression</h2>
     <div style="justify-content: center; display: flex">
         <img src="{%  static '/images/ai_gif.gif' %}"
@@ -12,10 +9,10 @@
     </div>
     <div style="justify-content: center; display: flex; text-align: left; margin-top: 2em; margin-bottom: 0; padding: 2px;">
         <p>
-            This is a curated collection of original artwork created by a <a href="https://en.wikipedia.org/wiki/Generative_adversarial_network" target="_blank" style="color: #f2849e">Generative Adversarial Network (GAN)</a>
+            This is a curated collection of original artwork created by a <a class="underline_a" href="https://en.wikipedia.org/wiki/Generative_adversarial_network" target="_blank" style="color: #f2849e">Generative Adversarial Network (GAN)</a>
             which I trained on a dataset of 30,000+ paintings. All the artwork on this page is created using that
             trained Neural Network. To create a new novel artwork using this neural network is a blazing fast process (order of milliseconds on any modern day laptop).
-            To buy your own artwork computed by a neural network look into the <a href="{% url 'shop' %}" style="color: #f2849e">SHOP</a> section with AI tagged.
+            To buy your own artwork computed by a neural network look into the <a href="{% url 'shop' %}" class="underline_a" style="color: #f2849e">SHOP</a> section with AI tagged.
         </p>
     </div>
     <section class="tiles">

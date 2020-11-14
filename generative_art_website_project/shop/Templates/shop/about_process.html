@@ -7,15 +7,6 @@
         <script src="{% static 'js/dejong.js' %}"></script>
     </header>
     <div class="code-in-art-out">
-        <h2 style="font-family:'Press Start 2P', cursive; ">No editing. no photoshop. no images. only code. 100% pure code</h2>
-        <div class="img-holder">
-            <img src="https://pbs.twimg.com/profile_images/502135348663578624/-oslcYof.png" height="200px">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Processing_3_logo.png" height="200px">
-            <img src="https://cdn.auth0.com/blog/es6rundown/logo.png" height="200px">
-            <img src="https://i.pinimg.com/originals/77/88/25/778825be381be66db27d56ba533034ea.png" height="200px">
-        </div>
-    </div>
-    <div class="code-in-art-out">
         <h2 style="font-family:'Press Start 2P', cursive; ">What is Generative Art?</h2>
         <div id="ifs-holder" class="align-center">
             <img src="{% static 'images/code.png' %}" alt="image" height="400px">
@@ -37,9 +28,19 @@
                    href="https://www.goodreads.com/book/show/243705.The_Collector"> "The Collector" Family</a></h4>
         </div>
         <p style="margin-top: 2em;">The beauty of Generative Art is that even the artist doesn't know what the output
-            would be like; one-to-many mapping of program to artworks. The above 4 artworks are outputs of a single
+            would exactly be like; one-to-many mapping of program to artworks. The above 4 artworks are outputs of a
+            single
             program. All the artworks are original and singly executed programs. The prints/artworks shall never be
             recreated or resold by me.</p>
+        <p>The process of creating new artwork is very iterative. The process can take from 2 hours to a week of daily
+            augmentation to call it "completed". In my opinion, no work is ever really complete for I have found
+            whenever I start working on some previous artwork the new output is almost always much better. </p>
+        <div class="img-holder">
+            <img src="{% static 'images/outputs/op1.png' %}" alt="image">
+            <img src="{% static 'images/outputs/op3.png' %}" alt="image">
+            <img src="{% static 'images/outputs/op2.png' %}" alt="image">
+            <img src="{% static 'images/outputs/op4.png' %}" alt="image">
+        </div>
     </div>
 
     <div class="code-in-art-out">
@@ -51,10 +52,22 @@
                 href="https://towardsdatascience.com/understanding-k-means-clustering-in-machine-learning-6a6e67336aa1"
                 class="underline_a" style="color: #f2849e">K-Means
             clustering Algorithm</a> for generating curated color palettes but using manually curated
-            color palettes works well too. <br> Color Spaces: <a href="https://en.wikipedia.org/wiki/HSL_and_HSV" style="color: #f2849e" class="underline_a">HSV(A)</a>
-        >> <a href="https://en.wikipedia.org/wiki/RGB_color_model#:~:text=The%20RGB%20color%20model%20is,red%2C%20green%2C%20and%20blue."
-            style="color: #f2849e" class="underline_a">RGB(A)</a>; Hue Saturation Value color space just feels more
-        natural than RGB color space.
+            color palettes works well too. <br> Color Spaces: <a href="https://en.wikipedia.org/wiki/HSL_and_HSV"
+                                                                 style="color: #f2849e" class="underline_a">HSV(A)</a>
+            >>
+            <a href="https://en.wikipedia.org/wiki/RGB_color_model#:~:text=The%20RGB%20color%20model%20is,red%2C%20green%2C%20and%20blue."
+               style="color: #f2849e" class="underline_a">RGB(A)</a>; Hue Saturation Value color space just feels more
+            natural than RGB color space.
+    </div>
+     <div class="code-in-art-out">
+        <h2 style="font-family:'Press Start 2P', cursive; ">No editing. no photoshop. no images. only code. 100% pure
+            code</h2>
+        <div class="img-holder">
+            <img src="https://pbs.twimg.com/profile_images/502135348663578624/-oslcYof.png" height="200px">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Processing_3_logo.png" height="200px">
+            <img src="https://cdn.auth0.com/blog/es6rundown/logo.png" height="200px">
+            <img src="https://i.pinimg.com/originals/77/88/25/778825be381be66db27d56ba533034ea.png" height="200px">
+        </div>
     </div>
 
 {% endblock content %}

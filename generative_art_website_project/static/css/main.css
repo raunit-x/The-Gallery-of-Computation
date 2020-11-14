@@ -3826,6 +3826,41 @@ button {
     background-color: whitesmoke;
     text-align: center;
     font-weight: 900;
+    margin-top: 2em;
+}
+
+.code-in-art-out a{
+    color: #f2849e;
+}
+
+.img-holder {
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -moz-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /*position: relative;*/
+}
+
+.one {
+    justify-content: center;
+    margin-bottom: 1em;
+}
+
+.img-holder h4 {
+    font-weight: 900;
+    padding: 1em;
+    text-align: center;
+    margin: auto;
+}
+
+
+.second img {
+    height: 220px;
 }
 
 .code-in-art-out p {
@@ -3834,7 +3869,11 @@ button {
 
 @media screen and (max-width: 1081px) {
 
-    .code-in-art-out img {
+    .img-holder img {
+        margin-top: 2em;
+    }
+
+    .code-in-art-out .img-holder img {
         max-width: 100%;
         margin: auto;
     }
@@ -3844,14 +3883,13 @@ button {
         margin: 2em auto auto;
     }
 
-    .code-in-art-out {
+    .code-in-art-out .img-holder {
         display: block;
         float: none;
         width: 100%;
         align-content: center;
         margin-left: auto;
         justify-content: center;
-
     }
 
 }

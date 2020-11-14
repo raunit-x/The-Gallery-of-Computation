@@ -6,15 +6,56 @@
         <script src="{% static 'js/about_process.js' %}"></script>
         <script src="{% static 'js/dejong.js' %}"></script>
     </header>
-
     <div class="code-in-art-out">
-        <h2>What is Generative Art?</h2>
+        <h2 style="font-family:'Press Start 2P', cursive; ">Only Code, nothing else. Any editing software or images?
+            None. 100% Code.</h2>
+        <div class="img-holder">
+            <img src="https://pbs.twimg.com/profile_images/502135348663578624/-oslcYof.png" height="200px">
+            <img src="https://processingfoundation.org/content/1-home/processing-social.jpg" height="200px">
+            <img src="https://cdn.auth0.com/blog/es6rundown/logo.png" height="200px">
+        </div>
+    </div>
+    <div class="code-in-art-out">
+        <h2 style="font-family:'Press Start 2P', cursive; ">What is Generative Art?</h2>
         <div id="ifs-holder" class="align-center">
             <img src="{% static 'images/code.png' %}" alt="image" height="400px">
         </div>
+        \
         <p style="margin-top: 2em;">"One overly simple but useful definition is that
-        generative art is art programmed using a computer that intentionally introduces randomness as part of its
-        creation process" ~ <a href="https://www.artnome.com/news/2018/8/8/why-love-generative-art" class="underline_a" target="_blank" style="color: #f2849e">ARTNOME</a></p>
+            generative art is art programmed using a computer that intentionally introduces randomness as part of its
+            creation process" ~ <a href="https://www.artnome.com/news/2018/8/8/why-love-generative-art"
+                                   class="underline_a" target="_blank" style="color: #f2849e">ARTNOME</a></p>
+    </div>
+
+    <div class="code-in-art-out second">
+        <h2 style="font-family:'Press Start 2P', cursive; ">C0D3 1N ART 0UT</h2>
+        <div class="img-holder">
+            <img src="{% static 'images/butterfly/1.png' %}" alt="image">
+            <img src="{% static 'images/butterfly/2.png' %}" alt="image">
+            <img src="{% static 'images/butterfly/3.png' %}" alt="image">
+            <img src="{% static 'images/butterfly/4.png' %}" alt="image">
+            <h4><a class="underline_a" style="color: #f2849e" target="_blank"
+                   href="https://www.goodreads.com/book/show/243705.The_Collector"> "The Collector" Family</a></h4>
+        </div>
+        <p style="margin-top: 2em;">The beauty of Generative Art is that even the artist doesn't know what the output
+            would be like; one-to-many mapping of program to artworks. The above 4 artworks are outputs of a single
+            program. All the artworks are original and singly executed programs. The prints/artworks shall never be
+            recreated or resold by me.</p>
+    </div>
+
+    <div class="code-in-art-out">
+        <h2 style="font-family:'Press Start 2P', cursive; ">Colors</h2>
+        <div class="img-holder one">
+            <img src="{% static 'images/colorPalette.png' %}" height="150px">
+        </div>
+        <p>I use a custom <a
+                href="https://towardsdatascience.com/understanding-k-means-clustering-in-machine-learning-6a6e67336aa1"
+                class="underline_a" style="color: #f2849e">K-Means
+            clustering Algorithm</a> for generating curated color palettes but using manually curated
+            color palettes works well too. <br> Color Spaces: <a href="https://en.wikipedia.org/wiki/HSL_and_HSV" style="color: #f2849e" class="underline_a">HSV(A)</a>
+        >> <a href="https://en.wikipedia.org/wiki/RGB_color_model#:~:text=The%20RGB%20color%20model%20is,red%2C%20green%2C%20and%20blue."
+            style="color: #f2849e" class="underline_a">RGB(A)</a>; Hue Saturation Value color space just feels more
+        natural than RGB color space.
     </div>
 
 {% endblock content %}

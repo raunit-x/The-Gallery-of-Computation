@@ -10,28 +10,7 @@
     </noscript>
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <link rel="icon" type="image/png"
-          href="https://github.com/raunit-x/Generative-Art-Gallery/blob/master/images/logo%20goc.png?raw=true">
-    <script type="text/javascript">
-        let user = '{{request.user}}';
-
-        function getToken(name) {
-            let cookieValue = null;
-            if (document.cookie && document.cookie !== '') {
-                const cookies = document.cookie.split(';');
-                for (let i = 0; i < cookies.length; i++) {
-                    const cookie = cookies[i].trim();
-                    // Does this cookie string begin with the name we want?
-                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                        break;
-                    }
-                }
-            }
-            return cookieValue;
-        }
-
-        var csrftoken = getToken('csrftoken');
-    </script>
+          href="https://raw.githubusercontent.com/raunit-x/Generative-Art-Gallery/master/images/spiral.png">
 </head>
 <body class="is-preload">
 <!-- Wrapper -->
@@ -52,30 +31,32 @@
 
             <!-- Logo -->
             <a href="{% url 'shop' %}" class="logo">
-                <span class="symbol"><img src="https://github.com/raunit-x/Generative-Art-Gallery/blob/master/images/logo%20goc.png?raw=true"
-                                          alt=""/></span><span class="title">THE GALLERY OF COMPUTATION</span>
+                <span class="symbol"><img
+                        src="https://raw.githubusercontent.com/raunit-x/Generative-Art-Gallery/master/images/spiral.png"
+                        alt=""/></span><span class="title">The Gallery of Computation</span>
             </a>
         </div>
     </header>
 
     <!-- Menu -->
     <nav id="navbar">
-        <div class="navinner">
+        <div class="navinner" style="height: 0px;">
             <div class='bs'></div>
-            <ul class="nav_links">
+            <ul>
                 <li><a href="{% url 'playground-home' %}">Playground</a></li>
                 <li><a href="{% url 'ai-art' %}">AI</a></li>
                 <li><a href="{% url 'shop' %}">Shop</a></li>
                 <li><a href="{% url 'about' %}">About</a></li>
                 <li><a href="{% url 'cart' %}">Cart</a></li>
+                {#                <li><a href="{% url 'checkout' %}">Checkout</a></li>#}
             </ul>
         </div>
     </nav>
     <nav id="fixednav">
+        <a href="{% url 'shop' %}" class="Logo-fixed">
+            The Gallery of Computation
+        </a>
         <ul>
-            <li><a href="{% url 'shop' %}" class="Logo-fixed">
-                The Gallery of Computation
-            </a></li>
             <li><a href="{% url 'playground-home' %}">Playground</a></li>
                 <li><a href="{% url 'ai-art' %}">AI</a></li>
                 <li><a href="{% url 'shop' %}">Shop</a></li>
@@ -88,19 +69,45 @@
         <span></span>
         <span></span>
     </button>
-    <div style="padding: 1em">
-        <div class="inner">
-            <header>
-                <h5><a href="{% url 'about_process' %}" class="underline_a" style="font-weight: 900; color: #f2849e">Not your father's Art Form</a></h5>
-            </header>
-        </div>
-    </div>
+
     <!-- Main -->
-    <div id="main">
-        <div class="inner">
-            {% block content %}
-            {% endblock content %}
+    <div class="about-main">
+        <div class="caption">
+            <h1>Welcome</h1>
+            <h3>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis <br> eget tempus euismod. Vestibulum ante ipsum p</h3>
         </div>
+        <div class="hero-image">
+            <img src="{% static 'images/static/about-2.PNG' %}" alt="">
+        </div>
+
+
+        <div class="about-row">
+            <div class="row">
+                <div class="col-8 col-12-medium about-content">
+                    <div style="width:70%; height: auto;">
+                    Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan <br> varius montes viverra nibh in adipiscing blandit tempus accumsan.
+                    t placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan
+                    </div>    
+                </div>
+                <div class="col-4 col-12-medium">
+                    <div class="row nest" style="width:100% !important" >
+                        <div class="col-12 col-6-medium about-content-2">
+                            <img src="{% static 'images/static/3.PNG' %}" alt=""  style="object-fit: scale-down; width: 100%;">
+                            <div class="content-caption"><h2>THE PROCESS</h2></div>
+                        </div>
+                        <div class="col-12 col-6-medium about-content-3" >
+                            <img src="{% static 'images/static/4.PNG' %}" alt="" style="object-fit: scale-down; width:100%">
+                            <div class="content-caption-2"><h2>THE MERIT</h2></div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        
+        
     </div>
 
     <!-- Footer -->
@@ -122,8 +129,10 @@
                         </div>
                     </div>
                 </form>
-                {#                <h6 style="font-size: 0.50em;">Don't want this? <a href="{% url 'unsubscribe' %}"#}
-                {#                                                                   style="color: #f2849e">Unsubscribe</a></h6>#}
+{#                <h6 style="font-size: 0.50em;">Don't want this? <a href="{% url 'unsubscribe' %}"#}
+{#                                                                   style="color: #f2849e">Unsubscribe</a></h6>#}
+                <ul class="copyright">
+                </ul>
                 <div>
                     <ul class="icons">
                         <li><a href="https://instagram.com/raunit_x" target="_blank"
@@ -140,10 +149,7 @@
             </div>
         </footer>
     {% endblock %}
-    <div class="copyright">
-        <p><a href="{% url 'about_process' %}" style="color: #f2849e" class="underline_a">About the Process</a></p>
-        <p>All Rights Reserved. Copyright The Gallery of Computation</p>
-    </div>
+
 
 </div>
 <!-- Scripts -->
@@ -157,3 +163,4 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
 </body>
 </html>
+

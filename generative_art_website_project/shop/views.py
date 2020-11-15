@@ -199,6 +199,8 @@ def unsubscribe(request):
     return render(request, 'shop/unsubscribe.html', context={'page_title': 'Unsubscribe: The Gallery of Computation'})
 
 
+def about(request):
+    return render(request, 'shop/about.html')
 def about_process(request):
     context = {'page_title': 'About Process: The Gallery of Computation'}
     return render(request, 'shop/about_process.html', context=context)

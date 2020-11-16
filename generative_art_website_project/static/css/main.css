@@ -3995,6 +3995,7 @@ button {
 .code-in-art-out {
     padding: 2em;
     background-color: whitesmoke;
+    /*background-color: #e4dcdc;*/
     text-align: center;
     font-weight: 900;
     margin-top: 2em;
@@ -4027,6 +4028,12 @@ button {
     padding: 1em;
     text-align: center;
     margin: auto;
+    letter-spacing: 0;
+    font-size: 0.95em;
+}
+
+.large img {
+    margin-top: 2em;
 }
 
 

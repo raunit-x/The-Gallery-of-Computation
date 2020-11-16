@@ -2,7 +2,9 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,700,900");
 @import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Press+Start+2P&display=swap');
 
-
+html{
+    scroll-behavior: smooth;
+}
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
 pre, a, abbr, acronym, address, big, cite,
@@ -3333,6 +3335,9 @@ body.is-touch .tiles article .content {
     display: flex;
     align-items: center;
     position:relative;
+    overflow: hidden;
+    padding-left: 0;
+    
 
 }
 .about-content-3{
@@ -3342,52 +3347,103 @@ body.is-touch .tiles article .content {
     display: flex;
     align-items: center;
     position:relative;
+    overflow: hidden;
+    padding-left: 0;
+
 }
-.col-4.col-12-medium{
+.about-content-3 > img{
+    transition: all 0.3s ease-in-out;
+    opacity: 1;
+}
+.about-content-3:hover >img{
+    opacity: 0.5;
+}
+.about-content-2 > img{
+    transition: all 0.3s ease-in-out;
+    opacity: 1;
+}
+.about-content-2:hover >img{
+    opacity: 0.5;
+}
+
+.col-4.col-12-medium.col-12-small{
     padding-left:0px;
 }
 .content-caption{
+    display: block;
     position: absolute;
     background-color: white;
-    left:30%;
+    right:15%;
+    left: 15%;
     text-decoration: underline;
     text-underline-position: under;
+    padding:5px;
 }
 .content-caption-2{
     position: absolute;
     background-color: white;
-    left:35%;
+    left:20%;
+    right:20%;
     text-decoration: underline;
     text-underline-position: under;
+    padding:5px;
 }
 .content-caption-2 h2{
+    text-align: center !important;
     margin-bottom: 0;
+    font-size: 1em;
+    
+    
 }
 .content-caption h2{
     margin-bottom: 0;
+    text-align: center;
+    font-size: 1em;
+    
+
+}
+
+.parallax{
+    padding:30px 0px;
+    height: 200px;
+}
+
+.artwork:hover > .product > .price{
+    color: #EC969F;
 }
 @media screen and (max-width: 980px) {
     .col-12.col-6-medium.about-content-2{
         padding-left:0;
-        padding-right:.5em;
+        padding-right:0.5em;
     }
     .col-12.col-6-medium.about-content-3{
-        padding-left:.5em;
-        
+        padding-left:0.5em  ;
     }
     .content-caption-2{
-        position: absolute;
-        background-color: white;
         left:35%;
     }
     .content-caption{
-        position: absolute;
-        background-color: white;
-        left:35%;
+        right:25%;
     }
 }
-
-
+@media screen and (max-width: 740px) {
+    .col-12.col-6-medium.col-12-small.about-content-2{
+        padding-left:0;
+        padding-right:0;
+    }
+    .col-12.col-6-medium.col-12-small-about-content-3{
+        padding-left:0  ;
+    }
+    .col-4.col-12-medium{
+        padding-left:0;
+    }
+    .content-caption-2{
+        right:30%;
+    }
+    .content-caption{
+        right:15%;
+    }
+}
 /* Menu */
 
 /* #wrapper {

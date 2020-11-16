@@ -10,7 +10,28 @@
     </noscript>
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <link rel="icon" type="image/png"
-          href="https://raw.githubusercontent.com/raunit-x/Generative-Art-Gallery/master/images/spiral.png">
+          href="https://github.com/raunit-x/Generative-Art-Gallery/blob/master/images/logo%20goc.png?raw=true">
+    <script type="text/javascript">
+        let user = '{{request.user}}';
+
+        function getToken(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+        var csrftoken = getToken('csrftoken');
+    </script>
 </head>
 <body class="is-preload">
 <!-- Wrapper -->
@@ -31,32 +52,30 @@
 
             <!-- Logo -->
             <a href="{% url 'shop' %}" class="logo">
-                <span class="symbol"><img
-                        src="https://raw.githubusercontent.com/raunit-x/Generative-Art-Gallery/master/images/spiral.png"
-                        alt=""/></span><span class="title">The Gallery of Computation</span>
+                <span class="symbol"><img src="https://github.com/raunit-x/Generative-Art-Gallery/blob/master/images/logo%20goc.png?raw=true"
+                                          alt=""/></span><span class="title">THE GALLERY OF COMPUTATION</span>
             </a>
         </div>
     </header>
 
     <!-- Menu -->
     <nav id="navbar">
-        <div class="navinner" style="height: 0px;">
+        <div class="navinner">
             <div class='bs'></div>
-            <ul>
+            <ul class="nav_links">
                 <li><a href="{% url 'playground-home' %}">Playground</a></li>
                 <li><a href="{% url 'ai-art' %}">AI</a></li>
                 <li><a href="{% url 'shop' %}">Shop</a></li>
                 <li><a href="{% url 'about' %}">About</a></li>
                 <li><a href="{% url 'cart' %}">Cart</a></li>
-                {#                <li><a href="{% url 'checkout' %}">Checkout</a></li>#}
             </ul>
         </div>
     </nav>
     <nav id="fixednav">
-        <a href="{% url 'shop' %}" class="Logo-fixed">
-            The Gallery of Computation
-        </a>
         <ul>
+            <li><a href="{% url 'shop' %}" class="Logo-fixed">
+                The Gallery of Computation
+            </a></li>
             <li><a href="{% url 'playground-home' %}">Playground</a></li>
                 <li><a href="{% url 'ai-art' %}">AI</a></li>
                 <li><a href="{% url 'shop' %}">Shop</a></li>
@@ -71,9 +90,10 @@
     </button>
 
     <!-- Main -->
+    <!-- Main -->
     <div class="about-main">
         <div class="caption">
-            <h1>Welcome</h1>
+            <h1 style="font-family:'Press Start 2P', cursive; ">Welcome</h1>
             <h3>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis <br> eget tempus euismod. Vestibulum ante ipsum p</h3>
         </div>
         <div class="hero-image">
@@ -85,71 +105,133 @@
             <div class="row">
                 <div class="col-8 col-12-medium about-content">
                     <div style="width:70%; height: auto;">
-                    Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan <br> varius montes viverra nibh in adipiscing blandit tempus accumsan.
-                    t placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan
+                        <p> 
+                            <b style="color:#585858; overflow-wrap: break-word;">
+                                Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan <br> varius montes viverra nibh in adipiscing blandit tempus accumsan.
+                                t placerat aliquet. 
+                            </b>
+                        </p>
+                    
                     </div>    
                 </div>
-                <div class="col-4 col-12-medium">
-                    <div class="row nest" style="width:100% !important" >
-                        <div class="col-12 col-6-medium about-content-2">
+                <div class="col-4 col-12-medium " >
+                    <div class="row nest" style="width:100% !important;" >
+                        <div class="col-12 col-6-medium col-12-small about-content-2" onclick="location.href='{% url 'about_process' %}';" style="cursor: pointer;">
                             <img src="{% static 'images/static/3.PNG' %}" alt=""  style="object-fit: scale-down; width: 100%;">
-                            <div class="content-caption"><h2>THE PROCESS</h2></div>
+                            <div class="content-caption"><h2 style="font-family:'Press Start 2P', cursive; ">THE PROCESS</h2></div>
                         </div>
-                        <div class="col-12 col-6-medium about-content-3" >
+                        <div class="col-12 col-6-medium col-12-small about-content-3" onclick="location.href='#team';" style="cursor: pointer;" >
                             <img src="{% static 'images/static/4.PNG' %}" alt="" style="object-fit: scale-down; width:100%">
-                            <div class="content-caption-2"><h2>THE MERIT</h2></div>
+                            <div class="content-caption-2"><h2 style="font-family:'Press Start 2P', cursive; ">THE MERIT</h2></div>
                         </div>
                     </div>
                 </div>
-                
             </div>
         </div>
+
+        <section class="parallax" style="background: url('{% static 'images/static/11.PNG' %}')repeat fixed 100%" >
+            <div class="parallax-inner">
+            </div>
+        </section>
+
+        
+        <section id="team">
+        <div class="about-row">
+            <div class="row">
+                <div class="col-3 col-12-medium" style="margin: 1.5em 0 1em 0; padding: 0 0 0px 0;">
+                    <div style="height:97%;background-color: white; padding-bottom: 0.5em; display: inline-block; justify-content: space-around; ">
+                        <div style="display: flex; justify-content: center;">
+                            <h2 style="font-family:'Press Start 2P',cursive;padding: 1em; margin-bottom: 1em; letter-spacing: 2px; text-decoration: underline; text-align: center;">Meet The Team</h3>
+                        </div>
+                        <div style="padding-left: 1em; letter-spacing: 2px;">
+                            <b style="color:#585858"> 
+                                Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi intege.
+                            </b>
+                            <br><br>
+                            <b style="color:#585858; text-decoration: underline; overflow: hidden;">
+                            raunit88@gmail.com <br>
+                            yuvrajpuyam@gmail.com
+                            </b>
+                        </div>                         
+                    </div>
+                </div>
+
+                <div class="col-9 col-12-medium" style="margin-top:1.5em; margin-bottom:1em; " >
+                    <img src="{% static 'images/profile/1.jpeg' %}" alt="" style="object-fit: scale-down; width:100%; ">
+                </div>
+                <div class="col-5 col-12-medium" style="margin-top: 0.5em; padding: 0 0 0 0;" >
+                    <img src="{% static 'images/profile/raunit_2.jpg' %}" alt="" style="object-fit: scale-down; width:100%; ">
+                </div>
+                <div class="col-7 col-12-medium" style=" margin-top: .5em;">
+                    <div style="height:97%;background-color: white; padding: 1em 0 .5em 1em;">
+                        <h3 style="font-family:'Press Start 2P',cursive; text-decoration: underline;">Raunit Singh</h3>
+                        <b style="color:#585858"> 
+                            Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi intege ucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan. 
+                        </b>  
+                    </div>
+                </div>
+                <div class="col-7 col-12-medium" style="margin: 1em 0 1em 0; padding: 0 0 0 0;">
+                    <div style="height:103%;background-color: white; padding: 1em 0 .5em 1em;">
+                        <h3 style="font-family:'Press Start 2P',cursive; text-decoration: underline;">Yuvraj Puyam</h3>
+                        <b style="color:#585858"> 
+                            Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi intege ucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan. 
+                        </b>  
+                    </div>
+                </div>
+                <div class="col-5 col-12-medium" style="margin-top: 1em; " >
+                    <img src="{% static 'images/profile/Yuvraj.jfif' %}" alt="" style="object-fit: scale-down; width:100%; ">
+                </div>
+            
+            </div>
+            
+        </div>   
+    </section>
         
         
         
         
     </div>
-
-    <!-- Footer -->
-    {% block footer_block %}
-        <footer id="footer">
-            <div class="inner">
-                <h2>All About Generative Art In your Inbox</h2>
-                <p>Latest Art and Info about Generative Art. No spam, guaranteed.</p>
-                <form method="post" action="{% url 'subscribe' %}">
-                    {% csrf_token %}
-                    <div class="fields">
-                        <div class="field half align-center">
-                            {{ newsletter_form.email }}
-                        </div>
-                    </div>
-                    <div class="">
-                        <div class="subscribe">
-                            <input type="submit" value="Subscribe" id="subscribe" class="primary subscribe"/>
-                        </div>
-                    </div>
-                </form>
-{#                <h6 style="font-size: 0.50em;">Don't want this? <a href="{% url 'unsubscribe' %}"#}
-{#                                                                   style="color: #f2849e">Unsubscribe</a></h6>#}
-                <ul class="copyright">
-                </ul>
-                <div>
-                    <ul class="icons">
-                        <li><a href="https://instagram.com/raunit_x" target="_blank"
-                               class="icon brands style2 fa-instagram"></a></li>
-                        <li><a href="https://github.com/raunit-x" target="_blank"
-                               class="icon brands style2 fa-github"></a></li>
-                        <li><a href="mailto:raunit88@gmail.com" target="_blank"
-                               class="icon solid style2 fa-envelope"></a></li>
-                        <li><a href="https://medium.com/@raunit_x" target="_blank"
-                               class="icon brands style2 fa-medium"></a>
-                        </li>
-                    </ul>
+<!-- Footer -->
+{% block footer_block %}
+<footer id="footer">
+    <div class="inner">
+        <h2>All About Generative Art In your Inbox</h2>
+        <p>Latest Art and Info about Generative Art. No spam, guaranteed.</p>
+        <form method="post" action="{% url 'subscribe' %}">
+            {% csrf_token %}
+            <div class="fields">
+                <div class="field half align-center">
+                    {{ newsletter_form.email }}
                 </div>
             </div>
-        </footer>
-    {% endblock %}
-
+            <div class="">
+                <div class="subscribe">
+                    <input type="submit" value="Subscribe" id="subscribe" class="primary subscribe"/>
+                </div>
+            </div>
+        </form>
+        {#                <h6 style="font-size: 0.50em;">Don't want this? <a href="{% url 'unsubscribe' %}"#}
+        {#                                                                   style="color: #f2849e">Unsubscribe</a></h6>#}
+        <div>
+            <ul class="icons">
+                <li><a href="https://instagram.com/raunit_x" target="_blank"
+                       class="icon brands style2 fa-instagram"></a></li>
+                <li><a href="https://github.com/raunit-x" target="_blank"
+                       class="icon brands style2 fa-github"></a></li>
+                <li><a href="mailto:raunit88@gmail.com" target="_blank"
+                       class="icon solid style2 fa-envelope"></a></li>
+                <li><a href="https://medium.com/@raunit_x" target="_blank"
+                       class="icon brands style2 fa-medium"></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</footer>
+{% endblock %}
+<div class="copyright">
+<p><a href="{% url 'about_process' %}" style="color: #f2849e" class="underline_a">About the Process</a></p>
+<p>All Rights Reserved. Copyright The Gallery of Computation</p>
+</div>
 
 </div>
 <!-- Scripts -->
@@ -163,4 +245,3 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
 </body>
 </html>
-

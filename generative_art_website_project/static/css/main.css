@@ -3444,6 +3444,21 @@ body.is-touch .tiles article .content {
         right:15%;
     }
 }
+
+@media screen and (max-width: 980px) {
+    .col-4.col-12-medium{
+        padding-left: 0;
+    }
+    .col-9.col-12-medium{
+        padding-left: 0;
+    }
+    .col-7.col-12-medium{
+        padding-left: 0;
+    }
+    .col-5.col-12-medium{
+        padding-left: 0;
+    }
+}
 /* Menu */
 
 /* #wrapper {

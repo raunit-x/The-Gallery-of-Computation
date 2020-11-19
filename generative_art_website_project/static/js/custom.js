@@ -47,3 +47,22 @@ $(".payment").click(function () {
 
 
 
+// let span = document.getElementsByClassName("close")[0];
+// span.onclick = function() {
+//     modal.style.display = "none";
+// }
+
+function openUpModal(product_id, image_url, title) {
+    let modal = document.getElementById("modal-" + product_id);
+    let modalImg = document.getElementById(product_id);
+    let captionText = document.getElementById("caption-" + product_id);
+    modal.style.display = "block";
+    modalImg.src = image_url;
+    captionText.innerHTML = title;
+}
+
+function closeModal(product_id) {
+    // let span = document.getElementById('close-' + product_id);
+    let modal = document.getElementById("modal-" + product_id);
+    modal.style.display = "none";
+}

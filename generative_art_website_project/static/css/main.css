@@ -3424,7 +3424,12 @@ body.is-touch .tiles article .content {
     height: 200px;
 }
 
+.artwork:hover {
+    cursor: pointer;
+}
+
 .artwork:hover > .product > .price {
+
     color: #EC969F;
 }
 
@@ -4120,7 +4125,7 @@ button {
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 100001; /* Sit on top */
     padding-top: 100px; /* Location of the box */
     left: 0;
     top: 0;
@@ -4192,7 +4197,19 @@ button {
 
 /* 100% Image Width on Smaller Screens */
 @media only screen and (max-width: 700px) {
+
+    /*.close {*/
+    /*    position: absolute;*/
+    /*    top: 15px;*/
+    /*    right: calc(100% - 1em);*/
+    /*}*/
+
     .modal-content {
-        width: 100%;
+        /*width: 100%;*/
     }
+}
+
+.light {
+    font-size: 0.6em;
+    color: #c9c9c9;
 }

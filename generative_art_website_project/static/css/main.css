@@ -3277,8 +3277,8 @@ body.is-touch .tiles article .content {
 }
 
 .about-main {
-    /*width: 80%;*/
-    /*margin: auto;*/
+    width: 82.5%;
+    margin: auto;
     background-color: whitesmoke;
     padding-left: 0 !important;
     color: rgb(31, 31, 31) !important;

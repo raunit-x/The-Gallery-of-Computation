@@ -3277,8 +3277,10 @@ body.is-touch .tiles article .content {
 }
 
 .about-main {
-    background-color: #e4dcdc;
-    padding-left: 0px !important;
+    /*width: 80%;*/
+    /*margin: auto;*/
+    background-color: whitesmoke;
+    padding-left: 0 !important;
     color: rgb(31, 31, 31) !important;
 }
 
@@ -3805,10 +3807,8 @@ body.is-menu-visible #menu .close {
 }
 
 .email_footer {
-    width: 20%;
     text-align: center;
     justify-content: center;
-    margin-left: auto;
 }
 
 
@@ -4100,9 +4100,15 @@ button {
         margin-top: 2em;
     }
 
+    .medium-img-holder img {
+        max-width: 250px !important;
+        height: auto;
+    }
+
     .code-in-art-out .img-holder img {
-        max-width: 100%;
+        max-width: 80%;
         margin: auto;
+        height: auto;
     }
 
     #defaultCanvas0 {
@@ -4118,6 +4124,12 @@ button {
         margin-left: auto;
         justify-content: center;
     }
+    .small img {
+        max-width: 100px;
+        max-height: 100px;
+    }
+
+
 
 }
 
@@ -4145,7 +4157,7 @@ button {
 }
 
 /* Caption of Modal Image (Image Text) - Same Width as the Image */
-.caption {
+.caption-modal {
     margin: auto;
     display: block;
     width: 80%;
@@ -4212,4 +4224,11 @@ button {
 .light {
     font-size: 0.6em;
     color: #c9c9c9;
+}
+
+.gif-holder img {
+    width: 95%;
+    max-width: 512px;
+    height: auto;
+    /*justify-content: center;*/
 }

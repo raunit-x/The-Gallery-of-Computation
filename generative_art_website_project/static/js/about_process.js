@@ -18,6 +18,8 @@ let values = [
 
 function setup() {
     let canvas = createCanvas(400, 400);
+    if (windowWidth < 450)
+        resizeCanvas(250, 250);
     canvas.parent('ifs-holder');
     rowWidth = width / rows;
     colWidth = height / cols;
@@ -37,6 +39,14 @@ function setup() {
     noFill();
     rect(0, 0, width, height);
 }
+
+
+// function windowResized() {
+//     if(windowWidth < 500) {
+//         resizeCanvas(0.8 * windowWidth, 0.8 * windowHeight);
+//     }
+// }
+
 
 function draw() {
     noFill();

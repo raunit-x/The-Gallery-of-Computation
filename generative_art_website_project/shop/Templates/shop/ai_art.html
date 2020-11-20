@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
     <h2>AI ART: Neural Networks hacking the highest form of human expression</h2>
-    <div style="justify-content: center; display: flex">
+    <div class="gif-holder" style="justify-content: center; display: flex">
         <img src="{% static '/images/ai_gif.gif' %}"
              alt="A cool gif">
         {#        <img src="https://github.com/raunit-x/Generative-Art-Gallery/blob/master/images/ezgif.com-gif-maker.gif?raw=true" alt="a cool gif">#}
@@ -39,11 +39,10 @@
             <div class="modal" id="modal-{{ product.id }}">
                 <span class="close" id="close-{{ product.id }}" onclick="closeModal('{{ product.id }}')">&times;</span>
                 <img class="modal-content" id="{{ product.id }}">
-                <div class="caption" id="caption-{{ product.id }}"></div>
-                <div class="caption light">Made with a custom Generative Adversarial Network</div>
+                <div class="caption-modal" id="caption-{{ product.id }}"></div>
+                <div class="caption-modal light">Made with a custom Generative Adversarial Network</div>
             </div>
         {% endfor %}
     </section>
-
 
 {% endblock content %}

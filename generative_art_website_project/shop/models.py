@@ -18,10 +18,13 @@ class Customer(models.Model):
 
 class Product(models.Model):
     name = models.CharField(max_length=200, null=True)
+    created = models.DateTimeField(default=datetime.datetime.now)
     price = models.FloatField()
     digital = models.BooleanField(default=False, null=True, blank=False)
     information = models.TextField(null=True, blank=False)
     sold = models.BooleanField(default=False)
+    width = models.FloatField(default=16)
+    height = models.FloatField(default=16)
 
     # time_posted = models.DateTimeField(auto_now_add=True, blank=True)
     def __str__(self):

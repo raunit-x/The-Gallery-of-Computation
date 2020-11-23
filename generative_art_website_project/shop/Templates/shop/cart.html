@@ -8,11 +8,11 @@
             <script src="{% static 'js/rainSketch.js' %}"></script>
             <h2 style="text-align: center!important;">Empty Cart!</h2>
             <div class="aln-center" style="text-align: center;">
-            <img src="https://www.edvardmunch.org/images/paintings/the-scream.jpg"
-                 alt="" style="height: 30em;">
-            <p class="description-para" style="font-size: 0.75em">
-                <b>The Scream, Edvard Munch</b>
-            </p>
+                <img src="https://www.edvardmunch.org/images/paintings/the-scream.jpg"
+                     alt="" style="height: 30em;">
+                <p class="description-para" style="font-size: 0.75em">
+                    <b>The Scream, Edvard Munch</b>
+                </p>
             </div>
         {% else %}
             <h2 style="margin-top: 2.5em; margin-bottom: 1.75em; font-size: 1.25em;">Shopping Cart</h2>
@@ -50,6 +50,8 @@
                     </tr>
                     </tfoot>
                 </table>
+                <p style="font-size: 0.75em; text-transform: uppercase; text-align: center"><b>Note: Prices may have
+                    changed according to the print format you have chosen</b></p>
             </div>
             <a href="{% url 'checkout' %}" class="button primary" style="float: right; margin-top: 2em;">Continue to
                 Checkout</a>

@@ -44,6 +44,14 @@ class Product(models.Model):
             print(f"Could not find the image url: {e}")
             return ''
 
+    @property
+    def get_canvas_factor(self):
+        return 180
+
+    @property
+    def get_canvas_increment(self):
+        return ((self.width + 6) // 12 * (self.height + 6) // 12) * self.get_canvas_factor
+
 
 class AIProduct(models.Model):
     name = models.CharField(max_length=200, null=True)
@@ -68,9 +76,9 @@ class Order(models.Model):
 
     @property
     def get_cart_total(self):
-        order_items = self.orderitem_set.all()
-        total = sum([item.get_price for item in order_items])
-        return total
+        return sum(
+            [item.get_price + (item.printstyle.lower() == 'canvas') * item.product.get_canvas_increment for item in
+             self.orderitem_set.all()])
 
     def __str__(self):
         return str(self.id)

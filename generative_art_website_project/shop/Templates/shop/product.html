@@ -57,19 +57,29 @@
                 Standard shipping may take from 5-7 days. <br>
                 International shipping coming soon.
             </p>
+            <p class="description-para">
+                <b>WHAT'S INCLUDED IN THE BOX:</b> <br>
+                <span>The following items are shipped to your doorstep when you place an order:</span>
+            <ol style="margin-left: 1em;">
+                <li>Original artwork print according to your preferences (Signature & Print Format)</li>
+                <li>A certificate of Authenticity</li>
+                <li>A print out of the program files used to generate the specific artwork</li>
+            </ol>
+            </p>
             {% if product.sold %}
                 <button class="button disabled">Artwork has been SOLD</button>
             {% elif in_cart %}
                 <button class="button disabled">Added to cart</button>
             {% else %}
                 <button class='purchase-button primary'>Purchase</button>
-                <div class="purchase-form">
+                <div class="purchase-form" style="text-transform: uppercase">
                     <form action="" method="post">
                         {% csrf_token %}
                         <b>Signature:</b>
                         {{ form.signature }}
                         <br>
-                        <b style="margin-top: 4em;">Choose Print:</b>
+                        <b style="margin-top: 4em;">Choose Print <span
+                                style="font-size: 0.75em;">(Additional ${{ additional_charges }} for Canvas Print)</span>:</b>
                         {{ form.printstyle }}
                         <br>
                         <b>Other Instructions:</b>
@@ -81,8 +91,6 @@
                 </div>
             {% endif %}
         </div>
-
-
     </div>
 
 {% endblock %}

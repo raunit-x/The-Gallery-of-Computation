@@ -3402,7 +3402,14 @@ body.is-touch .tiles article .content {
     
 
 }
-
+.quote{
+    text-align: right;
+}
+@media screen and (max-width: 406px) {
+    .quote{
+        text-align: center;
+    }
+}
 .parallax{
     padding:30px 0px;
     height: 200px;
@@ -3457,6 +3464,13 @@ body.is-touch .tiles article .content {
     }
     .col-5.col-12-medium{
         padding-left: 0;
+    }
+}
+
+@media screen and (max-width: 420px){
+    .about-person h3{
+        text-align: center;
+        width: 50%;
     }
 }
 /* Menu */

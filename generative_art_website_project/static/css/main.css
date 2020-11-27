@@ -3256,8 +3256,8 @@ body.is-touch .tiles article .content {
     padding-top: 3em;
     margin-bottom: 1em;
     letter-spacing: 4px;
-    text-decoration: underline;
-    text-underline-position: under;
+    /*text-decoration: underline;*/
+    /*text-underline-position: under;*/
 }
 
 .about-main .caption h3 {
@@ -3334,6 +3334,14 @@ body.is-touch .tiles article .content {
     opacity: 0.5;
 }
 
+.about-content-3:hover {
+    color: #f2849e;
+}
+
+.about-content-2:hover {
+    color: #f2849e;
+}
+
 .about-content-2 > img {
     transition: all 0.3s ease-in-out;
     opacity: 1;
@@ -3353,9 +3361,17 @@ body.is-touch .tiles article .content {
     background-color: white;
     right: 15%;
     left: 15%;
-    text-decoration: underline;
-    text-underline-position: under;
+    /*text-decoration: underline;*/
+    /*text-underline-position: under;*/
     padding: 5px;
+}
+
+.content-caption:hover {
+    color: #f2849e;
+}
+
+.content-caption-2:hover {
+    color: #f2849e;
 }
 
 .content-caption-2 {
@@ -3363,8 +3379,8 @@ body.is-touch .tiles article .content {
     background-color: white;
     left: 20%;
     right: 20%;
-    text-decoration: underline;
-    text-underline-position: under;
+    /*text-decoration: underline;*/
+    /*text-underline-position: under;*/
     padding: 5px;
 }
 
@@ -3392,8 +3408,8 @@ body.is-touch .tiles article .content {
     }
 }
 .parallax{
-    padding:30px 0px;
-    height: 200px;
+    padding:30px 0;
+    height: 400px;
 }
 
 .artwork:hover {
@@ -3401,7 +3417,6 @@ body.is-touch .tiles article .content {
 }
 
 .artwork:hover > .product > .price {
-
     color: #EC969F;
 }
 

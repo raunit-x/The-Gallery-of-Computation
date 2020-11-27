@@ -63,6 +63,8 @@ def cart(request):
     for item in items:
         if item.product.sold:
             order.orderitem_set.get(id=item.id).delete()
+        elif item.printstyle.lower() == 'canvas':
+            item.product.price += item.product.get_canvas_increment
     context = {'items': items, 'order': order, 'page_title': "Cart: The Gallery of Computation"}
     return render(request, 'shop/cart.html', context)
 
@@ -100,6 +102,11 @@ def checkout(request):
             instance.save()
             return render(request, 'shop/checkout.html')
 
+    for item in items:
+        if item.product.sold:
+            order.orderitem_set.get(id=item.id).delete()
+        elif item.printstyle.lower() == 'canvas':
+            item.product.price += item.product.get_canvas_increment
     context = {'items': items, 'order': order, 'page_title': "Checkout: The Gallery of Computation", 'form': form}
     return render(request, 'shop/checkout.html', context)
 
@@ -127,7 +134,14 @@ def product(request, id):
         if not img.default_image:
             sorted_images.append(img)
     images = sorted_images
-    context = {'product': selected_product, 'in_cart': in_cart, 'form': form, 'images': images}
+    additional_charges = selected_product.get_canvas_increment
+    context = {
+        'product': selected_product,
+        'in_cart': in_cart,
+        'form': form,
+        'images': images,
+        'additional_charges': additional_charges
+    }
     if request.method == 'POST':
         form = orderItemForm(request.POST)
         if form.is_valid():
@@ -135,7 +149,8 @@ def product(request, id):
             instance.product = selected_product
             instance.order = order
             instance.save()
-            messages.success(request, f'<b>{selected_product.name.upper()}</b> has been successfully added to your cart.')
+            messages.success(request,
+                             f'<b>{selected_product.name.upper()}</b> has been successfully added to your cart.')
             return HttpResponseRedirect(request.path_info)
 
     return render(request, 'shop/product.html', context)
@@ -201,6 +216,8 @@ def unsubscribe(request):
 
 def about(request):
     return render(request, 'shop/about.html')
+
+
 def about_process(request):
     context = {'page_title': 'About Process: The Gallery of Computation'}
     return render(request, 'shop/about_process.html', context=context)

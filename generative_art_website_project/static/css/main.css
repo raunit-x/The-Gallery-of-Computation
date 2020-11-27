@@ -2,9 +2,10 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,700,900");
 @import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Press+Start+2P&display=swap');
 
-html{
+html {
     scroll-behavior: smooth;
 }
+
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
 pre, a, abbr, acronym, address, big, cite,
@@ -94,14 +95,14 @@ body {
     background: white;
 }
 
-body.is-preload *, body.is-preload *:before, body.is-preload *:after {
-    -moz-animation: none !important;
-    -webkit-animation: none !important;
-    animation: none !important;
-    -moz-transition: none !important;
-    -webkit-transition: none !important;
-    transition: none !important;
-}
+/*body.is-preload *, body.is-preload *:before, body.is-preload *:after {*/
+/*    -moz-animation: none !important;*/
+/*    -webkit-animation: none !important;*/
+/*    animation: none !important;*/
+/*    -moz-transition: none !important;*/
+/*    -webkit-transition: none !important;*/
+/*    transition: none !important;*/
+/*}*/
 
 /* Type */
 
@@ -2673,10 +2674,10 @@ button:disabled,
 
 
 .tiles article {
-    -moz-transition: -moz-transform 0.5s ease, opacity 0.5s ease;
-    -webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
-    -ms-transition: -ms-transform 0.5s ease, opacity 0.5s ease;
-    transition: transform 0.5s ease, opacity 0.5s ease;
+    /*-moz-transition: -moz-transform 0.5s ease, opacity 0.5s ease;*/
+    /*-webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;*/
+    /*-ms-transition: -ms-transform 0.5s ease, opacity 0.5s ease;*/
+    /*transition: transform 0.5s ease, opacity 0.5s ease;*/
     position: relative;
     width: calc(33.33333% - 2.5em);
     margin: 2.5em 0 0 2.5em;
@@ -2685,10 +2686,10 @@ button:disabled,
 }
 
 .tiles article > .image {
-    -moz-transition: -moz-transform 0.5s ease;
-    -webkit-transition: -webkit-transform 0.5s ease;
-    -ms-transition: -ms-transform 0.5s ease;
-    transition: transform 0.5s ease;
+    /*-moz-transition: -moz-transform 0.5s ease;*/
+    /*-webkit-transition: -webkit-transform 0.5s ease;*/
+    /*-ms-transition: -ms-transform 0.5s ease;*/
+    /*transition: transform 0.5s ease;*/
     position: relative;
     display: block;
     width: 100%;
@@ -2703,43 +2704,6 @@ button:disabled,
     display: block;
     width: 100%;
 }
-
-/*.tiles article > .image:before {*/
-/*    pointer-events: none;*/
-/*    -moz-transition: background-color 0.5s ease, opacity 0.5s ease;*/
-/*    -webkit-transition: background-color 0.5s ease, opacity 0.5s ease;*/
-/*    -ms-transition: background-color 0.5s ease, opacity 0.5s ease;*/
-/*    transition: background-color 0.5s ease, opacity 0.5s ease;*/
-/*    content: '';*/
-/*    display: block;*/
-/*    position: absolute;*/
-/*    top: 0;*/
-/*    left: 0;*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-/*    z-index: 1;*/
-/*    opacity: 0.8;*/
-/*}*/
-
-/*.tiles article > .image:after {*/
-/*    pointer-events: none;*/
-/*    -moz-transition: opacity 0.5s ease;*/
-/*    -webkit-transition: opacity 0.5s ease;*/
-/*    -ms-transition: opacity 0.5s ease;*/
-/*    transition: opacity 0.5s ease;*/
-/*    content: '';*/
-/*    display: block;*/
-/*    position: absolute;*/
-/*    top: 0;*/
-/*    left: 0;*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-/*    background-position: center;*/
-/*    background-repeat: no-repeat;*/
-/*    background-size: 100% 100%;*/
-/*    opacity: 0.25;*/
-/*    z-index: 2;*/
-/*}*/
 
 .tiles article > a {
     display: -moz-flex;
@@ -3274,17 +3238,20 @@ body.is-touch .tiles article .content {
     }
 
 }
-.about-main{
-    background-color: #e4dcdc  ;
-    padding-left: 0px !important;
-    color: rgb(31, 31, 31) !important ;
+
+.about-main {
+    width: 82.5%;
+    margin: auto;
+    background-color: whitesmoke;
+    padding-left: 0 !important;
+    color: rgb(31, 31, 31) !important;
 }
 
 
 .about-main .caption h1 {
     font-size: 2em;
     display: flex;
-    justify-content: center ;
+    justify-content: center;
     text-transform: uppercase;
     padding-top: 3em;
     margin-bottom: 1em;
@@ -3292,7 +3259,8 @@ body.is-touch .tiles article .content {
     text-decoration: underline;
     text-underline-position: under;
 }
-.about-main .caption h3{
+
+.about-main .caption h3 {
     text-align: center;
     padding-bottom: 0;
     letter-spacing: 2px;
@@ -3300,25 +3268,29 @@ body.is-touch .tiles article .content {
     padding-bottom: 2em;
 }
 
-.hero-image{
+.hero-image {
     display: flex;
     justify-content: center;
     padding-bottom: 20px;
 }
-.hero-image img{
-    width:93%;
-    height:auto;
+
+.hero-image img {
+    width: 93%;
+    height: auto;
 }
-.about-row{
+
+.about-row {
     display: flex;
     justify-content: center;
 
 }
-.about-row .row{
+
+.about-row .row {
     width: 93% !important;
     margin-left: 0;
 }
-.about-content{
+
+.about-content {
     height: 450px;
     background-color: white;
     margin-bottom: 20px;
@@ -3327,79 +3299,88 @@ body.is-touch .tiles article .content {
     justify-content: center;
 }
 
-.about-content-2{
-    height: 210px; 
+.about-content-2 {
+    height: 210px;
     max-width: 100%;
     margin-bottom: 30px;
     margin-right: 0;
     display: flex;
     align-items: center;
-    position:relative;
+    position: relative;
     overflow: hidden;
     padding-left: 0;
-    
+
 
 }
-.about-content-3{
-    height: 210px; 
+
+.about-content-3 {
+    height: 210px;
     width: 100%;
     margin-bottom: 30px;
     display: flex;
     align-items: center;
-    position:relative;
+    position: relative;
     overflow: hidden;
     padding-left: 0;
 
 }
-.about-content-3 > img{
+
+.about-content-3 > img {
     transition: all 0.3s ease-in-out;
     opacity: 1;
 }
-.about-content-3:hover >img{
-    opacity: 0.5;
-}
-.about-content-2 > img{
-    transition: all 0.3s ease-in-out;
-    opacity: 1;
-}
-.about-content-2:hover >img{
+
+.about-content-3:hover > img {
     opacity: 0.5;
 }
 
-.col-4.col-12-medium.col-12-small{
-    padding-left:0px;
+.about-content-2 > img {
+    transition: all 0.3s ease-in-out;
+    opacity: 1;
 }
-.content-caption{
+
+.about-content-2:hover > img {
+    opacity: 0.5;
+}
+
+.col-4.col-12-medium.col-12-small {
+    padding-left: 0px;
+}
+
+.content-caption {
     display: block;
     position: absolute;
     background-color: white;
-    right:15%;
+    right: 15%;
     left: 15%;
     text-decoration: underline;
     text-underline-position: under;
-    padding:5px;
+    padding: 5px;
 }
-.content-caption-2{
+
+.content-caption-2 {
     position: absolute;
     background-color: white;
-    left:20%;
-    right:20%;
+    left: 20%;
+    right: 20%;
     text-decoration: underline;
     text-underline-position: under;
-    padding:5px;
+    padding: 5px;
 }
-.content-caption-2 h2{
+
+.content-caption-2 h2 {
     text-align: center !important;
     margin-bottom: 0;
     font-size: 1em;
-    
-    
+
+
 }
-.content-caption h2{
+
+.content-caption h2 {
     margin-bottom: 0;
     text-align: center;
     font-size: 1em;
-    
+
 
 }
 .quote{
@@ -3415,54 +3396,71 @@ body.is-touch .tiles article .content {
     height: 200px;
 }
 
-.artwork:hover > .product > .price{
+.artwork:hover {
+    cursor: pointer;
+}
+
+.artwork:hover > .product > .price {
+
     color: #EC969F;
 }
+
 @media screen and (max-width: 980px) {
-    .col-12.col-6-medium.about-content-2{
-        padding-left:0;
-        padding-right:0.5em;
+    .col-12.col-6-medium.about-content-2 {
+        padding-left: 0;
+        padding-right: 0.5em;
     }
-    .col-12.col-6-medium.about-content-3{
-        padding-left:0.5em  ;
+
+    .col-12.col-6-medium.about-content-3 {
+        padding-left: 0.5em;
     }
-    .content-caption-2{
-        left:35%;
+
+    .content-caption-2 {
+        left: 35%;
     }
-    .content-caption{
-        right:25%;
+
+    .content-caption {
+        right: 25%;
     }
 }
+
 @media screen and (max-width: 740px) {
-    .col-12.col-6-medium.col-12-small.about-content-2{
-        padding-left:0;
-        padding-right:0;
+    .col-12.col-6-medium.col-12-small.about-content-2 {
+        padding-left: 0;
+        padding-right: 0;
     }
-    .col-12.col-6-medium.col-12-small-about-content-3{
-        padding-left:0  ;
+
+    .col-12.col-6-medium.col-12-small-about-content-3 {
+        padding-left: 0;
     }
-    .col-4.col-12-medium{
-        padding-left:0;
+
+    .col-4.col-12-medium {
+        padding-left: 0;
     }
-    .content-caption-2{
-        right:30%;
+
+    .content-caption-2 {
+        right: 30%;
     }
-    .content-caption{
-        right:15%;
+
+    .content-caption {
+        right: 15%;
     }
 }
 
 @media screen and (max-width: 980px) {
-    .col-4.col-12-medium{
+    .col-4.col-12-medium {
         padding-left: 0;
     }
-    .col-9.col-12-medium{
+
+    .col-9.col-12-medium {
         padding-left: 0;
     }
-    .col-7.col-12-medium{
+
+    .col-7.col-12-medium {
         padding-left: 0;
     }
-    .col-5.col-12-medium{
+
+    .col-5.col-12-medium {
         padding-left: 0;
     }
 }
@@ -3785,10 +3783,8 @@ body.is-menu-visible #menu .close {
 }
 
 .email_footer {
-    width: 20%;
     text-align: center;
     justify-content: center;
-    margin-left: auto;
 }
 
 
@@ -3912,7 +3908,7 @@ button {
     position: absolute;
     font-size: 0.8em;
     top: 1.25em;
-    right: 0.2em;
+    right: 0.4em;
     z-index: 2;
     padding: 4px;
     /*border: 1px green solid;*/
@@ -3985,8 +3981,8 @@ button {
 }
 
 .nav_links a:hover:before {
-  visibility: visible;
-  transform: scaleX(1);
+    visibility: visible;
+    transform: scaleX(1);
 }
 
 
@@ -4030,7 +4026,7 @@ button {
     margin-top: 2em;
 }
 
-.code-in-art-out a{
+.code-in-art-out a {
     color: #f2849e;
 }
 
@@ -4080,9 +4076,15 @@ button {
         margin-top: 2em;
     }
 
+    .medium-img-holder img {
+        max-width: 250px !important;
+        height: auto;
+    }
+
     .code-in-art-out .img-holder img {
-        max-width: 100%;
+        max-width: 80%;
         margin: auto;
+        height: auto;
     }
 
     #defaultCanvas0 {
@@ -4098,11 +4100,111 @@ button {
         margin-left: auto;
         justify-content: center;
     }
+    .small img {
+        max-width: 100px;
+        max-height: 100px;
+    }
+
+
 
 }
 
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 100001; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: scroll;
+    background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
+}
 
-/*#ifs-holder img {*/
-/*    margin-left: 0;*/
-/*    margin-right: 15%;*/
+/* Modal Content (Image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 75%;
+    max-width: 625px;
+    /*margin-bottom: 10%;*/
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+.caption-modal {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #f2849e;
+    font-weight: bold;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    /*text-decoration: underline overline;*/
+    font-size: 0.75em;
+    padding: 10px 0;
+    height: 50px;
+}
+
+/* Add Animation - Zoom in the Modal */
+/*.modal-content, .caption {*/
+/*  !*animation-name: zoom;*!*/
+/*  !*animation-duration: 0.5s;*!*/
 /*}*/
+
+@keyframes zoom {
+    from {
+        transform: scale(0)
+    }
+    to {
+        transform: scale(1)
+    }
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f2849e;
+    font-size: 40px;
+    font-weight: lighter;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #ee5f81;
+    text-decoration: none;
+    cursor: pointer;
+
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px) {
+
+    /*.close {*/
+    /*    position: absolute;*/
+    /*    top: 15px;*/
+    /*    right: calc(100% - 1em);*/
+    /*}*/
+
+    .modal-content {
+        /*width: 100%;*/
+    }
+}
+
+.light {
+    font-size: 0.6em;
+    color: #c9c9c9;
+}
+
+.gif-holder img {
+    width: 95%;
+    max-width: 512px;
+    height: auto;
+    /*justify-content: center;*/
+}

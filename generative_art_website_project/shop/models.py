@@ -18,10 +18,13 @@ class Customer(models.Model):
 
 class Product(models.Model):
     name = models.CharField(max_length=200, null=True)
+    created = models.DateTimeField(default=datetime.datetime.now)
     price = models.FloatField()
     digital = models.BooleanField(default=False, null=True, blank=False)
     information = models.TextField(null=True, blank=False)
     sold = models.BooleanField(default=False)
+    width = models.FloatField(default=16)
+    height = models.FloatField(default=16)
 
     # time_posted = models.DateTimeField(auto_now_add=True, blank=True)
     def __str__(self):
@@ -40,6 +43,14 @@ class Product(models.Model):
         except Exception as e:
             print(f"Could not find the image url: {e}")
             return ''
+
+    @property
+    def get_canvas_factor(self):
+        return 180
+
+    @property
+    def get_canvas_increment(self):
+        return ((self.width + 6) // 12 * (self.height + 6) // 12) * self.get_canvas_factor
 
 
 class AIProduct(models.Model):
@@ -65,9 +76,9 @@ class Order(models.Model):
 
     @property
     def get_cart_total(self):
-        order_items = self.orderitem_set.all()
-        total = sum([item.get_price for item in order_items])
-        return total
+        return sum(
+            [item.get_price + (item.printstyle.lower() == 'canvas') * item.product.get_canvas_increment for item in
+             self.orderitem_set.all()])
 
     def __str__(self):
         return str(self.id)

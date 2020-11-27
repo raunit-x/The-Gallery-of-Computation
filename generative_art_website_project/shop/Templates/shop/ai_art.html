@@ -2,35 +2,47 @@
 {% load static %}
 {% block content %}
     <h2>AI ART: Neural Networks hacking the highest form of human expression</h2>
-    <div style="justify-content: center; display: flex">
-        <img src="{%  static '/images/ai_gif.gif' %}"
+    <div class="gif-holder" style="justify-content: center; display: flex">
+        <img src="https://github.com/raunit-x/Generative-Art-Sketches/blob/master/images/ezgif.com-gif-maker.gif?raw=true"
              alt="A cool gif">
-{#        <img src="https://github.com/raunit-x/Generative-Art-Gallery/blob/master/images/ezgif.com-gif-maker.gif?raw=true" alt="a cool gif">#}
+        {#        <img src="https://github.com/raunit-x/Generative-Art-Gallery/blob/master/images/ezgif.com-gif-maker.gif?raw=true" alt="a cool gif">#}
     </div>
     <div style="justify-content: center; display: flex; text-align: left; margin-top: 2em; margin-bottom: 0; padding: 2px;">
         <p>
-            This is a curated collection of original artwork created by a <a class="underline_a" href="https://en.wikipedia.org/wiki/Generative_adversarial_network" target="_blank" style="color: #f2849e">Generative Adversarial Network (GAN)</a>
+            This is a curated collection of original artwork created by a <a class="underline_a"
+                                                                             href="https://en.wikipedia.org/wiki/Generative_adversarial_network"
+                                                                             target="_blank" style="color: #f2849e">Generative
+            Adversarial Network (GAN)</a>
             which I trained on a dataset of 30,000+ paintings. All the artwork on this page is created using that
-            trained Neural Network. To create a new novel artwork using this neural network is a blazing fast process (order of milliseconds on any modern day laptop).
-            To buy your own artwork computed by a neural network look into the <a href="{% url 'shop' %}" class="underline_a" style="color: #f2849e">SHOP</a> section with AI tagged.
+            trained Neural Network. To create a new novel artwork using this neural network is a blazing fast process
+            (order of milliseconds on any modern day laptop).
+            To buy your own artwork computed by a neural network look into the <a href="{% url 'shop' %}"
+                                                                                  class="underline_a"
+                                                                                  style="color: #f2849e">SHOP</a>
+            section with AI tagged.
         </p>
     </div>
     <section class="tiles">
         {% for product in ai_products %}
-            <article class="artwork" id="artwork">
+            <article class="artwork" id="artwork"
+                     onclick="openUpModal('{{ product.id }}', '{{ product.get_image_url }}', '{{ product.name }}')">
                 <span class="image">
                     <img src="{{ product.get_image_url }}" alt="lol"/>
                 </span>
-                <a href="#" class="product">
+                <span href="#" class="product">
                     <div class="price">
-                        <h5>{{ product.name }}</h5>
+                        <h5 style="text-align: center">{{ product.name }}</h5>
                         <p></p>
                     </div>
-                </a>
+                </span>
             </article>
-            <!-- <button data-product={{product.id}} data-action="add" class="update-cart">Add</button> -->
+            <div class="modal" id="modal-{{ product.id }}">
+                <span class="close" id="close-{{ product.id }}" onclick="closeModal('{{ product.id }}')">&times;</span>
+                <img class="modal-content" id="{{ product.id }}">
+                <div class="caption-modal" id="caption-{{ product.id }}"></div>
+                <div class="caption-modal light">Made with a custom Generative Adversarial Network</div>
+            </div>
         {% endfor %}
     </section>
-
 
 {% endblock content %}

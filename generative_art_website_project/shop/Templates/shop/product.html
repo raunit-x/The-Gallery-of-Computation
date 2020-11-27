@@ -12,7 +12,8 @@
             <br>
             <div style="text-align:center">
                 {% for image_obj in images %}
-                    <span class="dot" onclick="currentSlide( {{ forloop.counter }} )"><img alt="" style="height: 3em;" src="{{ image_obj.image.url }}"></span>
+                    <span class="dot" onclick="currentSlide( {{ forloop.counter }} )"><img alt="" style="height: 3em;"
+                                                                                           src="{{ image_obj.image.url }}"></span>
                 {% endfor %}
             </div>
         </div>
@@ -21,24 +22,23 @@
             <h2 style="font-size: 1.5em; font-weight: 900">{{ product.name }}</h2>
             <p>${{ product.price }}</p>
             <p>
-                <b>PROGRAM</b> {{ product.name }} <br>
-                <b>ITERATION:</b> 1 of 16(dummy data) <br>
-                <b>CREATED:</b> 2020 <br>
-                <b>MEDIA:</b> Unique Archival Pigment Print <br>
-                <b>DIMENSIONS:</b> 16 x 20 in
+                <b>PROGRAM:</b> {{ product.name }} <br>
+                <b>CREATED:</b> {{ product.created.date | date:"F" }}, {{ product.created.date.year }} <br>
+                <b>TOOLS:</b> Processing, P5.js <br>
+                <b>DIMENSIONS:</b> {{ product.width }}" x {{ product.height }}" <br>
             </p>
             <p class="description-para">
-                <b>About the work</b> <br>
-                {{ product.information }}
+                <b>ABOUT THE WORK:</b> <br>
+                {{ product.information | safe }}
             </p>
             <p class="description-para">
-                <b>About the prints</b> <br>
-            <p class="description-para">
+                <b>ABOUT THE PRINTS:</b> <br>
+                {#            <p class="description-para">#}
                 All the prints are done by an extremely reliable fine arts printing shop located in Hyderabad,
                 India. A <b>300 dpi</b> state of the art
                 <b>Epson</b> industry quality printer is used.
-            </p>
-            We offer two types of physical prints:
+                {#            </p>#}
+                We offer two types of physical prints:
             <ol style="margin-left: 1em">
                 <li><b>Canvas</b>: Archival quality 600gsm canvas. Preserves pigments of the ink giving stunning
                     results.
@@ -52,12 +52,19 @@
 
             </p>
             <p class="description-para">
-                <b>Shipping</b> <br>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eget pellentesque dui. Proin
-                laoreet condimentum ex vitae dictum. Nullam eu rhoncus nulla. Sed et dignissim enim, in sollicitudin
-                quam. <br> <br> Nunc laoreet elit tortor, sed cursus ante sollicitudin quis. Pellentesque habitant
-                morbi
-                tristique senectus.
+                <b>SHIPPING:</b> <br>
+                Free shipping in India.
+                Standard shipping may take from 5-7 days. <br>
+                International shipping coming soon.
+            </p>
+            <p class="description-para">
+                <b>WHAT'S INCLUDED IN THE BOX:</b> <br>
+                <span>The following items are shipped to your doorstep when you place an order:</span>
+            <ol style="margin-left: 1em;">
+                <li>Original artwork print according to your preferences (Signature & Print Format)</li>
+                <li>A certificate of Authenticity</li>
+                <li>A print out of the program files used to generate the specific artwork</li>
+            </ol>
             </p>
             {% if product.sold %}
                 <button class="button disabled">Artwork has been SOLD</button>
@@ -65,13 +72,14 @@
                 <button class="button disabled">Added to cart</button>
             {% else %}
                 <button class='purchase-button primary'>Purchase</button>
-                <div class="purchase-form">
+                <div class="purchase-form" style="text-transform: uppercase">
                     <form action="" method="post">
                         {% csrf_token %}
                         <b>Signature:</b>
                         {{ form.signature }}
                         <br>
-                        <b style="margin-top: 4em;">Choose Print:</b>
+                        <b style="margin-top: 4em;">Choose Print <span
+                                style="font-size: 0.75em;">(Additional ${{ additional_charges }} for Canvas Print)</span>:</b>
                         {{ form.printstyle }}
                         <br>
                         <b>Other Instructions:</b>
@@ -83,8 +91,6 @@
                 </div>
             {% endif %}
         </div>
-
-
     </div>
 
 {% endblock %}

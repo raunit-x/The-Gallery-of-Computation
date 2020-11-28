@@ -3241,10 +3241,11 @@ body.is-touch .tiles article .content {
 
 .about-main {
     width: 100%;
-    margin: auto;
+    margin: 0 auto auto;
     background-color: whitesmoke;
     padding-left: 0 !important;
-    color: rgb(31, 31, 31) !important;
+    color: rgb(60, 60, 60) !important;
+    /*color: dimgrey;*/
 }
 
 
@@ -3253,7 +3254,7 @@ body.is-touch .tiles article .content {
     display: flex;
     justify-content: center;
     text-transform: uppercase;
-    padding-top: 3em;
+    padding-top: 1em;
     margin-bottom: 1em;
     letter-spacing: 4px;
     /*text-decoration: underline;*/

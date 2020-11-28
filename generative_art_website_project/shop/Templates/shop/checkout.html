@@ -72,7 +72,7 @@
                                                 style="height: 3em"/></a></td>
                                         <td>{{ item.product.name }}</td>
                                         <td>{{ item.printstyle }}</td>
-                                        <td>${{ item.product.price|floatformat:2 }}</td>
+                                        <td><span style="font-size: 0.8em">₹</span>{{ item.product.price|floatformat:2 }}</td>
                                     </tr>
                                 {% endfor %}
                                 </tbody>
@@ -80,7 +80,7 @@
                                 <tr class="checkout-product-table">
                                     <td colspan="2">Total Amount</td>
                                     <td></td>
-                                    <td>${{ order.get_cart_total|floatformat:2 }}</td>
+                                    <td><span style="font-size: 0.8em">₹</span>{{ order.get_cart_total|floatformat:2 }}</td>
                                 </tr>
                                 </tfoot>
                             </table>

@@ -10,6 +10,7 @@ from .forms import ShippingAddressForm, orderItemForm
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 import os
+from django.core.mail import send_mail
 
 
 # Create your views here.
@@ -88,20 +89,9 @@ def checkout(request):
     else:
         customer = Customer.objects.all().filter(name='anon' + str(request.session.session_key))[0]
 
+    form = ShippingAddressForm()
     order, created = Order.objects.get_or_create(customer=customer, complete=False)
     items = order.orderitem_set.all()
-
-    form = ShippingAddressForm()
-    if request.method == 'POST':
-        form = ShippingAddressForm(request.POST)
-        if form.is_valid():
-            instance = form.save(commit=False)
-            instance.order = order
-            order.complete = True
-            order.save()
-            instance.save()
-            return render(request, 'shop/checkout.html')
-
     for item in items:
         if item.product.sold:
             order.orderitem_set.get(id=item.id).delete()
@@ -115,9 +105,10 @@ def checkout(request):
 def product(request, id):
     if request.user.is_authenticated:
         customer = Customer.objects.all().filter(user=request.user)[0]
+        print(customer)
     else:
         customer = Customer.objects.all().filter(name='anon' + str(request.session.session_key))[0]
-
+    
     selected_product = Product.objects.filter(id=id)[0]
     order, created = Order.objects.get_or_create(customer=customer, complete=False)
     item = order.orderitem_set.filter(product=id)
@@ -167,6 +158,32 @@ def updateItem(request):
 
 
 def success(request):
+    if request.user.is_authenticated:
+        customer = Customer.objects.all().filter(user=request.user)[0]
+    else:
+        customer = Customer.objects.all().filter(name='anon' + str(request.session.session_key))[0]
+
+    order, created = Order.objects.get_or_create(customer=customer, complete=False)
+    form = ShippingAddressForm()
+    if request.method == 'POST':
+        form = ShippingAddressForm(request.POST)
+        if form.is_valid():
+            print("hello")
+            instance = form.save(commit=False)
+            instance.order = order
+            customer_email = instance.email
+            print(customer_email)
+            order.complete = True
+            order.save()
+            instance.save()
+
+            send_mail(
+            "django test mail",
+            "this is django test mail",
+            "raunitxgenerativeart@gmail.com",
+            [customer_email],
+            fail_silently=False
+            )
     return render(request, 'shop/success.html')
 
 

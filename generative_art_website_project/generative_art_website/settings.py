@@ -141,5 +141,5 @@ EMAIL_BACKEND="django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST_USER ='raunitxgenerativeart@gmail.com' 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_PASSWORD = 'Dracula+GenerativeArt1804'
+EMAIL_HOST_PASSWORD = os.environ['email_password']
 EMAIL_USE_TLS = True

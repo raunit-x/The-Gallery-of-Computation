@@ -168,18 +168,16 @@ def success(request):
     if request.method == 'POST':
         form = ShippingAddressForm(request.POST)
         if form.is_valid():
-            print("hello")
             instance = form.save(commit=False)
             instance.order = order
             customer_email = instance.email
-            print(customer_email)
             order.complete = True
             order.save()
             instance.save()
 
             send_mail(
-            "django test mail",
-            "this is django test mail",
+            "Order Confirmation",
+            "Your order from The Gallery of Computation is confirmed! " ,
             "raunitxgenerativeart@gmail.com",
             [customer_email],
             fail_silently=False

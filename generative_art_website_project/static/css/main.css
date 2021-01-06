@@ -91,6 +91,13 @@ html {
     box-sizing: inherit;
 }
 
+::selection {
+  background: #EC969F; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: #EC969F; /* Gecko Browsers */
+}
+
 body {
     background: white;
 }

@@ -185,3 +185,9 @@
 
 })(jQuery);
 
+function toggleTheme()
+{
+	document.styleSheets[1].disabled = !document.styleSheets[1].disabled;
+	document.getElementById("dark-theme").value = document.styleSheets[1].disabled ? "GO DARK" : "GO LIGHT";
+}
+

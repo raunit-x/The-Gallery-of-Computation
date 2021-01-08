@@ -18,6 +18,8 @@ function toggleTheme() {
 
 function maintainState()
 {
+	if (sessionStorage.getItem("counter") === null)
+		return;
 	document.styleSheets[1].disabled = sessionStorage.getItem("counter") === "0";
 	document.getElementById("dark-theme").value = document.styleSheets[1].disabled ? "GO DARK" : "GO LIGHT"
 }

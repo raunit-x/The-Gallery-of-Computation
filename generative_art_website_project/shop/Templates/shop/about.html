@@ -1,17 +1,19 @@
-{% load static %}
+{% load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>About: The Gallery of Computation</title>
+    <title>{{ page_title }}</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
     <noscript>
         <link rel="stylesheet" href="{% static 'css/noscript.css' %}"/>
     </noscript>
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/dark_theme.css' %}">
     <link rel="icon" type="image/png"
           href="https://github.com/raunit-x/Generative-Art-Gallery/blob/master/images/logo%20goc.png?raw=true">
     <script type="text/javascript">
+        document.styleSheets[1].disabled = true;
         let user = '{{request.user}}';
 
         function getToken(name) {
@@ -53,12 +55,13 @@
 
             <!-- Logo -->
             <a href="{% url 'shop' %}" class="logo">
-                <span class="symbol"><img
-                        src="https://github.com/raunit-x/Generative-Art-Gallery/blob/master/images/logo%20goc.png?raw=true"
-                        alt=""/></span><span class="title">THE GALLERY OF COMPUTATION</span>
+                <span class="symbol"><img src="https://github.com/raunit-x/Generative-Art-Gallery/blob/master/images/logo%20goc.png?raw=true"
+                                          alt=""/></span><span class="title">THE GALLERY OF COMPUTATION</span>
             </a>
+            <input type="button" style="float: right; font-size: 0.6em;" onclick="toggleTheme()" value="GO DARK" id="dark-theme"/>
         </div>
     </header>
+
     <!-- </div> -->
     <!-- Menu -->
     <nav id="navbar">
@@ -150,7 +153,7 @@
             <div class="about-row">
                 <div class="row">
                     <div class="col-3 col-12-medium" style="margin: 1.5em 0 0 0; padding: 0 0 0px 0;">
-                        <div style="height:97.5%;background-color: white; padding-bottom: 0.5em; display: inline-block; justify-content: space-around; ">
+                        <div class="about-person">
                             <div style="display: flex; justify-content: center;">
                                 <h2 style="font-family:'Press Start 2P',cursive;padding: 1em; margin-bottom: 1em; letter-spacing: 2px; text-align: center;">
                                     Meet The Team</h2>
@@ -171,12 +174,11 @@
                              style="object-fit: scale-down; width:100%; ">
                     </div>
                     <div class="col-5 col-12-medium" style="margin-top: 0.5em; padding: 0 0 0 0;">
-                        <img src="{% static 'images/profile/raunit_1.jpg' %}" alt=""
+                        <img src="{% static 'images/profile/raunit_2.jpeg' %}" alt=""
                              style="object-fit: scale-down; width:100%; ">
                     </div>
                     <div class="col-7 col-12-medium" style=" margin-top: .5em;">
-                        <div class="about-person"
-                             style="height:97%;background-color: white; padding: 1em 0 .5em 1em; position: relative;">
+                        <div class="about-person">
                             <h3 style="font-family:'Press Start 2P',cursive;">Raunit Singh</h3>
                             <b style="color:#585858">
                                 B
@@ -197,11 +199,10 @@
                         </div>
                     </div>
                     <div class="col-7 col-12-medium" style="margin: 1em 0 1em 0; padding: 0 0 0 0;">
-                        <div class="about-person"
-                             style="height:97%;background-color: white; padding: 1em 0 .5em 1em; position: relative;">
+                        <div class="about-person">
                             <h3 style="font-family:'Press Start 2P',cursive;">Yuvraj Puyam</h3>
                             <b style="color:#585858">
-                                A pretty yellow boy; the mind behind the Hump Lord.
+                                A pretty boy; the mind behind the Hump Lord.
                                 <br>
                                 <br>
                                 15/300
@@ -221,7 +222,7 @@
 
                     </div>
                     <div class="col-5 col-12-medium" style="margin-top: 1em; margin-bottom: 1em; ">
-                        <img src="{% static 'images/profile/Yuvraj.jfif' %}" alt=""
+                        <img src="{% static 'images/profile/Yuvaj_2.jpeg' %}" alt=""
                              style="object-fit: scale-down; width:100%; ">
                     </div>
 

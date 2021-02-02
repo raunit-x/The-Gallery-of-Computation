@@ -549,6 +549,9 @@ button.primary:active,
     color: rgb(205, 200, 191);
 }
 
+.about-person{
+    background-color: rgb(14, 16, 17);
+}
 /* Override Style */
 .vimvixen-hint {
     background-color: #7b4f00 !important;

@@ -4,6 +4,29 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
+function toggleTheme() {
+	if (sessionStorage.getItem("counter") === null)
+		sessionStorage.setItem("counter", "0");
+	else
+	{
+		let val = sessionStorage.getItem("counter") === "0" ? "1" : "0";
+		sessionStorage.setItem("counter", val);
+	}
+	document.styleSheets[1].disabled = !document.styleSheets[1].disabled;
+	document.getElementById("dark-theme").value = document.styleSheets[1].disabled ? "GO DARK" : "GO LIGHT";
+}
+
+function maintainState()
+{
+	if (sessionStorage.getItem("counter") === null)
+		return;
+	document.styleSheets[1].disabled = sessionStorage.getItem("counter") === "0";
+	document.getElementById("dark-theme").value = document.styleSheets[1].disabled ? "GO DARK" : "GO LIGHT"
+}
+
+maintainState();
+
+
 
 (function($) {
 
@@ -184,4 +207,5 @@
 			});
 
 })(jQuery);
+
 

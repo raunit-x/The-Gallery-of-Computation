@@ -9,9 +9,11 @@
         <link rel="stylesheet" href="{% static 'css/noscript.css' %}"/>
     </noscript>
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/dark_theme.css' %}">
     <link rel="icon" type="image/png"
           href="https://github.com/raunit-x/Generative-Art-Gallery/blob/master/images/logo%20goc.png?raw=true">
     <script type="text/javascript">
+        document.styleSheets[1].disabled = true;
         let user = '{{request.user}}';
 
         function getToken(name) {
@@ -31,6 +33,7 @@
         }
 
         var csrftoken = getToken('csrftoken');
+
     </script>
 </head>
 <body class="is-preload">
@@ -55,6 +58,7 @@
                 <span class="symbol"><img src="https://github.com/raunit-x/Generative-Art-Gallery/blob/master/images/logo%20goc.png?raw=true"
                                           alt=""/></span><span class="title">THE GALLERY OF COMPUTATION</span>
             </a>
+            <input type="button" style="float: right; font-size: 0.6em;" onclick="toggleTheme()" value="GO DARK" id="dark-theme"/>
         </div>
     </header>
 

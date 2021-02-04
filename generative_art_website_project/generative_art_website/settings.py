@@ -126,10 +126,10 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
+    os.path.join(BASE_DIR, 'staticfiles')
 ]
 MEDIA_URL = '/images/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'staticfiles/images')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

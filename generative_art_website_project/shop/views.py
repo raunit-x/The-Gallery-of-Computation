@@ -11,6 +11,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 import os
 from django.core.mail import send_mail
+from django.urls import reverse
 
 
 # Create your views here.
@@ -92,6 +93,27 @@ def checkout(request):
     form = ShippingAddressForm()
     order, created = Order.objects.get_or_create(customer=customer, complete=False)
     items = order.orderitem_set.all()
+    if request.method == 'POST':
+        form = ShippingAddressForm(request.POST)
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.order = order
+            customer_email = instance.email
+            order.complete = True
+            order.save()
+            instance.save()
+
+            send_mail(
+            "Order Confirmation",
+            "Your order from The Gallery of Computation is confirmed! " ,
+            "raunitxgenerativeart@gmail.com",
+            [customer_email],
+            fail_silently=False
+            )
+            request.session['form-submitted'] = True
+            return HttpResponseRedirect(reverse('success'))
+
+    
     for item in items:
         if item.product.sold:
             order.orderitem_set.get(id=item.id).delete()
@@ -158,31 +180,12 @@ def updateItem(request):
 
 
 def success(request):
-    if request.user.is_authenticated:
-        customer = Customer.objects.all().filter(user=request.user)[0]
+    if not request.session.get('form-submitted', False):
+        return render(request, 'shop/about.html')
     else:
-        customer = Customer.objects.all().filter(name='anon' + str(request.session.session_key))[0]
-
-    order, created = Order.objects.get_or_create(customer=customer, complete=False)
-    form = ShippingAddressForm()
-    if request.method == 'POST':
-        form = ShippingAddressForm(request.POST)
-        if form.is_valid():
-            instance = form.save(commit=False)
-            instance.order = order
-            customer_email = instance.email
-            order.complete = True
-            order.save()
-            instance.save()
-
-            send_mail(
-            "Order Confirmation",
-            "Your order from The Gallery of Computation is confirmed! " ,
-            "raunitxgenerativeart@gmail.com",
-            [customer_email],
-            fail_silently=False
-            )
-    return render(request, 'shop/success.html')
+        return render(request, 'shop/success.html')
+    
+    
 
 
 def clean_expired_customers():

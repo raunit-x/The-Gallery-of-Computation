@@ -58,7 +58,7 @@ ROOT_URLCONF = 'generative_art_website.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'shop/Templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'shop/Templates'),os.path.join(BASE_DIR, 'playground/Templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

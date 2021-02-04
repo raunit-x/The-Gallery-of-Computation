@@ -3287,10 +3287,15 @@ body.is-touch .tiles article .content {
     width: 93% !important;
     margin-left: 0;
 }
-
+.about-person{
+    height:97%;
+    background-color:white;
+    padding: 1em 0 .5em 1em; 
+    position: relative;
+}
 .about-content {
     height: 450px;
-    background-color: white;
+    background-color:white;
     margin-bottom: 20px;
     display: flex;
     align-items: center;

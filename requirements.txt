@@ -24,7 +24,6 @@ isort==4.3.21
 kombu==5.0.2
 lazy-object-proxy==1.4.3
 mccabe==0.6.1
-Pillow @ file:///C:/ci/pillow_1602770972588/work
 prompt-toolkit==3.0.8
 pycparser==2.20
 python-crontab==2.5.1

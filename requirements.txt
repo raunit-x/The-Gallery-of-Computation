@@ -24,12 +24,9 @@ isort==4.3.21
 kombu==5.0.2
 lazy-object-proxy==1.4.3
 mccabe==0.6.1
-numpy @ file:///C:/ci/numpy_and_numpy_base_1596215850360/work
-olefile==0.46
 Pillow @ file:///C:/ci/pillow_1602770972588/work
 prompt-toolkit==3.0.8
 pycparser==2.20
-pylint==2.4.4
 python-crontab==2.5.1
 python-dateutil==2.8.1
 pytz==2020.1

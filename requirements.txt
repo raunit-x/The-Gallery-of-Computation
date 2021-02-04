@@ -24,9 +24,6 @@ isort==4.3.21
 kombu==5.0.2
 lazy-object-proxy==1.4.3
 mccabe==0.6.1
-mkl-fft==1.2.0
-mkl-random==1.1.1
-mkl-service==2.3.0
 numpy @ file:///C:/ci/numpy_and_numpy_base_1596215850360/work
 olefile==0.46
 Pillow @ file:///C:/ci/pillow_1602770972588/work

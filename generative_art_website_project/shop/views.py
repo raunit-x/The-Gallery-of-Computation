@@ -17,7 +17,10 @@ from django.urls import reverse
 # Create your views here.
 
 def aspect_ratio(prod: Product):
-    img_path = static(f'images/{prod.get_default_image}')[1:]
+    img_path = (f'staticfiles/images/{prod.get_default_image}')
+    # print((f'images/{prod.get_default_image}'))
+    # print(img_path)
+
     w, h = imagesize.get(img_path)
     return h / w
 

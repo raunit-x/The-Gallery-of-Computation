@@ -1,0 +1,19 @@
+{% extends 'shop/main.html' %}
+{% load static %}
+{% block content %}
+    <header>
+        <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+        <script src="{% static 'js/playground.js' %}"></script>
+    </header>
+    <h2 style="text-align: center; margin-left: auto">Create Some Mandala Art</h2>
+    <p style="font-size: 0.8em; text-align: center">Drag your mouse on the canvas!
+        Press <code>ENTER/RETURN</code> to clear the screen or <code>s</code> to save your Mandala Sketch!</p>
+    <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 2em">
+        <input class="input-small" id="symmetryInput" placeholder="# Reflections" type="number" style="margin-right: 1em; text-align: center;">
+        <button class="button" onclick="setSymmetry()">Set</button>
+    </div>
+    <div id="sketch-holder" class="align-center">
+
+    </div>
+
+{% endblock content %}

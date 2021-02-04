@@ -88,7 +88,7 @@ def checkout(request):
     if request.user.is_authenticated:
         customer = Customer.objects.all().filter(user=request.user)[0]
     else:
-        customer = Customer.objects.all().filter(name='anon' + str(request.session.session_key))[0]
+        customer = Customer.objects.all().filter(name=f'anon{request.session.session_key}')[0]
 
     form = ShippingAddressForm()
     order, created = Order.objects.get_or_create(customer=customer, complete=False)
@@ -102,18 +102,16 @@ def checkout(request):
             order.complete = True
             order.save()
             instance.save()
-
             send_mail(
-            "Order Confirmation",
-            "Your order from The Gallery of Computation is confirmed! " ,
-            "raunitxgenerativeart@gmail.com",
-            [customer_email],
-            fail_silently=False
+                "Order Confirmation",
+                "Your order from The Gallery of Computation is confirmed! ",
+                "raunitxgenerativeart@gmail.com",
+                [customer_email],
+                fail_silently=False
             )
             request.session['form-submitted'] = True
             return HttpResponseRedirect(reverse('success'))
 
-    
     for item in items:
         if item.product.sold:
             order.orderitem_set.get(id=item.id).delete()
@@ -130,7 +128,7 @@ def product(request, id):
         print(customer)
     else:
         customer = Customer.objects.all().filter(name='anon' + str(request.session.session_key))[0]
-    
+
     selected_product = Product.objects.filter(id=id)[0]
     order, created = Order.objects.get_or_create(customer=customer, complete=False)
     item = order.orderitem_set.filter(product=id)
@@ -184,8 +182,6 @@ def success(request):
         return render(request, 'shop/about.html')
     else:
         return render(request, 'shop/success.html')
-    
-    
 
 
 def clean_expired_customers():

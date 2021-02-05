@@ -297,6 +297,9 @@ hr.major {
     justify-content: center;
 }
 
+#id_email {
+    margin-left: 0;
+}
 .align-right {
     text-align: right;
 }
@@ -1844,6 +1847,17 @@ hr.major {
 
     .checkout-product-table td {
         font-size: 1em;
+    }
+    .email-holder {
+        margin: 0;
+        justify-content: center;
+    }
+
+    .align-center input {
+        max-width: 150px;
+        display: grid !important;
+        place-content: center;
+        text-align: center;
     }
 }
 

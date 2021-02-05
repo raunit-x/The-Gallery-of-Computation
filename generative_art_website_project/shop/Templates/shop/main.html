@@ -115,7 +115,7 @@
                 <p>Latest Art and Info about Generative Art. No spam, guaranteed.</p>
                 <form method="post" action="{% url 'subscribe' %}">
                     {% csrf_token %}
-                    <div class="fields">
+                    <div class="fields email-holder">
                         <div class="field half align-center">
                             {{ newsletter_form.email }}
                         </div>
@@ -126,8 +126,6 @@
                         </div>
                     </div>
                 </form>
-                {#                <h6 style="font-size: 0.50em;">Don't want this? <a href="{% url 'unsubscribe' %}"#}
-                {#                                                                   style="color: #f2849e">Unsubscribe</a></h6>#}
                 <div>
                     <ul class="icons">
                         <li><a href="https://instagram.com/raunit_x" target="_blank"

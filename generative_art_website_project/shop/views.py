@@ -43,7 +43,7 @@ def get_all_logged_in_users():
 
 def shop(request):
     products = list(Product.objects.all())
-    products.sort(key=lambda x: aspect_ratio(x))
+    products.sort(key=lambda x: x.height/x.width)
     if not request.user.is_authenticated:
         if not request.session or not request.session.session_key:
             request.session.save()

@@ -160,18 +160,17 @@
                             </div>
                             <div style="padding-left: 1em; letter-spacing: 2px;">
                                 <b style="color:#585858">
-                                    Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem
-                                    non mi intege.
-                                </b>
+                                    "Look at that subtle off-white coloring. The tasteful thickness of it. Oh, my God. It even has a watermark." 
                                 <br><br>
-                                Yuvraj x Raunit
+                                Patrick Bateman, American Psycho
+                                </b>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-9 col-12-medium" style="margin-top:1.5em; margin-bottom:0em; ">
 
-                        <img src="{% static 'images/Profile/2.jpg' %}" alt=""
+                        <img src="{% static 'images/Profile/3.jpg' %}" alt=""
                              style="object-fit: scale-down; width:100%; ">
                     </div>
                     <div class="col-5 col-12-medium" style="margin-top: 0.5em; padding: 0 0 0 0;">
@@ -182,7 +181,9 @@
                         <div class="about-person">
                             <h3 style="font-family:'Press Start 2P',cursive;">Raunit Singh</h3>
                             <b style="color:#585858">
-                                B
+                                "Welly, welly, welly, welly, welly, welly, well. To what do I owe the extreme pleasure of this surprising visit?"
+                                <br><br>
+                                ― Anthony Burgess, A Clockwork Orange
                             </b>
                             <div style="position: absolute; right: 5%; top:5%;">
                                 <ul class="icons">
@@ -203,10 +204,10 @@
                         <div class="about-person">
                             <h3 style="font-family:'Press Start 2P',cursive;">Yuvraj Puyam</h3>
                             <b style="color:#585858">
-                                A pretty boy; the mind behind the Hump Lord.
+                                “Gentlemen you had my curiosity ... but now you have my attention.”
                                 <br>
                                 <br>
-                                15/300
+                                ― Calvin Candy, Django Unchained
                             </b>
 
                             <div style="position: absolute; right: 5%; top:5%;">
@@ -243,7 +244,7 @@
                 <p>Latest Art and Info about Generative Art. No spam, guaranteed.</p>
                 <form method="post" action="{% url 'subscribe' %}">
                     {% csrf_token %}
-                    <div class="fields">
+                    <div class="fields email-holder">
                         <div class="field half align-center">
                             {{ newsletter_form.email }}
                         </div>

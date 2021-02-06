@@ -3799,7 +3799,19 @@ body.is-menu-visible #menu .close {
     font-weight: 100;
     color: gray;
 }
+@media screen and (max-width: 480px) { 
+    .email-holder {
+        margin: 0;
+        justify-content: center;
+    }
 
+    .align-center input {
+        max-width: 150px;
+        display: grid !important;
+        place-content: center;
+        text-align: center;
+    }
+}
 .email_footer {
     text-align: center;
     justify-content: center;

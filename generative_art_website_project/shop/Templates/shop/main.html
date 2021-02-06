@@ -115,7 +115,7 @@
                 <p>Latest Art and Info about Generative Art. No spam, guaranteed.</p>
                 <form method="post" action="{% url 'subscribe' %}">
                     {% csrf_token %}
-                    <div class="fields">
+                    <div class="fields email-holder">
                         <div class="field half align-center">
                             {{ newsletter_form.email }}
                         </div>

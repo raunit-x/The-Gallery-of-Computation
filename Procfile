@@ -1,0 +1,1 @@
+web: gunicorn generative_art_website_project.generative_art_website.wsgi --log-file -   

@@ -1,0 +1,563 @@
+/*
+                        _______
+                       /       \
+                      .==.    .==.
+                     ((  ))==((  ))
+                    / "=="    "=="\
+                   /____|| || ||___\
+       ________     ____    ________  ___    ___
+       |  ___  \   /    \   |  ___  \ |  |  /  /
+       |  |  \  \ /  /\  \  |  |  \  \|  |_/  /
+       |  |   )  /  /__\  \ |  |__/  /|  ___  \
+       |  |__/  /  ______  \|  ____  \|  |  \  \
+_______|_______/__/ ____ \__\__|___\__\__|___\__\____
+|  ___  \ |  ____/ /    \   |  ___  \ |  ____|  ___  \
+|  |  \  \|  |___ /  /\  \  |  |  \  \|  |___|  |  \  \
+|  |__/  /|  ____/  /__\  \ |  |   )  |  ____|  |__/  /
+|  ____  \|  |__/  ______  \|  |__/  /|  |___|  ____  \
+|__|   \__\____/__/      \__\_______/ |______|__|   \__\
+                https://darkreader.org
+*/
+/* User-Agent Style */
+html {
+    background-color: #0e1011 !important;
+}
+html, body, input, textarea, select, button {
+    background-color: #0e1011;
+}
+html, body, input, textarea, select, button {
+    border-color: #72695b;
+    color: #f2f0ed;
+}
+a {
+    color: #2b93ff;
+}
+table {
+    border-color: #50575b;
+}
+::placeholder {
+    color: #b7afa4;
+}
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+    background-color: #515700 !important;
+    color: #f2f0ed !important;
+}
+::selection {
+    background-color: #0048ae !important;
+    color: #f2f0ed !important;
+}
+::-moz-selection {
+    background-color: #0048ae !important;
+    color: #f2f0ed !important;
+}
+
+/* Invert Style */
+.jfk-bubble, embed[type="application/pdf"] {
+    filter: invert(100%) hue-rotate(180deg) !important;
+}
+
+/* Variables Style */
+:root {
+   --darkreader-neutral-background: #080a0b;
+   --darkreader-neutral-text: #e1dcd7;
+   --darkreader-selection-background: #0048ae;
+   --darkreader-selection-text: #f2f0ed;
+}
+
+/* Modified CSS */
+.fa-border {
+    border-color: rgb(46, 50, 52);
+}
+.fa-inverse {
+    color: rgb(242, 240, 237);
+}
+.sr-only {
+    border-color: initial;
+}
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    border-color: initial;
+}
+ol,
+ul {
+    list-style-image: initial;
+}
+mark {
+    background-color: transparent;
+    color: inherit;
+}
+::selection {
+    background-image: initial;
+    background-color: rgb(104, 8, 18);
+}
+body {
+    background-image: initial;
+    background-color: rgb(14, 16, 17);
+}
+body,
+input,
+select,
+textarea {
+    color: rgb(181, 174, 162);
+}
+a {
+    text-decoration-color: initial;
+    color: rgb(181, 174, 162);
+}
+a:hover {
+    border-bottom-color: transparent;
+    color: rgb(252, 123, 153) !important;
+}
+h1 a {
+    color: inherit;
+}
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+    color: inherit;
+}
+blockquote {
+    border-left-color: rgb(57, 63, 65);
+}
+code {
+    background-image: initial;
+    background-color: rgba(83, 91, 95, 0.07);
+    border-color: rgb(57, 63, 65);
+}
+hr {
+    border-top-color: initial;
+    border-right-color: initial;
+    border-left-color: initial;
+    border-bottom-color: rgb(57, 63, 65);
+}
+.icon {
+    text-decoration-color: initial;
+    border-bottom-color: initial;
+}
+.icon.style2 {
+    background-color: transparent;
+    border-color: rgb(57, 63, 65);
+    color: inherit;
+}
+.icon.style2:hover {
+    color: rgb(252, 123, 153);
+    border-color: rgb(129, 3, 32);
+}
+.icon.style2:active {
+    background-color: rgba(119, 2, 29, 0.1);
+}
+ol {
+    list-style-image: initial;
+}
+ul {
+    list-style-image: initial;
+}
+ul.alt {
+    list-style-image: initial;
+}
+ul.alt li {
+    border-top-color: rgb(57, 63, 65);
+}
+ul.alt li:first-child {
+    border-top-color: initial;
+}
+ul.actions {
+    list-style-image: initial;
+}
+ul.icons {
+    list-style-image: initial;
+}
+input[type="text"], input[type="password"], input[type="email"], input[type="tel"],
+select,
+textarea {
+    background-color: transparent;
+    border-top-color: initial;
+    border-right-color: initial;
+    border-left-color: initial;
+    border-bottom-color: rgb(57, 63, 65); color: inherit; outline-color: initial; text-decoration-color: initial;
+}
+input[type="text"]:invalid, input[type="password"]:invalid, input[type="email"]:invalid, input[type="tel"]:invalid, select:invalid, textarea:invalid {
+    box-shadow: none;
+}
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, input[type="tel"]:focus,
+select:focus,
+textarea:focus {
+    border-bottom-color: rgb(129, 3, 32);
+    box-shadow: rgb(119, 2, 29) 0px -1px 0px 0px inset;
+}
+select {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' preserveAspectRatio='none' viewBox='0 0 40 40'%3E%3Cpath d='M9.4,12.3l10.4,10.4l10.4-10.4c0.2-0.2,0.5-0.4,0.9-0.4c0.3,0,0.6,0.1,0.9,0.4l3.3,3.3c0.2,0.2,0.4,0.5,0.4,0.9 c0,0.4-0.1,0.6-0.4,0.9L20.7,31.9c-0.2,0.2-0.5,0.4-0.9,0.4c-0.3,0-0.6-0.1-0.9-0.4L4.3,17.3c-0.2-0.2-0.4-0.5-0.4-0.9 c0-0.4,0.1-0.6,0.4-0.9l3.3-3.3c0.2-0.2,0.5-0.4,0.9-0.4S9.1,12.1,9.4,12.3z' fill='%23c9c9c9' /%3E%3C/svg%3E");
+}
+select option {
+    background-image: initial;
+    background-color: rgb(14, 16, 17);
+}
+input[type="checkbox"] + label, input[type="radio"] + label {
+    text-decoration-color: initial;
+    color: rgb(181, 174, 162);
+}
+input[type="checkbox"] + label::before, input[type="radio"] + label::before {
+    border-color: rgb(57, 63, 65);
+}
+input[type="checkbox"]:checked + label::before, input[type="radio"]:checked + label::before {
+    background-image: initial;
+    background-color: rgb(60, 66, 70);
+    border-color: rgb(109, 101, 87);
+    color: rgb(242, 240, 237);
+}
+input[type="checkbox"]:focus + label::before, input[type="radio"]:focus + label::before {
+    border-color: rgb(129, 3, 32);
+    box-shadow: rgb(119, 2, 29) 0px 0px 0px 1px;
+}
+.box {
+    border-color: rgb(57, 63, 65);
+}
+.box.alt {
+    border-color: initial;
+}
+.image {
+    border-color: initial;
+}
+table tbody tr {
+    border-top-color: rgb(57, 63, 65);
+    border-bottom-color: rgb(57, 63, 65);
+    border-left-color: initial;
+    border-right-color: initial;
+}
+table thead {
+    border-bottom-color: rgb(57, 63, 65);
+}
+table tfoot {
+    background-color: rgba(83, 91, 95, 0.07);
+    color: rgb(242, 240, 237);
+    border-top-color: rgb(57, 63, 65);
+    border-bottom-color: rgb(57, 63, 65);
+}
+table.alt tbody tr td {
+    border-color: rgb(57, 63, 65);
+}
+table.alt thead {
+    border-bottom-color: initial;
+}
+table.alt tfoot {
+    border-top-color: initial;
+}
+input[type="submit"], input[type="reset"], input[type="button"],
+button,
+.button {
+    background-color: transparent;
+    border-color: initial;
+    box-shadow: rgb(60, 66, 70) 0px 0px 0px 2px inset;
+    text-decoration-color: initial;
+    color: rgb(181, 174, 162) !important;
+}
+input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hover,
+button:hover,
+.button:hover {
+    box-shadow: rgb(119, 2, 29) 0px 0px 0px 2px inset;
+    color: rgb(252, 123, 153) !important;
+}
+input[type="submit"]:active, input[type="reset"]:active, input[type="button"]:active,
+button:active,
+.button:active {
+    background-color: rgba(119, 2, 29, 0.1);
+}
+input[type="submit"].primary, input[type="reset"].primary, input[type="button"].primary,
+button.primary,
+.button.primary {
+    box-shadow: none;
+    background-color: rgb(60, 66, 70);
+    color: rgb(242, 240, 237) !important;
+}
+input[type="submit"].primary:hover, input[type="reset"].primary:hover, input[type="button"].primary:hover,
+button.primary:hover,
+.button.primary:hover {
+    background-color: rgb(119, 2, 29);
+}
+input[type="submit"].primary:active, input[type="reset"].primary:active, input[type="button"].primary:active,
+button.primary:active,
+.button.primary:active {
+    background-color: rgb(143, 4, 37);
+}
+.tiles article > a {
+    border-bottom-color: initial;
+    color: rgb(242, 240, 237);
+    text-decoration-color: initial;
+}
+.tiles article > a:hover {
+    color: rgb(252, 123, 153) !important;
+}
+.price {
+    color: rgb(170, 161, 148);
+}
+.ai_price {
+    color: rgb(170, 161, 148);
+}
+.ai_price:hover {
+    color: rgb(252, 123, 153);
+}
+.price:hover {
+    color: rgb(252, 123, 153);
+}
+.tiles article.style1 > .image:hover {
+    color: rgb(252, 123, 153);
+}
+.tiles article.style1 > .image::before {
+    background-color: rgb(119, 2, 29);
+}
+.tiles article.style2 > .image::before {
+    background-color: rgb(0, 77, 125);
+}
+.tiles article.style3 > .image::before {
+    background-color: rgb(33, 116, 105);
+}
+.tiles article.style4 > .image::before {
+    background-color: rgb(137, 39, 97);
+}
+.tiles article.style5 > .image::before {
+    background-color: rgb(80, 39, 107);
+}
+.tiles article.style6 > .image::before {
+    background-color: rgb(13, 35, 115);
+}
+#navbar ul > li > a {
+    color: inherit;
+    text-decoration-color: initial;
+    border-bottom-color: initial !important;
+}
+.header_btn {
+    background-color: rgb(14, 16, 17);
+    border-color: initial;
+    outline-color: initial;
+}
+.header_btn span {
+    background-image: initial;
+    background-color: rgb(0, 0, 0);
+}
+#header .logo {
+    border-bottom-color: initial;
+    color: inherit;
+    text-decoration-color: initial;
+}
+#header nav ul {
+    list-style-image: initial;
+}
+#header nav ul li a {
+    background-color: rgba(14, 16, 17, 0.5);
+    border-color: initial;
+}
+#header nav ul li a::before {
+    background-color: rgb(14, 16, 17);
+}
+#header nav ul li a[href="#menu"] {
+    -webkit-tap-highlight-color: transparent;
+}
+#header nav ul li a[href="#menu"]::before {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cstyle%3Eline %7B stroke-width: 8px%3B stroke: %23f2849e%3B %7D%3C/style%3E%3Cline x1='0' y1='25' x2='100' y2='25' /%3E%3Cline x1='0' y1='50' x2='100' y2='50' /%3E%3Cline x1='0' y1='75' x2='100' y2='75' /%3E%3C/svg%3E");
+}
+#header nav ul li a[href="#menu"]::after {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCI+PGRlZnM+PGZpbHRlciBpZD0iZGFya3JlYWRlci1pbWFnZS1maWx0ZXIiPjxmZUNvbG9yTWF0cml4IHR5cGU9Im1hdHJpeCIgdmFsdWVzPSIwLjI3NCAtMC42NzUgLTAuNzM5IDAuMDAwIDEuMDg3IC0wLjcxMCAwLjMxNyAtMC43MzAgMC4wMDAgMS4wNzEgLTAuNjk5IC0wLjY3MCAwLjI3NSAwLjAwMCAxLjA0MyAwLjAwMCAwLjAwMCAwLjAwMCAxLjAwMCAwLjAwMCIgLz48L2ZpbHRlcj48L2RlZnM+PGltYWdlIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWx0ZXI9InVybCgjZGFya3JlYWRlci1pbWFnZS1maWx0ZXIpIiB4bGluazpocmVmPSJkYXRhOmltYWdlL3N2Zyt4bWw7Y2hhcnNldD11dGY4LCUzQ3N2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMDAnIGhlaWdodD0nMTAwJyB2aWV3Qm94PScwIDAgMTAwIDEwMCcgcHJlc2VydmVBc3BlY3RSYXRpbz0nbm9uZSclM0UlM0NzdHlsZSUzRWxpbmUgJTdCIHN0cm9rZS13aWR0aDogOHB4JTNCIHN0cm9rZTogJTIzNTg1ODU4JTNCICU3RCUzQy9zdHlsZSUzRSUzQ2xpbmUgeDE9JzAnIHkxPScyNScgeDI9JzEwMCcgeTI9JzI1JyAvJTNFJTNDbGluZSB4MT0nMCcgeTE9JzUwJyB4Mj0nMTAwJyB5Mj0nNTAnIC8lM0UlM0NsaW5lIHgxPScwJyB5MT0nNzUnIHgyPScxMDAnIHkyPSc3NScgLyUzRSUzQy9zdmclM0UiIC8+PC9zdmc+");
+}
+.about-main {
+    background-color: rgb(20, 22, 24);
+    color: rgb(201, 195, 186) !important;
+}
+.about-content {
+    background-color: rgb(14, 16, 17);
+}
+.about-content-3:hover {
+    color: rgb(252, 123, 153);
+}
+.about-content-2:hover {
+    color: rgb(252, 123, 153);
+}
+.content-caption {
+    background-color: rgb(14, 16, 17);
+}
+.content-caption:hover {
+    color: rgb(252, 123, 153);
+}
+.content-caption-2:hover {
+    color: rgb(252, 123, 153);
+}
+.content-caption-2 {
+    background-color: rgb(14, 16, 17);
+}
+.artwork:hover > .product > .price {
+    color: rgb(245, 139, 150);
+}
+#fixednav {
+    background-image: initial !important;
+    background-color: rgb(14, 16, 17) !important;
+}
+#fixednav ul li {
+    color: rgb(170, 161, 148);
+}
+#fixednav ul li a:hover {
+    color: rgb(245, 139, 150);
+}
+#fixednav .Logo-fixed {
+    color: rgb(170, 161, 148);
+}
+#footer {
+    background-color: rgb(20, 24, 25);
+}
+.copyright p {
+    color: rgb(154, 145, 129);
+}
+#footer p {
+    color: rgb(154, 145, 129);
+}
+#unsubscribe p {
+    color: rgb(154, 145, 129);
+}
+.tiles article:hover {
+    color: rgb(252, 123, 153) !important;
+}
+.prev,
+.next {
+    color: rgb(242, 240, 237);
+}
+.sold {
+    background-color: rgb(132, 25, 25);
+    color: rgb(242, 240, 237);
+}
+.success {
+    background-color: rgb(119, 2, 29);
+    color: rgb(242, 240, 237);
+}
+.info {
+    background-color: rgb(74, 82, 85);
+    color: rgb(242, 240, 237);
+}
+.closebtn {
+    color: rgb(242, 240, 237);
+}
+.closebtn:hover {
+    color: rgb(242, 240, 237);
+}
+.nav_links a::before {
+    background-color: rgb(119, 2, 29);
+}
+.underline_a::before {
+    background-color: rgb(119, 2, 29);
+}
+.code-in-art-out {
+    background-color: rgb(20, 22, 24);
+}
+.code-in-art-out a {
+    color: rgb(252, 123, 153);
+}
+.modal {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+.caption-modal {
+    color: rgb(252, 123, 153);
+}
+.close {
+    color: rgb(252, 123, 153);
+}
+.close:hover,
+.close:focus {
+    color: rgb(249, 94, 130);
+    text-decoration-color: initial;
+}
+.light {
+    color: rgb(205, 200, 191);
+}
+
+.about-person{
+    background-color: rgb(14, 16, 17);
+}
+/* Override Style */
+.vimvixen-hint {
+    background-color: #7b4f00 !important;
+    border-color: #e1b508 !important;
+    color: #fff2cf !important;
+}
+::placeholder {
+    opacity: 0.5 !important;
+}

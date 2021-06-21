@@ -26,7 +26,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['74a84de6cbc7.ngrok.io', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['74a84de6cbc7.ngrok.io', 'localhost', '127.0.0.1', 'thegalleryofcomputation.herokuapp.com']
 
 
 # Application definition
@@ -50,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
 ROOT_URLCONF = 'generative_art_website.urls'

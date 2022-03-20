@@ -4,7 +4,7 @@ let angle = 360 / symmetry;
 
 
 function setup() {
-    let canvas = createCanvas(0.8 * windowWidth, 0.8 * windowHeight);
+    let canvas = createCanvas(min(1200, 0.8 * windowWidth), min(1200, 0.8 * windowHeight));
     canvas.parent('sketch-holder');
     background(255);
     noFill();

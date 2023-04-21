@@ -6,14 +6,14 @@
         <div class=" col-6 col-12-xsmall product-image slideshow-container">
             {% for image_obj in images %}
                 <div class="mySlides fade">
-                    <img src="{{ image_obj.image.url }}" style="width:100%">
+                    <img src="{{ image_obj.get_image_url }}" style="width:100%">
                 </div>
             {% endfor %}
             <br>
             <div style="text-align:center">
                 {% for image_obj in images %}
                     <span class="dot" onclick="currentSlide( {{ forloop.counter }} )"><img alt="" style="height: 3em;"
-                                                                                           src="{{ image_obj.image.url }}"></span>
+                                                                                           src="{{ image_obj.get_image_url }}"></span>
                 {% endfor %}
             </div>
         </div>

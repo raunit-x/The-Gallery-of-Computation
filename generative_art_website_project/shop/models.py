@@ -41,8 +41,8 @@ class Product(models.Model):
         try:
             images = list(self.productimage_set.filter(default_image=True))
             for image in images:
+                print(type(image))
                 img_path = static(f'{image.image.url}')
-                print(img_path)
             return static(images[0].image.url)
         except Exception as e:
             print(f"Could not find the image url: {e}")
@@ -127,7 +127,7 @@ class ProductImage(models.Model):
     @property
     def get_image_url(self):
         try:
-            url = self.image.url
+            url = static(self.image.url)
         except Exception as e:
             print(f"URL not found: {e}")
             url = ''
@@ -141,7 +141,7 @@ class AIProductImage(models.Model):
     @property
     def get_image_url(self):
         try:
-            url = self.image.url
+            url = static(self.image.url)
         except Exception as e:
             print(f"URL not found: {e}")
             url = ''

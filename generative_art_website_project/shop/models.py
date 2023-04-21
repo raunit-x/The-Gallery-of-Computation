@@ -1,4 +1,5 @@
 from django.db import models
+from django.templatetags.static import static
 # Create your models here.
 
 from django.contrib.auth.models import User
@@ -39,7 +40,10 @@ class Product(models.Model):
     def get_default_image_url(self):
         try:
             images = list(self.productimage_set.filter(default_image=True))
-            return images[0].image.url
+            for image in images:
+                img_path = static(f'{image.image.url}')
+                print(img_path)
+            return static(images[0].image.url)
         except Exception as e:
             print(f"Could not find the image url: {e}")
             return ''
@@ -61,7 +65,7 @@ class AIProduct(models.Model):
     @property
     def get_image_url(self):
         try:
-            return self.image.url
+            return static(self.image.url)
         except Exception as e:
             print(f"Some exception occurred: {e}")
 

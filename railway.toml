@@ -2,9 +2,7 @@
 builder = "nixpacks"
 
 [deploy]
-startCommand = "cd generative_art_website_project && python manage.py migrate && gunicorn generative_art_website.wsgi --bind 0.0.0.0:$PORT"
 healthcheckPath = "/"
 healthcheckTimeout = 300
 restartPolicyType = "on_failure"
 restartPolicyMaxRetries = 3
-

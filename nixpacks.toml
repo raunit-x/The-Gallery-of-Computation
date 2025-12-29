@@ -1,8 +1,5 @@
-[phases.setup]
-nixPkgs = ["python311", "gcc"]
-
-[phases.install]
-cmds = ["pip install -r requirements.txt"]
+# Nixpacks configuration for Railway
+# Let Nixpacks auto-detect Python from requirements.txt
 
 [phases.build]
 cmds = ["cd generative_art_website_project && python manage.py collectstatic --noinput"]
@@ -10,3 +7,5 @@ cmds = ["cd generative_art_website_project && python manage.py collectstatic --n
 [start]
 cmd = "cd generative_art_website_project && python manage.py migrate && gunicorn generative_art_website.wsgi --bind 0.0.0.0:$PORT"
 
+[variables]
+PYTHONUNBUFFERED = "1"

@@ -1,5 +1,7 @@
 # Nixpacks configuration for Railway
-# Let Nixpacks auto-detect Python from requirements.txt
+
+[phases.setup]
+nixPkgs = ["zlib", "libjpeg", "libpng", "libwebp"]
 
 [phases.build]
 cmds = ["cd generative_art_website_project && python manage.py collectstatic --noinput"]

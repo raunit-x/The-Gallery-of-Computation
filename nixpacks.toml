@@ -1,0 +1,12 @@
+[phases.setup]
+nixPkgs = ["python311", "gcc"]
+
+[phases.install]
+cmds = ["pip install -r requirements.txt"]
+
+[phases.build]
+cmds = ["cd generative_art_website_project && python manage.py collectstatic --noinput"]
+
+[start]
+cmd = "cd generative_art_website_project && python manage.py migrate && gunicorn generative_art_website.wsgi --bind 0.0.0.0:$PORT"
+

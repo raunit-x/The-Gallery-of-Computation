@@ -1,2 +1,1 @@
-web: gunicorn generative_art_website_project.generative_art_website.wsgi --log-file -   
-heroku ps:scale web=1
+web: cd generative_art_website_project && python manage.py migrate && gunicorn generative_art_website.wsgi --bind 0.0.0.0:$PORT

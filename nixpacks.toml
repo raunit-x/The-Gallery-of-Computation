@@ -1,7 +1,7 @@
 # Nixpacks configuration for Railway
 
 [phases.setup]
-nixPkgs = ["zlib", "libjpeg", "libpng", "libwebp"]
+nixPkgs = ["python311", "python311Packages.pip", "zlib", "libjpeg", "libpng", "libwebp"]
 
 [phases.build]
 cmds = ["cd generative_art_website_project && python manage.py collectstatic --noinput"]
